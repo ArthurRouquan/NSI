@@ -19,6 +19,8 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: None
   - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 

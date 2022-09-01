@@ -2,7 +2,15 @@
 
 Cours, exercices et autres ressources pour mes élèves de 1ère en spécialité NSI au lycée André Theuriet à Civray.
 
-``` py hl_lines="2 3" linenums="1"
+
+
+!!! quote "Edsger W. Dijkstra "
+    Computer Science is no more about computers than astronomy is about telescopes.
+
+## Liens utiles
+* [Programme en vigueur de spécialité NSI de 1ère générale](https://eduscol.education.fr/document/30007/download)
+
+<!-- ``` py hl_lines="2 3" linenums="1"
 import tensorflow as tf
 
 def coucou(a):
@@ -35,4 +43,4 @@ Et pourquoi pas inline `#!python import tensorflow as tf`. :warning:
 
 $$
 \operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
+$$ -->

@@ -2,16 +2,37 @@
 
 Cours, exercices et autres ressources pour mes élèves de 1ère en spécialité NSI au lycée André Theuriet à Civray.
 
-## Commands
+``` py hl_lines="2 3" linenums="1"
+import tensorflow as tf
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+def coucou(a):
+    pass
+```
 
-## Project layout
+=== "C"
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    ``` c
+    #include <stdio.h>
+
+    int main(void) {
+      printf("Hello world!\n");
+      return 0;
+    }
+    ```
+
+=== "C++"
+
+    ``` c++
+    #include <iostream>
+
+    int main(void) {
+      std::cout << "Hello world!" << std::endl;
+      return 0;
+    }
+    ```
+
+Et pourquoi pas inline `#!python import tensorflow as tf`. :warning:
+
+$$
+\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
+$$

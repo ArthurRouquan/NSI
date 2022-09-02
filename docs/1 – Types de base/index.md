@@ -28,7 +28,7 @@ Puis le raisonnement se poursuit, si le nombre de paquets est trop grand, on reg
 
 <!-- Ainsi, on représente aujourd'hui un nombre par une **suite** de symboles, les **chiffres**.  -->
 
-Le nombre de chiffres utilisé définit la **base** utilisé, c'est aussi choisir la « taille » du paquet. La **base décimale**, la base 10, utilise 10 chiffres : 0, 1, 2, 3, ..., 9. Suivant la notation d'agrégation de ces symboles (on juxtapose simplement les chiffres), un chiffre dans cette base représente 10 fois la quantité qui le précède. Il s'en suit cette **décomposition** : 
+Le nombre de chiffres utilisé définit la **base** utilisé, c'est aussi choisir la « taille » du paquet. La **base décimale**, la base 10, utilise 10 chiffres : 0, 1, 2, 3, ..., 9. Suivant la notation d'agrégation de ces symboles (on juxtapose simplement les chiffres), il s'en suit cette **décomposition** : 
 
 $$
 (275)_{10} = 2 \times 100 + 7 \times 10 + 5 \times 1

@@ -21,7 +21,7 @@ Un **programme** est une séquence d'instructions qui manipulent des données (n
 
 
 !!! note "Notion de langage compilé et interprété"
-    Chaque instruction que vous écrivez en Python va être traduit au fur et à mesure de son exécution en code machine, c'est un langage dit **interprété**. D'autre langages comme le C nécessite de traduirement entièrement le script en langage machine avant son éxecution, c'est ce qu'on appelle la **compilation**.
+    Chaque instruction que vous écrivez en Python va être traduit au fur et à mesure de son exécution en code machine, c'est un langage dit **interprété**. D'autres langages comme le C nécessitent de traduirement entièrement le script en langage machine avant son éxecution, c'est un langage **compilé**.
 
 Une machine possède un nombre limité d'**instructions** basiques qui permettent de gérer par exemple des données stockées dans des **variables**, faire des **tests** sur ces variables, **répéter** des instructions etc.
 

@@ -28,4 +28,17 @@ $$
 
 * Avec $n$ bits on peut distinguer $2^n$ valeurs. Puisque 0 est une valeur, le nombre maximal qu'on puisse exprimer est $2^n - 1$.
 
+---
+
+* Pour convertir rapidement un nombre binaire en base décimale, on additionne simplement les puissances de 2 associées aux bits à 1.
+
+* Pour convertir un nombre en base décimale vers la base binaire, il existe deux algorithmes itératifs :
+
+    * **L'algorithme de soustraction** : on soustrait du nombre la plus grande puissance de 2 possible, et on recommence.
+
+    * **L'algorithme de division** : on effectue les divisions successives du nombre par 2. L'écriture en binaire est donnée par les restes lus de bas en haut.
+
+* L'algorithme de division peut être adapté pour convertir un nombre en base décimal vers n'importe quel base.
+
+* Quand on multiplie (resp. divise) un nombre par 2, sa représentation binaire se voit décalé vers la gauche (resp. droite).
 

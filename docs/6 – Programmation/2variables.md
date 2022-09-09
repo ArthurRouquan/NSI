@@ -175,9 +175,9 @@ Pour l'instant, nos variables ne contenaient que des nombres entiers. Pour diff�
 
 ## Règles de nommage
 
-Python et comme la plupart des langages de programmation suivent les mêmes règles de nommage des variables :
+Python et la plupart des langages de programmation suivent les mêmes règles de nommage des variables :
 
-* Seuls les **lettres non-accentuées** (:warning: miniscule et majuscule sont des caractères distingués), les **chiffres** et le **tiret du bas** `_` sont autorisées. Les espaces ne sont donc pas autorisés.
+* Seuls les **lettres non-accentuées** (:warning: miniscule et majuscule sont des caractères différents, ainsi les variables `a` et `A` sont bien deux variables distincts), les **chiffres** et le **tiret du bas** `_` sont autorisées. Les espaces ne sont donc pas autorisés.
 
 * Le nom de la variable ne doit pas commencer par un chiffre.
 

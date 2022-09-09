@@ -51,7 +51,7 @@ Et l'addition marche parfaitement 127 + (-128) = `0111 1111` + `1000 0000` = `11
 !!! note "Écrire la représentation binaire d'un entier négatif"
     Il existe une méthode rapide pour obtenir le complément à 2 d'un entier négatif :
 
-    1. On code sa valeur absolue en binaire.
+    1. On code sa valeur absolue en binaire sur un nombre de bits spécifique préalablement choisi (8, 16, 32 etc.).
 
     2. On inverse tous les bits.
 

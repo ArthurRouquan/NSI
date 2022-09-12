@@ -51,7 +51,7 @@ Et l'addition marche parfaitement 127 + (-128) = `0111 1111` + `1000 0000` = `11
 !!! note "Écrire la représentation binaire d'un entier négatif"
     Il existe une méthode rapide pour obtenir le complément à 2 d'un entier négatif :
 
-    1. On code sa valeur absolue en binaire sur un nombre de bits spécifique préalablement choisi (8, 16, 32 etc.).
+    1. On code sa valeur absolue en binaire sur un nombre de bits spécifique préalablement choisi+ (8, 16, 32 etc.).
 
     2. On inverse tous les bits.
 
@@ -71,6 +71,15 @@ Et l'addition marche parfaitement 127 + (-128) = `0111 1111` + `1000 0000` = `11
 
     3. 64 bits
 
+
+!!! note "Intervalle"
+    Avec $n$ bits, on peut représenter :
+
+    * Les entiers positifs (non-signés) $[\![0, 2^n - 1]\!]$
+
+    * Les entiers relatifs (signés, positifs et négatifs) $[\![- 2^{n-1}, 2^{n-1} - 1]\!]$
+
+    On represente toujours $2^n$ valeurs.
 
 !!! Example "Exercice 2"
 

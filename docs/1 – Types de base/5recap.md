@@ -40,5 +40,53 @@ $$
 
 * L'algorithme de division peut être adapté pour convertir un nombre en base décimal vers n'importe quel base.
 
-* Quand on multiplie (resp. divise) un nombre par 2, sa représentation binaire se voit décalé vers la gauche (resp. droite).
+* Quand on multiplie (resp. divise) un nombre par 2, sa représentation binaire se voit décalée vers la gauche (resp. droite).
 
+## Réprésentation des entiers relatifs
+
+* **Bit de signe :** On réserve le bit de poids fort (le plus à gauche) pour spécifier le signe du nombre : $0$ pour $+$, $1$ pour $-$. 
+
+* Il est nécessaire de spécifier la **taille en bits** utilisée pour connaître précisement la position du bit de signe. Les tailles de 8, 16, 32 et 64 bits sont les plus couramment utilisées dans les systèmes informatiques.
+
+*  **Le complément à 2** est une méthode de représentation des entiers relatifs en binaire où l'opération d'addition binaire usuelle fonctionne toujours.
+
+* Dans ce mode de représentation, les **nombres positifs** sont représentés de manière usuelle.
+
+* Les **nombres négatifs** sont obtenus par les opérations successives :
+
+    * On écrit la représentation binaire de sa valeur absolue (sans le signe) sur un nombre de bits préalablement spécifié.
+
+    * On inverse tous les bits.
+
+    * On ajoute 1 (les dépassements sont ignorés).
+
+!!! Example "Exemple"
+    On souhaite représenter $-42$ sur 8 bits (un octet) :
+
+    * $42$ s'écrit $00101010$ en binaire.
+
+    * On inverse les bits : $11010101$.
+
+    * On ajoute finalement 1 : $11010110$.
+
+    Le complément à 2 de $-42$ sur un octet est $11010110$. On peut vérifier le résultat en réalisant l'addition des deux nombres $42$ et $-42$ sur un octet (en bleu, les retenues) :
+
+    $$
+    \begin{align*}
+    && \textcolor{#71d4e2}{\small 1} && \textcolor{#71d4e2}{\small 1} && \textcolor{#71d4e2}{\small 1} && \textcolor{#71d4e2}{\small 1} && \textcolor{#71d4e2}{\small 1} && \textcolor{#71d4e2}{\small 1} && \textcolor{#71d4e2}{\small 1} &&  && && \\
+    && && 0 && 0 && 1 && 0 && 1 && 0 && 1 && 0 && \\
+    + && && 1 && 1 && 0 && 1 && 0 && 1 && 1 && 0 && \\
+    \hline \\
+    = && 1 && 0 && 0 && 0 && 0 && 0 && 0 && 0 && 0 
+    \end{align*}
+    $$
+
+    Le dernier bit est tronqué car on code sur 8 bits, on obtient donc bien $0$.
+
+* A l'inverse, pour déterminer un nombre depuis son complément à 2 :
+
+    * On soustrait 1.
+
+    * On inverse les bits.
+
+    * On convertir le nombre binaire en nombre décimal

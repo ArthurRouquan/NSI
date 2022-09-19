@@ -145,7 +145,7 @@ Puisqu'un nombre admettant une écriture binaire infinie ne peut pas être parfa
 
 Sur certains systèmes informatiques, on utilise un codage à **virgule fixe** : on retient un nombre fixe de chiffre après la virgule (voir précédemment).
 
-La distance entre deux nombres successifs est donc toujours la même, égale à 2^{-n} où $n$ est le nombre de chiffres conservés après la virgule.
+La distance entre deux nombres successifs est donc toujours la même, égale à $2^{-n}$ où $n$ est le nombre de chiffres conservés après la virgule.
 
 Inconvénient : l’erreur relative commise sur le codage des nombres peut devenir très grande lorsque les nombres sont petits. D'où la nécessité d'un codage plus flexible.
 
@@ -185,7 +185,7 @@ L'exposant $e$ est codé par un entier non-signé sur un octet décalé de 127 (
 
 | Exposant $e$ | Exposant biaisé ($E = e + 127$) | Représentation binaire |
 | --- |  --- | --- |
-| 5 | +162 | 10100010 |
+| 5 | +132 | 10000100 |
 0	| +127 | 01111111 |
 -10	| +117 | 01110101 |
 128	| +255 | 11111111 |
@@ -224,7 +224,7 @@ Valeur binaire | Exposant biaisé $E$ |	Signe, Exposant, Mantisse |
 
 #### Cas particuliers
 
-Il existe quelques valeurs spéciales dans ce codage IEEE 754 en simple précision. Suivant les valeurs de l’exposant biaisé $E$ (notez que le décalage vaut $2^b - 1$ où $b$  est le nombre de bits utilisés pour coder l’exposant) et de la mantisse, le nombre final peut appartenir à l'une ou l'autre des catégories suivantes :
+Il existe quelques valeurs spéciales dans ce codage IEEE 754 en simple précision. Suivant les valeurs de l’exposant biaisé $E$ (notez que le décalage vaut $2^{b-1} - 1$ où $b$  est le nombre de bits utilisés pour coder l’exposant) et de la mantisse, le nombre final peut appartenir à l'une ou l'autre des catégories suivantes :
 
 
 Type	| Exposant biaisé $E$	| Mantisse |

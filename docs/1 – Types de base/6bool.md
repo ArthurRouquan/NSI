@@ -236,3 +236,30 @@ True
     ![](./images/gates.jpg)
 
      -->
+
+## Les portes logiques
+
+Une partie plus ou moins hors programme. L'invention du transistor a permis de réaliser des circuits électroniques qui suivent l'algèbre de Boole, ce sont les **portes logiques**. Pour les trois opérations de base, nous en avons donc trois portes logiques :
+
+=== "Circuit simple"
+    Imaginons que j'ai un circuit composé d'un interrupteur et d'une ampoule :
+
+    ![](./images/NORMAL.gif)
+
+=== "Porte NON"
+    La porte NON inverse la sortie :
+
+    ![](./images/NOT.gif)
+
+=== "Porte ET"
+    ![](./images/AND.gif)
+
+=== "Porte OU"
+    ![](./images/OR.gif)
+
+
+
+!!! note "S'amuser avec les portes logiques"
+    Le site [Logic.ly](https://logic.ly/demo/) permet de tester justement toutes ces portes logiques et créer de petits circuits logiques !
+
+

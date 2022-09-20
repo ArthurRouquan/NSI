@@ -28,8 +28,6 @@ $$
 
 * Avec $n$ bits on peut distinguer $2^n$ valeurs. Puisque 0 est une valeur, le nombre maximal qu'on puisse exprimer est $2^n - 1$.
 
----
-
 * Pour convertir rapidement un nombre binaire en base décimale, on additionne simplement les puissances de 2 associées aux bits à 1.
 
 * Pour convertir un nombre en base décimale vers la base binaire, il existe deux algorithmes itératifs :
@@ -83,10 +81,18 @@ $$
 
     Le dernier bit est tronqué car on code sur 8 bits, on obtient donc bien $0$.
 
-* A l'inverse, pour déterminer un nombre depuis son complément à 2 :
+* A l'inverse, pour déterminer un nombre depuis son complément à 2 s'il est négatif :
 
     * On soustrait 1.
 
     * On inverse les bits.
 
     * On convertir le nombre binaire en nombre décimal
+
+* Avec $n$ bits on peut représenter les entiers relatifs dans l'intervalle $[\![- 2 ^{n-1}, 2^{n-1} - 1 ]\!]$
+
+[Vidéo récapitulatif des méthodes](https://youtu.be/vteCLcW9GGE)
+
+## Représentation des réels
+
+## Booléens

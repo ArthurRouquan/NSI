@@ -91,7 +91,7 @@ Le résultat de ces opérateurs entre booléens est un booléen. On peut défini
     ```
 
 
-=== "Conjonction (OU)"
+=== "Disjonction (OU)"
     | $x$ | $y$ | $x \lor y$ |
     | :---: | :---: | :---: |
     | :x: | :x: | :x: | 
@@ -103,7 +103,7 @@ Le résultat de ces opérateurs entre booléens est un booléen. On peut défini
 
     ``` py
     >>> True and False
-    True
+    False
     >>> True and True
     True
     ```

@@ -1,5 +1,7 @@
 # La boucle for
 
+:warning: [Activité Capytale](https://capytale2.ac-paris.fr/web/c/f8b0-673856/mlc) :warning:
+
 Si écrire correctement la condition d'une boucle `#!python while` est parfois difficile, la pluplart des boucles utilisées en programmation sont **finies**. On utilisera dans ce cas la boucle `#!python for` (*pour* en anglais).
 
 ## La notion d'itérables (ou ensembles de valeurs énumérables)

@@ -127,7 +127,7 @@ if est_pair(n):
     # blabla
 ```
 
-Qui plus est, il existe une manière plus rapide de tester la parité d'un entier. Sans fonction, s'il faudrait alors modifier chacune des égalités dans le premier cas, dans le second cas il suffirait de modifier juste le corps de la fonction `est_pair`.
+Qui plus est, il existe une manière plus rapide de tester la parité d'un entier. S'il faudrait alors modifier chacune des égalités dans le premier cas, dans le second cas il suffirait de modifier juste le corps de la fonction `est_pair`.
 
 
 ### Somme des entiers -- Généricité
@@ -160,7 +160,7 @@ Si l'on exécute :
 
 ## Quelques subtilités
 
-### Éjecter du code avec `#!python return`
+### S'éjecter du code avec `#!python return`
 
 L'emploi du mot-clef `#!python return` provoque une éjection du code : tout ce qui suit cette instruction ne sera pas exécuté.
 

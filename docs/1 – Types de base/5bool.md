@@ -237,7 +237,7 @@ True
 
      -->
 
-## Les portes logiques
+## Les portes logiques 
 
 Une partie plus ou moins hors programme. L'invention du transistor a permis de réaliser des circuits électroniques qui suivent l'algèbre de Boole, ce sont les **portes logiques**. Pour les trois opérations de base, nous en avons donc trois portes logiques :
 
@@ -263,3 +263,124 @@ Une partie plus ou moins hors programme. L'invention du transistor a permis de r
     Le site [Logic.ly](https://logic.ly/demo/) permet de tester justement toutes ces portes logiques et créer de petits circuits logiques !
 
 
+!!! Exemple "Exercice 5 - Additionneur"
+    1. Dresser la table de vérité de l'addition entre deux bits. Il y a deux sorties : le résultat et la retenue.
+
+    2. Schématiser cette table sous forme d'un circuit logique à deux entrées.
+
+    3. On veut additionner deux bits et un bit de retenue, dresser la table de vérité à trois entrées et deux sorties (bit de résulat et retenue).
+
+    4. Schématiser cette table sous forme d'un circuit logique à trois entrées.
+
+    5. Qu'ajouter au circuit logique précédent pour additionner deux octets entre-eux ?
+
+## Table de Karnaugh (Hors-Programme)
+
+Une **table de Karnaugh** est une méthode graphique pour trouver ou simplifier une fonction logique à partir de sa table de vérité. Elle utilise le **code de Gray** (aussi appelé binaire réfléchi), qui a comme propriété principale de ne faire varier qu'un seul bit entre deux mots successifs.
+
+!!! Note "Exemple de code de Gray"
+    
+    * Sur 2 bits, le code de Gray est : 00, 01, 11, 10.
+
+    * Sur 3 bits, on a : 000, 001, 011, 010, 110, 111, 101, 100.
+
+
+Un tableau de Karnaugh peut être vu comme une table de vérité particulière, à deux dimensions, destinées à faire apparaître **visuellement** les simplifications possibles.
+
+1. Par exemple, on a la table de vérité à 4 entrées, A, B, C et D :
+
+    | A | B | C | D | Sortie |
+    |:-:|:-:|:-:|:-:|:------:|
+    | 0 | 0 | 0 | 0 |    **0**   |
+    | 0 | 0 | 0 | 1 |    **1**   |
+    | 0 | 0 | 1 | 0 |    **0**   |
+    | 0 | 0 | 1 | 1 |    **1**   |
+    | 0 | 1 | 0 | 0 |    **0**   |
+    | 0 | 1 | 0 | 1 |    **1**   |
+    | 0 | 1 | 1 | 0 |    **1**   |
+    | 0 | 1 | 1 | 1 |    **1**   |
+    | 1 | 0 | 0 | 0 |    **0**   |
+    | 1 | 0 | 0 | 1 |    **1**   |
+    | 1 | 0 | 1 | 0 |    **0**   |
+    | 1 | 0 | 1 | 1 |    **1**   |
+    | 1 | 1 | 0 | 0 |    **0**   |
+    | 1 | 1 | 0 | 1 |    **1**   |
+    | 1 | 1 | 1 | 0 |    **1**   |
+    | 1 | 1 | 1 | 1 |    **1**   |
+
+    Déterminer une formule booléenne simple ici semble complexe.
+
+2. On dresse le tableau de Karnaugh à deux dimensions en suivant le code de Gray pour les entrées :
+
+    | AB/CD | **00** | **01** | **11** | **10** |
+    |:-----:|:--:|:--:|:--:|:--:|
+    |   **00 ** |  0 |  1 |  1 |  0 |
+    |   **01 ** |  0 |  1 |  1 |  1 |
+    |   **11 ** |  0 |  1 |  1 |  1 |
+    |   **10 ** |  0 |  1 |  1 |  0 |
+
+3. Visuellement, on voit que si D vaut 1, alors la sortie est nécessairement à 1. On voit aussi que si B vaut 1 ET que C vaut 1 alors la sortie est nécessairement à 1.
+
+    <div style="text-align:center"><img src="../images/kar.gif" /></div>
+
+4. Ecrire la formule booléenne : $S = D \lor (B \land C)$
+
+Pour les tables à 4 variables, de préférence procéder dans l'ordre suivant :
+
+* le rectangle 16 cases (tout le tableau)
+* les rectangles 8 cases (double colonnes/lignes)
+* les rectangles 4 cases (colonne/ligne/carré)
+* les rectangles 2 cases
+* enfin les cases uniques.
+
+!!! note "Exercice 6 - Quelques tables à simplifier"
+    1. Dresser la table de Karnaugh et trouver la formule booléenne de :
+        
+        | A | B | Sortie |
+        |:--:|:--:|:-----:|
+        | 0 | 0 | **0** |
+        | 0 | 1 | **1** |
+        | 1 | 0 | **0** |
+        | 1 | 1 | **1** |
+
+    2. De même pour :
+
+        | A | B | C | Sortie |
+        |:-:|:-:|:-:|:------:|
+        | 0 | 0 | 0 |** 1** |
+        | 0 | 0 | 1 |** 0** |
+        | 0 | 1 | 0 |** 1** |
+        | 0 | 1 | 1 |** 0** |
+        | 1 | 0 | 0 |** 1** |
+        | 1 | 0 | 1 |** 1** |
+        | 1 | 1 | 0 |** 1** |
+        | 1 | 1 | 1 |** 1** |
+
+    3. Et un dernier pour la route :
+
+        | A | B | C | D | Sortie |
+        |:-:|:-:|:-:|:-:|:------:|
+        | 0 | 0 | 0 | 0 | **1** |
+        | 0 | 0 | 0 | 1 | **0** |
+        | 0 | 0 | 1 | 0 | **1** |
+        | 0 | 0 | 1 | 1 | **0** |
+        | 0 | 1 | 0 | 0 | **0** |
+        | 0 | 1 | 0 | 1 | **1** |
+        | 0 | 1 | 1 | 0 | **0** |
+        | 0 | 1 | 1 | 1 | **1** |
+        | 1 | 0 | 0 | 0 | **1** |
+        | 1 | 0 | 0 | 1 | **0** |
+        | 1 | 0 | 1 | 0 | **1** |
+        | 1 | 0 | 1 | 1 | **0** |
+        | 1 | 1 | 0 | 0 | **0** |
+        | 1 | 1 | 0 | 1 | **0** |
+        | 1 | 1 | 1 | 0 | **0** |
+        | 1 | 1 | 1 | 1 | **0** |
+
+Idée de projet : Afficheur 7 segments en circuits logiques.
+
+## Les opérateurs bit à bit
+
+Les opérateurs élémentaires bit à bit permettent de réaliser des opérations binaires simultanément sur l'ensemble des bits d'un mot de manière indépendante.
+
+TODO.

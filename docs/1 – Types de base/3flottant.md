@@ -46,6 +46,25 @@ $$
     !!! note "Remarque 2"
         Si l'écriture en base 2 est **finie**, alors l'écriture en base 10 est également finie (car les puissances de 2 négatives sont des nombres finis en base décimale).
 
+    !!! summary "Méthode plus rapide"
+        Les puissances de 2 négatives sont difficiles à calculer. Il existe une méthode plus rapide en remarquant par exemple en base 10 que :
+
+        $$
+            1745.861 = \frac{1745861}{10^3}
+        $$
+
+        En base 2 :
+
+        $$
+            (101.011)_2 = \frac{(101011)_2}{2^3}
+        $$
+
+        On peut alors calculer le nombre binaire sans la virgule puis on divise par le bonne puissance de 2 :
+
+        $$
+            (101011)_2 =  1 + 2 + 8 + 32 = 43 \implies (101.011)_2 = \frac{43}{2^3} = 5.375
+        $$
+
 !!! summary "Base 10 → Base 2"
     Prenons le nombre $3.6875$, il se décompose en une partie entière $3$ et une partie décimale $0.6875$. On a vu précedemment que la partie décimale sera representée par des bits après la virgule. Ainsi on sait déjà que la partie entière en base binaire s'écrira $3 = (11)_2$.
 

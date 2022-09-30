@@ -8,7 +8,8 @@ Une fonction en programmation est donc semblable au concept de fonctions en math
 
 <div style="text-align:center"><img src="../images/fonction.png" /></div>
 
-Vous avez déjà en fait manipuler tout un tas de fonctions : `#!python print`, `#!python input`, `#!python int`, `#!python type` etc.
+Vous avez déjà en fait manipulé tout un tas de fonctions : 
+`#!python print`, `#!python input`, `#!python int`, `#!python type` etc.
 
 !!! note "Exemple"
     La fonction `#!python bin` prend un nombre entier (type `#!python int`) comme **argument** et **renvoie** son écriture binaire :
@@ -221,7 +222,7 @@ NameError: name 'longueur' is not defined
 NameError: name 'aire' is not defined
 ```
 
-#### Vairables globales
+#### Variables globales
 
 Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le corps d'une fonction des variables définies à l'extérieur de cette fonction. En effet, si plusieurs fonctions agissent sur ces variables, le programme peut aboutir à des valeurs ou des comportements non prévus. On parle alors d'**effet de bord**.
 

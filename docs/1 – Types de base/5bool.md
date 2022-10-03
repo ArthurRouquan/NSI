@@ -377,10 +377,18 @@ Pour les tables à 4 variables, de préférence procéder dans l'ordre suivant :
         | 1 | 1 | 1 | 0 | **0** |
         | 1 | 1 | 1 | 1 | **0** |
 
-Idée de projet : Afficheur 7 segments en circuits logiques.
+!!! note "Exercice 7 - Décodeur 7 segments"
+    Un afficheur 7 segments est un composant électronique qui permet d'afficher des motifs graphiques, notamment des chiffres :
 
-## Les opérateurs bit à bit
+    <div style="text-align:center;"><img src="../images/digits.png" /></div>
 
-Les opérateurs élémentaires bit à bit permettent de réaliser des opérations binaires simultanément sur l'ensemble des bits d'un mot de manière indépendante.
+    Il est composé de 7 segments lumineux désignés par les lettres A à G :
+    <div style="max-width: 150px; text-align:center;"><img src="../images/7seg.png" /></div>
 
-TODO.
+    Soit 4 entrées $e_3, e_2, e_1$ et $e_0$ représentant un chiffre. Par exemple : l'entrée 1001 représente le chiffre 9. 
+    
+    1. Dresser la table de vérité pour le segment D et E.
+
+    2. Pour chacune de ces tables, dresser la table de Karnaugh et déterminer la formule booléene associée.
+
+    3. Sur un même schéma (mêmes entrées $e_0, e_1, e_2$ et $e_3$), représenter ces deux formules booléennes par des portes logiques. 

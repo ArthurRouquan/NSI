@@ -244,7 +244,7 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
     fonction_idiote(1, a)
     ```
 
-## Correction des exercices
+<!-- ## Correction des exercices
 
 ### Exercice 1 -- Maximum
 
@@ -621,4 +621,4 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
             resultat = '0123456789ABCDEF'[n % base] + resultat
             n //= base
         return '0' if n == 0 else resultat
-    ```
+    ``` -->

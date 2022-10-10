@@ -203,12 +203,12 @@ Un bit 1 indique un nombre négatif, et un bit 0 indique un nombre positif.
 L'exposant $e$ est codé par un entier non-signé sur un octet décalé de 127 (on l'appelle alors l'**exposant biaisé**). Par exemple, prenons le nombre $1.010 \times 2^5$. L'exposant $e = 5$ est ajouté à 127, la somme $E = 162$, l'exposant biaisé, est representé en binaire $10100010$. D'autres exemples :
 
 | Exposant $e$ | Exposant biaisé ($E = e + 127$) | Représentation binaire |
-| --- |  --- | --- |
-| 5 | +132 | 10000100 |
-0	| +127 | 01111111 |
--10	| +117 | 01110101 |
-128	| +255 | 11111111 |
--1	| +126 | 01111110 |
+| ------------ | ------------------------------- | ---------------------- |
+| 5            | +132                            | 10000100               |
+| 0            | +127                            | 01111111               |
+| -10          | +117                            | 01110101               |
+| 128          | +255                            | 11111111               |
+| -1           | +126                            | 01111110               |
 
 Le décalage de 127 est nécessaire pour representer les exposants négatifs car l'entier n'est pas signé.
 
@@ -219,12 +219,12 @@ Avant toute chose, la mantisse doit être normalisée. C'est le même processus 
 De la même manière, la valeur binaire $1101.101$ est normalisée comme $1.0101101 \cdot 2^3$ en décalant la virgule 3 fois vers la gauche. Quelques exemples :
 
 
-Valeur binaire |	Normalisé |	Exposant |
-| --- |  --- | --- |
-1101.101 |	1.101101 |	3 |
-0.00101 |	1.01 |	-3 |
-1.0001 |	1.0001 |	0 |
-10000011.0 |	1.0000011 |	7 |
+| Valeur binaire | Normalisé | Exposant |
+| -------------- | --------- | -------- |
+| 1101.101       | 1.101101  | 3        |
+| 0.00101        | 1.01      | -3       |
+| 1.0001         | 1.0001    | 0        |
+| 10000011.0     | 1.0000011 | 7        |
 
 Vous avez peut-être remarqué que dans une mantisse normalisée, le chiffre 1 apparaît toujours à gauche de la virgule. En fait, le 1 initial est omis du stockage réel de la mantisse car il est non-nécessaire.
 
@@ -233,26 +233,26 @@ Vous avez peut-être remarqué que dans une mantisse normalisée, le chiffre 1 a
 Combinons maintenant le signe, l'exposant et la mantisse normalisée pour représenter un nombre réel sur 32 bits. Quelques exemples :
 
 
-Valeur binaire | Exposant biaisé $E$ |	Signe, Exposant, Mantisse |
-| --- |  --- | --- |
- -1.11 |	127 |	`1  01111111  11000000000000000000000` |
- +1101.101 |	130 |	`0  10000010  10110100000000000000000` |
- -.00101 |	124 |	`1  01111100  01000000000000000000000` |
- +100111.0 |	132 |	`0  10000100  00111000000000000000000` |
- +.0000001101011 |	120 |	`0  01111000  10101100000000000000000` |
+| Valeur binaire  | Exposant biaisé $E$ | Signe, Exposant, Mantisse              |
+| --------------- | ------------------- | -------------------------------------- |
+| -1.11           | 127                 | `1  01111111  11000000000000000000000` |
+| +1101.101       | 130                 | `0  10000010  10110100000000000000000` |
+| -.00101         | 124                 | `1  01111100  01000000000000000000000` |
+| +100111.0       | 132                 | `0  10000100  00111000000000000000000` |
+| +.0000001101011 | 120                 | `0  01111000  10101100000000000000000` |
 
 #### Cas particuliers
 
 Il existe quelques valeurs spéciales dans ce codage IEEE 754 en simple précision. Suivant les valeurs de l’exposant biaisé $E$ (notez que le décalage vaut $2^{b-1} - 1$ où $b$  est le nombre de bits utilisés pour coder l’exposant) et de la mantisse, le nombre final peut appartenir à l'une ou l'autre des catégories suivantes :
 
 
-Type	| Exposant biaisé $E$	| Mantisse |
-| --- |  --- | --- |
-Zéros	| $0$	| $0$ |
-Nombres dénormalisés |	$0$| 	$\neq 0$|
-Nombres normalisés |	$1$ à $254$| 	Quelconque |
-Infinis |	$255$| 0 |
-Nombres indéfinis (Not A Number, NaN) |	$255$| $\neq 0$ |
+| Type                                  | Exposant biaisé $E$ | Mantisse   |
+| ------------------------------------- | ------------------- | ---------- |
+| Zéros                                 | $0$                 | $0$        |
+| Nombres dénormalisés                  | $0$                 | $\neq 0$   |
+| Nombres normalisés                    | $1$ à $254$         | Quelconque |
+| Infinis                               | $255$               | 0          |
+| Nombres indéfinis (Not A Number, NaN) | $255$               | $\neq 0$   |
 
 Un nombre dénormalisé s'écrit sous la forme $\pm \cdot 0,m \cdot 2^{-126}$.
 
@@ -274,4 +274,5 @@ Un nombre dénormalisé s'écrit sous la forme $\pm \cdot 0,m \cdot 2^{-126}$.
     3. Placer sur une droite graduée les nombres normalisés positifs.
 
     4. Placer sur une autre droite graduée les nombres dénormalisés positifs.
+
 

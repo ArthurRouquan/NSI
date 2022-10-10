@@ -29,6 +29,8 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
+  - md_in_html
+  - attr_list
 
 extra_javascript:
   - javascripts/mathjax.js

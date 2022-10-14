@@ -48,3 +48,59 @@ Et aux éléments par un double crochet:
         for j in range(3):
             print(tab[i][j])
     ```
+
+
+## Exercices
+
+!!! example "Exercice 1"
+    === "Énoncé"
+        On considère le jeu du Morpion (ou *Tic-Tac-Toe*) dont la surface de jeu vierge est representée par le tableau :  
+        ```python
+         tab = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+        ``` 
+
+        Les premiers coups joués sont ceux-ci :
+
+        - ```tab[1][1] = 'X'``` 
+        - ```tab[2][1] = 'O'``` 
+        - ```tab[2][2] = 'X'``` 
+        - ```tab[0][0] = 'O'``` 
+
+        Quel coup doit maintenant jouer le joueur  `'X'` pour s'assurer la victoire ?
+
+    === "Correction"
+        <!-- {{ correction(True,
+        "
+        ```python
+        tab[0][2] = 'X'
+        # ou
+        tab[1][2] = 'X'
+        ```
+        "
+        ) }} -->
+
+!!! example "Exercice 2"
+    === "Énoncé"
+        On considère la liste ```m``` (`m` comme *matrice*) suivante :  
+
+        ```python
+        m = [[1, 9, 4], [4, 1, 8], [7, 10, 1]]
+        ```  
+
+        Ecrire le programme qui réaliser la somme de tous les élements de la matrice ```m```.
+
+    === "Correction"
+        <!-- {{ correction(True,
+        "
+        ```python linenums='1'
+        m = [[1, 9, 4], [4, 1, 8], [7, 10, 1]]
+
+        somme = 0
+        for ligne in m:
+            for elt in ligne:
+                somme += elt
+
+        print(somme)
+        ```
+        "
+        ) }} -->

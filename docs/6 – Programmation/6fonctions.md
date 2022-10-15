@@ -182,8 +182,8 @@ print(bidon(12))
 ``` py
 def repete_lettres(chaine, nombre):
     sortie = ''
-    for lettre in chaine:
-        sortie += nombre * lettre
+    for caractere in chaine:
+        sortie += nombre * caractere
     return sortie
 ```
 
@@ -244,7 +244,7 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
     fonction_idiote(1, a)
     ```
 
-<!-- ## Correction des exercices
+## Correction des exercices
 
 ### Exercice 1 -- Maximum
 
@@ -299,6 +299,8 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
             return z
     ```
 
+    On effectue au plus 2 conditions ici. En effet, si `x > y` est faux alors Python ne va évaluer le second membre de l'opérateur `and`, à savoir `x > z` (cette optimisation est appelée *short-circuit evaluation* en anglais), car la condition sera quoiqu'il arrive fausse.
+
 === "En réutilisant la fonction précédente"
     ``` py
     def maximum3(x, y, z):
@@ -313,13 +315,36 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
     ``` py
     def maximum3(x, y, z):
         return x if x > y and x > z else maximum(y, z)
-
     ```
 
 === "Ou encore..."
     ``` py
     def maximum3(x, y, z):
         return maximum(maximum(x, y), maximum(y, z))
+    ```
+
+    Mais ce programme n'est pas efficient, on effectue toujours 3 comparaisons. En effet, chaque fontion `maximum` fera une comparaison.
+
+!!! warning "Analyse de vos solutions"
+    Une remarque concernant ce genre de solutions :
+
+    ``` py
+    def maximum3(x, y, z):
+        if maximum(x, y) > z:
+            return maximum(x, y)
+        else:
+            return z
+    ```
+
+    Ici, `#!python maximum(x, y)` est calculé une deuxième fois inutilement si la condition est vraie. Imaginez si la fonction `maximum` prenait 10 minutes à s'exécuter... une solution serait de stocker le résultat de cette fonction :
+
+    ``` py
+    def maximum3(x, y, z):
+        max_xy = maximum(x, y)
+        if max_xy > z:
+            return max_xy
+        else:
+            return z
     ```
 
  
@@ -332,8 +357,8 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
     ``` py
     def nombre_voyelles(chaine):
         nombre_voyelles = 0
-        for lettre in chaine:
-            if lettre in 'aeiouy':
+        for caractere in chaine:
+            if caractere in 'aeiouy':
                 nombre_voyelles += 1
         return nombre_voyelles
     ```
@@ -351,7 +376,7 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
 === "Flex"
     ```py
     def nombre_voyelles(chaine):
-        return sum(1 for lettre in chaine if lettre in 'aeiouy')
+        return sum(1 for caractere in chaine if caractere in 'aeiouy')
     ```
 
     Ici, on utilise une **expression génératrice** avec un filtre que l'on agrège avec `#!python sum`. 
@@ -411,27 +436,47 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
     ```py
     def leet_speak(chaine):
         resultat = ''
-        for lettre in chaine:
-            if lettre == 'a':
+        for caractere in chaine:
+            if caractere == 'a':
                 resultat += '4'
-            elif lettre == 'e':
+            elif caractere == 'e':
                 resultat += '3'
-            elif lettre == 's':
+            elif caractere == 's':
                 resultat += '5'
-            elif lettre == 'i':
+            elif caractere == 'i':
                 resultat += '1'
-            elif lettre == 'o':
+            elif caractere == 'o':
                 resultat += '0'
             else:
-                resultat += lettre
+                resultat += caractere
         return resultat
     ```
+
+=== "Avec un dictionnaire"
+    ```py
+    def leet_speak(chaine):
+        table = {
+            'a': '4',
+            'e': '3',
+            's': '5',
+            'i': '1',
+            'o': '0'
+        }
+        resultat = ''
+        for caractere in chaine:
+            if caractere in table:
+                resultat += table[caractere]
+            else:
+                resultat += caractere
+        return resultat
+    ```
+
 
 === "Flex"
     ```py
     def leet_speak(chaine):
         table = {'a': '4', 'e': '3', 's': '5', 'i': '1', 'o': '0'}
-        return ''.join([table[l] if l in table else l for l in chaine])
+        return ''.join([table[l] if c in table else c for c in chaine])
     ```
 
     La variable `table` contient un **dictionnaire**, c'est une structure de données qui permet d'associer des clés avec des valeurs. Par exemple la clé `#!python 'a'` est associée à la valeur `#!python '4'`. Ainsi `#!python table['a']` renvoie la valeur `#!python '4'`. La seconde ligne utilise une **compréhension de liste** pour générer une liste de caractères que l'on transforme en une chaîne de caractères avec la méthode `join`.
@@ -508,6 +553,8 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
         return resultat
     ```
 
+    On "traduit" l'algorithme des divisions successives par 2 que l'on a vu en cours en lignes de code Python. A chaque itération on **concatène** le reste et notre résultat dans le bon sens.
+
 === "Avec une liste"
     ```py
     def binaire(n):
@@ -520,6 +567,9 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
             n //= 2
         return ''.join(reversed(bits))
     ```
+
+    On ajoute au fur et à mesure les bits trouvés dans une liste. On renverse les élements avec la fonction `reversed` (ou avec la méthode `.reverse()`) puis on convertit notre liste de caractères en une chaîne de caractères avec la méthode `.join` (ou avec une simple boucle for).
+
 
 === "Méthode des soustractions"
     ```py
@@ -546,11 +596,13 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
         return ''.join(reversed(bits))
     ```
 
+    Une première approche naïve. A chaque itération, on détermine la plus grande puissance de 2 `p` et on la soustrait de notre nomnbre `n`. Une fois toutes les puissances trouvées, on détermine le nombre binaire associé à ces puissances.
+
 === "Méthode des soustractions optimisée"
     ```py
     def plus_grande_puissance_2(n):
         p = 0
-        while (1 << p) <= n:
+        while 1 << p <= n:
             p += 1
         return p - 1
 
@@ -565,7 +617,7 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
 
         while n != 0:
             p -= 1
-            while (1 << p) > n:
+            while 1 << p > n:
                 p -= 1
             n -= 1 << p
             bits[p] = '1'
@@ -573,6 +625,8 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
         bits.reverse()
         return ''.join(bits)
     ```
+
+    L'opérateur *shift* `x << y` permet de décaler le nombre `x` de `y` bits vers la gauche. Ainsi, `2 ** p` est équivalent à `1 << p`, mais empiriquement plus rapide. Cette fois-ci on calcule la plus grande puissance de 2 une seule fois, puis dans la boucle principale on décrémente cette puissance au fur et à mesure.
 
 === "Comparaison"
     <div style="text-align:center"><img src="../images/binary.svg" /></div>
@@ -621,4 +675,6 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
             resultat = '0123456789ABCDEF'[n % base] + resultat
             n //= base
         return '0' if n == 0 else resultat
-    ``` -->
+    ```
+
+    Ici, on utilise le fait qu'une chaîne de caractères est en fait un tableau de caractères (immutable). L'opérateur d'accès à l'index `[]` fonctionne !

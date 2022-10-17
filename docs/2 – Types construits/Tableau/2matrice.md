@@ -104,3 +104,29 @@ Et aux éléments par un double crochet:
         ```
         "
         ) }} -->
+
+!!! example "Exercice 3"
+    On peut aussi utiliser un seul tableau pour représenter une matrice, en l'"applatissant" (*flatten* en anglais) :
+
+     <figure markdown>
+    ![Image title](images/flat.png){ width="500" }
+    <figcaption></figcaption>
+    </figure>
+
+    Cette représentation est très utilisée en programmation bas niveau car plus performante.
+
+    1. Comment écrire la matrice `m` de manière aplatie ?
+        ```python
+        m = [[1, 8, 9, 4], [4, 1, 9, 8], [7, 3, 10, 1]]
+        m_flat = ...
+        ```  
+
+    2. Comment accéder à l'élement `10` de la matrice `m` ? Et `m_flat` ?
+        ```python
+        >>> m[...][...]
+        10
+        >>> m_flat[...]
+        10
+        ```  
+
+    3. Plus généralement, si je veux accéder à l'élement `m[ligne][colonne]` de la matrice `m_flat`, quel indice devrais-je utiliser ?

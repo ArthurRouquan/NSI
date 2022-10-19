@@ -674,7 +674,7 @@ Même si c'est possible, il est fortement recommandé de ne pas utiliser dans le
         while n != 0:
             resultat = '0123456789ABCDEF'[n % base] + resultat
             n //= base
-        return '0' if n == 0 else resultat
+        return resultat or '0'
     ```
 
-    Ici, on utilise le fait qu'une chaîne de caractères est en fait un tableau de caractères (immutable). L'opérateur d'accès à l'index `[]` fonctionne !
+    Ici, on utilise le fait qu'une chaîne de caractères est en fait un tableau de caractères (immutable). L'opérateur d'accès à l'index `[]` fonctionne ! Petit tricks à la fin avec **l'opérateur Elvis**... je laisse votre curiosité vous guider sur Wikipédia ;) `#!python return resultat or '0'` est équivalent à `#!python return resultat if resultat != '' else '0'`. Il faut croire que l'opérateur logique `or` ne renvoie pas que des booléens...

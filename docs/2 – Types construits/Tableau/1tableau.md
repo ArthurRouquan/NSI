@@ -1,5 +1,8 @@
 # Introduction aux tableaux
 
+:warning: [Activité Capytale](https://capytale2.ac-paris.fr/web/c/cca5-863835) :warning:
+
+
 Considérons un scénario dans lequel vous devez calculer la moyenne de 100 nombres entiers saisis par l'utilisateur. Pour l'instant à votre niveau, la seule solution serait d'effectuer 100 opérations `#!python input()` pour stocker les valeurs saisies dans 100 variables différentes. Puis calculer la moyenne à partir de celles-ci. Ce serait évidemment très fastidieux, c'est pourquoi le concept de tableau devient nécessaire.
 
 
@@ -270,23 +273,39 @@ tab_positif = [val for val in tab if val >= 0]
         ```
         
     === "Solution" 
-        <!-- ```python
+        ```python
         avengers[2] = 'Thor'
         avengers.append('Dr. Strange')
         avengers.remove('Batman')
-        ``` -->
+        ```
         
 !!! example "Exercice 2"
     === "Énoncé" 
         Construire une liste de 100 éléments tous égaux à 0. Puis remplacer tous les éléments d'indice impair par des 1.
 
     === "Solution" 
-        <!-- ```python linenums='1'
-        lst = 100 * [0]
-        for k in range(100):
-            if k%2 != 0:
-                lst[k] = 1
-        ```         -->
+        ```python
+        tab = [0] * 100
+        for i in range(100):
+            if i % 2 != 0:
+                tab[i] = 1
+        ```
+
+        Ou plus optimisé :
+
+        ```python
+        tab = [0] * 100
+        for i in range(50):
+            tab[2 * i + 1] = 1
+        ```
+
+        Ou en liste de compréhension (et condition ternaire) :
+
+        ```python
+        tab = [0 if i % 2 == 0 else 1 for i in range(100)]
+        ```
+
+
         
 
 !!! example "Exercice 3"
@@ -302,14 +321,25 @@ tab_positif = [val for val in tab if val >= 0]
         ```
         
     === "Solution"
-        <!-- ```python linenums='1'
+        ```python
         list1 = [8468, 4560, 3941, 3328, 7, 9910, 9208, 8400, 6502, 1076, 5921, 6720, 948, 9561, 7391, 7745, 9007, 9707, 4370, 9636, 5265, 2638, 8919, 7814, 5142, 1060, 6971, 4065, 4629, 4490, 2480, 9180, 5623, 6600, 1764, 9846, 7605, 8271, 4681, 2818, 832, 5280, 3170, 8965, 4332, 3198, 9454, 2025, 2373, 4067]
         list2 = [9093, 2559, 9664, 8075, 4525, 5847, 67, 8932, 5049, 5241, 5886, 1393, 9413, 8872, 2560, 4636, 9004, 7586, 1461, 350, 2627, 2187, 7778, 8933, 351, 7097, 356, 4110, 1393, 4864, 1088, 3904, 5623, 8040, 7273, 1114, 4394, 4108, 7123, 8001, 5715, 7215, 7460, 5829, 9513, 1256, 4052, 1585, 1608, 3941]
 
         for i in range(len(list1)):
             if list1[i] == list2[i]:
                 print(list1[i])
-        ``` -->
+        ```
+
+        Ici, on aurait bien aimé parcourir par élément et non par indice. Il existe une fonction justement qui permet de combiner plusieurs itérables entre-eux, la fonction `#!python zip` !
+
+        ```python
+        for e1, e2 in zip(list1, list2):
+            if e1 == e2:
+                print(e1)
+        ```
+        
+        C'est plus joli, non ? C'est sûrement trop avancé. Mon tuteur ne veut pas que je vous fasse de vous des experts de Python. Mais sachez que cette fonction se retrouve dans quasiment tous les langages de programmation respectables. Sinon, codez-la.
+
 
         
 
@@ -323,12 +353,20 @@ tab_positif = [val for val in tab if val >= 0]
 
         Construire la liste `temp_pos` qui ne contient que les éléments positifs de `temp`. 
     === "Solution" 
-        <!-- ```python
+        ```python
         temp_pos = []
         for t in temp:
             if t >= 0:
                 temp_pos.append(t)
-        ``` -->
+        ```
+
+        Vous avez voulu utliser la méthode `.remove` ? Ne pas **ajouter ni retirer** d'éléments de la liste pendant que vous la **parcourez** ! Modifier ses éléments est OK.
+        
+        Autre solution (liste en compréhension) :
+
+        ```python
+        temp_pos = [t for t in temp if t >= 0]
+        ```
         
 
 !!! example "Exercice 5 (BNS)"

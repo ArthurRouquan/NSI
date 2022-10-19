@@ -68,3 +68,5 @@ Encore du sucre syntaxique.
 ```py
 tableau[debut:fin:pas]
 ```
+
+## D'autres méthodes utiles

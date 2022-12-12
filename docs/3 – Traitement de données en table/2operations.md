@@ -9,7 +9,9 @@ file = open('harrypotter.csv', 'r')
 table_hp = list(csv.DictReader(file, delimiter=','))
 ```
 
-## Recherche 
+Ici, on s'intéresse aux **opérations classiques** sur les tables.
+
+## Recherche de valeurs
 
 !!!example "Appartient à"
     On souhaite d'abord vérifier qu'une valeur appartient à une table ou non. Pour cela il suffit de parcourir les enregistrements de la table et vérifier que la valeur recherchée est une valeur de l'enregistrement.
@@ -109,6 +111,11 @@ table_serdaigle = [e for e in table_hp if e['House'] == 'Ravenclaw']
 
 On peut également avoir à extraire d'une table certaines colonnes, c'est-à-dire seulement des données d'un ou plusieurs champs. On appelle également cette opération **projection**.
 
+
+!!! note "Origine du mot projection"
+    En mathématique, on parle de projection quand on passe d'une dimension à une dimension inférieure. Typiquement, on peut projetter un point dans l'espace (3D) sur un plan (2D). Dans le cas des tables, une colonne peut être vu comme une dimension. En effet, il n'est pas rare de traiter un enregistrement comme un simple vecteur. 
+
+
 Il s'agit donc de créer une nouvelle table (liste) dont les enregistrements sont des dictionnaires qui ne contiennent que les couples champ: valeur des enregistrements de la table initiale pour les champs précisés (sous forme d'une liste par exemple).
 
 
@@ -129,3 +136,143 @@ Il s'agit donc de créer une nouvelle table (liste) dont les enregistrements son
         ```
 
     2. Utiliser cette fonction pour créer une table en extrayant les colonnes "Character Name" et "House" de la table d'exemple.
+
+## Tri
+
+Il est parfois utile d'ordonner les enregistrements en les triant suivant les valeurs d'une ou plusieurs colonnes.
+
+Par chance, Python est fourni avec deux fonctions de base pour trier une liste, la méthode `sort` et la fonction `sorted`. 
+
+### Différence entre `sort` et `sorted`
+
+ * La méthode `sort` tri **en place** la liste à laquelle on la lui applique. C'est-à-dire qu'elle **modifie directement** la liste. Elle ne renvoie rien.
+
+ ```python
+ >>> tab = [5, 4, 8, 1, 2, 3]
+ >>> tab.sort()
+ >>> tab
+ [1, 2, 3, 4, 5, 8]
+ ```
+
+ * La fonction `#!python sorted` quant à elle renvoie une **nouvelle liste**, elle ne modifie pas la liste donnée en argument.
+
+ ```python
+ >>> tab = [5, 4, 8, 1, 2, 3]
+ >>> sorted(tab)
+ [1, 2, 3, 4, 5, 8]
+ >>> tab
+ [5, 4, 8, 1, 2, 3]
+ ```
+
+### Ordre de tri 
+
+Pour ordonner de manière décroissante, on se sert du paramètre booléen `reverse`. 
+
+```python
+>>> sorted([5, 4, 8, 1, 2, 3], reverse=True)
+[8, 5, 4, 3, 2, 1]
+```
+
+### Clé de tri
+
+#### Tri des types classiques
+
+* Les **nombres** (`#!python int`, `#!python float`) sont triées classiquement :
+
+```py
+>>> sorted([5, 4, 8, 1, 2, 3])
+[1, 2, 3, 4, 5, 8]
+```
+
+* Les **chaînes de caractères** (`#!python str`) sont triées par ordre alphabétique :
+
+```py
+>>> sorted(['bateau', 'cuisine', 'arbre', 'dinde'])
+['arbre', 'bateau', 'cuisine', 'dinde']
+```
+
+* Les **tableaux** (`#!python list`) ou les **p-uplets** (`#!python tuple`) sont triés par ordre **lexicographique** : on trie suivant le premier élément, puis le deuxième etc.
+
+```py
+>>> sorted([(1, 2), (2, 5), (1, 1), (1, 3), (0, 1), (2, 6)])
+[(0, 1), (1, 1), (1, 2), (1, 3), (2, 5), (2, 6)]
+```
+
+#### Tri personnalisé
+
+`#!python sort` et `#!python sorted` ont un paramètre nommé `key` qui permet de spécifier une **fonction qui est appelée sur chaque élément de la liste avant d’effectuer des comparaisons**. Ainsi, cette fonction renvoie la plupart du temps un nombre, car les entiers et flottants sont facilement comparables. Cette fonction est parfois appelée *projecteur*, car elle projette les élements de la liste vers une valeur comparable (typiquement `#!python int`). Sa signature usuel :
+
+```py
+def projecteur(element_de_la_liste) -> int:
+```
+
+!!! Check "Un premier exemple"
+
+    Par exemple, on peut trier une liste de couples de nombre suivant le second nombre grâce à un projecteur  :
+
+    ```py
+    def second_proj(t: tuple) -> int:
+        return t[1]
+    ```
+
+    ```py
+    >>> tab = [(1, 2), (2, 5), (1, 1), (1, 3), (0, 1), (2, 2)]
+    >>> sorted(tab, key=second_proj)
+    [(1, 1), (0, 1), (1, 2), (2, 2), (1, 3), (2, 5)]
+    ```
+
+!!! Check "Un second exemple"
+
+    Pour trier une liste de dictionnaires (*une table*), il faut nécessairement
+    spécifier un projecteur pour obtenir des éléments comparables.
+    En effet, deux dictionnaires sont par défaut incomparables.
+
+    ```py
+    releve =[{'Nom': 'Alice', 'Anglais': 17, 'Info': 18, 'Maths': 16},
+             {'Nom': 'Bob',   'Anglais': 19, 'Info': 13, 'Maths': 14},
+             {'Nom': 'Carol', 'Anglais': 15, 'Info': 17, 'Maths': 19}]
+    ```
+
+    On peut trier la table suivant la note d'informatique grâce au projecteur :
+
+    ```py
+    def info_proj(d: dict):
+        return d['Info']
+    ```
+
+    Ce projecteur prend donc un dictionnaire (*un enregistrement*) et
+    renvoie la valeur à la clé "Info" (*le champ "Info"*).
+
+    ```py
+    >>> sorted(releve, key=info_proj)
+    [
+        {'Nom': 'Bob',   'Anglais': 19, 'Info': 13, 'Maths': 14},
+        {'Nom': 'Carol', 'Anglais': 15, 'Info': 17, 'Maths': 19},
+        {'Nom': 'Alice', 'Anglais': 17, 'Info': 18, 'Maths': 16},
+    ]
+    ```
+
+#### Exercices
+
+!!!example "Trier suivant la moyenne général"
+
+    On travaille avec la même table `releve` que précedemment.
+    
+    1. Ecrire le projecteur `moyenne_proj` qui permet de trier les enregistrements suivant la moyenne générale.
+
+    2. En utilisant le paramètre `reverse`, trier la table `reverse` par ordre décroissant de moyenne générale.
+
+!!!example "De retour à Poudlard"
+
+    1. Trier la table `table_hp` selon le champ `Character Name`.
+
+    2. Trier la table `table_hp` selon le champ `"House"`, **puis** `"Character Name"`. (on rappelle que Python sait trier par défaut des tuples...)
+
+!!!example "Encore des projecteurs"
+    On travaille maintenant sur la [table des pays](countries.csv). Il faudra écrire les bons projecteurs pour répondre aux questions suivantes :
+
+    1. Afficher le nom des pays par ordre décroissant de superficie.
+
+    2. Afficher les 10 pays les moins peuplés, dans l’ordre inverse de leur population, sous la forme (pays, population).
+
+    3. Afficher les 8 pays possédant la plus grande densité de population, dans l’ordre inverse de densité, sous la forme (pays, densité). (attention aux conversions !)

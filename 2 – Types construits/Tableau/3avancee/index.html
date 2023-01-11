@@ -1,0 +1,1127 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2matrice/">
+      
+      
+        <link rel="next" href="../../../3%20%E2%80%93%20Traitement%20de%20donn%C3%A9es%20en%20table/1intro/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+    
+    
+      
+        <title>Compléments sur les listes - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6b71719e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#complements-sur-les-listes" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Compléments sur les listes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          1 – Types de base
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="1 – Types de base" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1 – Types de base
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/1entier/" class="md-nav__link">
+        Représentation des entiers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/2relatif/" class="md-nav__link">
+        Représentation des entiers relatifs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/3flottant/" class="md-nav__link">
+        Représentation approximative des nombres réels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/5bool/" class="md-nav__link">
+        Les valeurs booléennes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/6char/" class="md-nav__link">
+        Représentation des caractères
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/7recap/" class="md-nav__link">
+        Récapitulatif
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
+          2 – Types construits
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2 – Types construits" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2 – Types construits
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4tupledict/" class="md-nav__link">
+        Tuples et Dictionnaires
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" tabindex="0" aria-expanded="true">
+          Tableau
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tableau" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tableau
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1tableau/" class="md-nav__link">
+        Introduction aux tableaux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2matrice/" class="md-nav__link">
+        Tableaux à plusieurs dimensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Compléments sur les listes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Compléments sur les listes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#copie-de-listes" class="md-nav__link">
+    Copie de listes
+  </a>
+  
+    <nav class="md-nav" aria-label="Copie de listes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-exemple-deroutant" class="md-nav__link">
+    Un exemple déroutant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copier-une-liste-proprement" class="md-nav__link">
+    Copier une liste proprement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-une-reference" class="md-nav__link">
+    Pourquoi une référence ?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-slices" class="md-nav__link">
+    Les slices
+  </a>
+  
+    <nav class="md-nav" aria-label="Les slices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-simple" class="md-nav__link">
+    Version simple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-un-pas" class="md-nav__link">
+    Avec un pas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dautres-methodes-utiles-hord-programme" class="md-nav__link">
+    D'autres méthodes utiles (Hord-Programme)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          3 – Traitement de données en table
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="3 – Traitement de données en table" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          3 – Traitement de données en table
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Traitement%20de%20donn%C3%A9es%20en%20table/1intro/" class="md-nav__link">
+        Tables de données
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Traitement%20de%20donn%C3%A9es%20en%20table/2operations/" class="md-nav__link">
+        Opérations sur les tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Traitement%20de%20donn%C3%A9es%20en%20table/3fusion/" class="md-nav__link">
+        Fusion de tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Traitement%20de%20donn%C3%A9es%20en%20table/4tp/" class="md-nav__link">
+        TP Pokédex
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          6 – Programmation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="6 – Programmation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          6 – Programmation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/1intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/2variables/" class="md-nav__link">
+        Les variables et les types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/3if/" class="md-nav__link">
+        L'instruction conditionnelle if
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/4while/" class="md-nav__link">
+        La boucle while
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/5for/" class="md-nav__link">
+        La boucle for
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/6fonctions/" class="md-nav__link">
+        Les fonctions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#copie-de-listes" class="md-nav__link">
+    Copie de listes
+  </a>
+  
+    <nav class="md-nav" aria-label="Copie de listes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-exemple-deroutant" class="md-nav__link">
+    Un exemple déroutant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copier-une-liste-proprement" class="md-nav__link">
+    Copier une liste proprement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-une-reference" class="md-nav__link">
+    Pourquoi une référence ?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-slices" class="md-nav__link">
+    Les slices
+  </a>
+  
+    <nav class="md-nav" aria-label="Les slices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-simple" class="md-nav__link">
+    Version simple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-un-pas" class="md-nav__link">
+    Avec un pas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dautres-methodes-utiles-hord-programme" class="md-nav__link">
+    D'autres méthodes utiles (Hord-Programme)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="complements-sur-les-listes">Compléments sur les listes</h1>
+<h2 id="copie-de-listes">Copie de listes</h2>
+<h3 id="un-exemple-deroutant">Un exemple déroutant</h3>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">listA</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listB</span> <span class="o">=</span> <span class="n">listA</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listA</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listB</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listB</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listA</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre></div>
+<p>Tout se passe comme si les listes <code>listA</code> et <code>listB</code> étaient devenus des clones «synchronisés» depuis l'affectation <code>listB = listA</code>.</p>
+<iframe width="800" height="300" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=listA%20%3D%20%5B1,%202,%203%5D%0AlistB%20%3D%20listA%0AlistA.append%287%29%0AlistB.append%288%29%0A&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p>Les deux variables <code>listA</code> et <code>listB</code> désginent <strong>la même liste</strong>. Elles ne stockent pas la liste mais une <strong>référence</strong> de celle-ci ! Une variable est une référence vers une adresse en mémoire. Si deux variables font référence à la même adresse, alors elles sont totalement identiques : toute modification de l'une entraîne une modification de l'autre.</p>
+<h3 id="copier-une-liste-proprement">Copier une liste proprement</h3>
+<p>Trois façons :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">listA</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listB</span> <span class="o">=</span> <span class="n">listA</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listC</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">listA</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">listD</span> <span class="o">=</span> <span class="n">listA</span><span class="p">[:]</span> <span class="c1"># slice</span>
+</code></pre></div>
+<h3 id="pourquoi-une-reference">Pourquoi une référence ?</h3>
+<p>Quand vous passez des arguments à une fonction, ils sont <strong>copiés</strong>. Vous ne manipulez pas l'argument en lui-même.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">incremente</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">incremente</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+<p>Cet exemple affiche <code>1</code>, car <code>a</code> n'est pas modifié par la fonction ! Pourtant quand je passe une liste :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">ajoute_1</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="n">liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">ajoute_1</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+<p>Ici le programme affiche <code>[1, 2, 3, 4, 1]</code> ! La référence est bien copiée, mais elle réfere toujours à la liste en mémoire !
+Ainsi, manipuler <code>t</code> ou le paramètre <code>liste</code> revient à manipuler la même liste.  Une réference correspond à une adresse dans la mémoire, elle est stockée sur 32 ou 64 bits suivant votre machine.</p>
+<p>Copier une liste est coûteux, c'est pour cela qu'on préfère les passer <strong>par référence</strong> (Python le fait automatiquement) au lieu de les passer par copie. Lorsque vous manipulez de gros objets (listes, matrices, dictionnaires, ensembles etc.) les variables que vous utilisez sont des références et non pas l'objet en lui-même.</p>
+<h2 id="les-slices">Les slices</h2>
+<p>Encore du <strong>sucre syntaxique</strong>. Cela permet de sélectionner rapidement une partie du tableau :</p>
+<h3 id="version-simple">Version simple</h3>
+<div class="highlight"><pre><span></span><code><span class="n">tableau</span><span class="p">[</span><span class="n">debut</span><span class="p">:</span><span class="n">fin</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>Attention une slice renvoie une copie de votre liste, elle ne la modifie pas !</p>
+<p>Si on ne spécifie pas <code>debut</code>, alors on part du début de la liste !</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<p>Et si on ne spécifie pas <code>fin</code>, on sélectionne jusqu'à la fin de la liste !</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>
+<span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>Et si on ne spécifie ni <code>debut</code>, ni <code>fin</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[:]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>On renvoie directement tout le tableau ! Ici, <code class="highlight"><span class="n">t</span><span class="p">[:]</span></code> renvoie bien une <strong>copie</strong> de votre liste !</p>
+<div class="admonition example">
+<p class="admonition-title">Exercice 1</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Énoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Soit le tableau suivant :
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pif&#39;</span><span class="p">,</span> <span class="s1">&#39;paf&#39;</span><span class="p">,</span> <span class="s1">&#39;pouf&#39;</span><span class="p">,</span> <span class="s1">&#39;pouet&#39;</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">,</span> <span class="s1">&#39;chien&#39;</span><span class="p">,</span> <span class="s1">&#39;chat&#39;</span><span class="p">,</span> <span class="s1">&#39;lapin&#39;</span><span class="p">,</span> <span class="s1">&#39;ah&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">,</span> <span class="s1">&#39;pomme&#39;</span><span class="p">]</span>
+</code></pre></div></p>
+<ol>
+<li>
+<p>Sans utiliser une slice, extraire les élements de l'indice 5 à l'indice 7 (inclus) dans une nouvelle liste <code>animaux</code>.</p>
+</li>
+<li>
+<p>Proposez une alternative avec une slice.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exercice 2</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Énoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Soit le tableau suivant :
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+Comment faire la somme des 4 premiers termes sans utiliser le parcours par indice ?</p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="avec-un-pas">Avec un pas</h3>
+<p>On peut spécifier le pas :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tableau</span><span class="p">[</span><span class="n">debut</span><span class="p">:</span><span class="n">fin</span><span class="p">:</span><span class="n">pas</span><span class="p">]</span>
+</code></pre></div>
+<p>Par exemple, je peux sélectionner un élement sur deux avec :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">54</span><span class="p">]</span>
+</code></pre></div>
+<p>Je peux même renverser une liste en mettant un pas à -1 :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<p>Mais ici, on préfera la méthode <code>.reverse</code> (modifie la liste) ou la fonction <code>reversed</code> (renvoie une nouvelle liste) qui sont beaucoup plus explicites et claires.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercice 3</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Énoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Soit le tableau suivant :
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div></p>
+<p>Ici, on n'utilise ni les slices, ni la méthode <code>.reverse</code> ou fonction <code>reversed</code>.</p>
+<ol>
+<li>
+<p>Comment renverser la liste <code>t</code> dans une autre liste <code>t_renverse</code> ?</p>
+</li>
+<li>
+<p>Comment renverser la liste <code>t</code> en place, c'est-à-dire sans créer une nouvelle liste, en modifidant directement <code>t</code> ?</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<h2 id="dautres-methodes-utiles-hord-programme">D'autres méthodes utiles (Hord-Programme)</h2>
+<p>Ces méthodes/fonctions ne sont pas à apprendre, car vous pouvez toutes les coder avec des <code>if</code>, <code>for</code> etc. Elles sont justes utiles à connaître car très souvent utilisées.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bleu&quot;</span><span class="p">,</span> <span class="s2">&quot;Rouge&quot;</span><span class="p">,</span> <span class="s2">&quot;Blanc&quot;</span><span class="p">,</span> <span class="s2">&quot;Noir&quot;</span><span class="p">]</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Vert&quot;</span><span class="p">)</span> <span class="c1"># insertion à l&#39;idice</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">[</span><span class="s1">&#39;Bleu&#39;</span><span class="p">,</span> <span class="s1">&#39;Vert&#39;</span><span class="p">,</span> <span class="s1">&#39;Rouge&#39;</span><span class="p">,</span> <span class="s1">&#39;Blanc&#39;</span><span class="p">,</span> <span class="s1">&#39;Noir&#39;</span><span class="p">]</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;poire&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span> <span class="c1"># extension avec une autre liste (modifie t)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">[</span><span class="s1">&#39;Bleu&#39;</span><span class="p">,</span> <span class="s1">&#39;Vert&#39;</span><span class="p">,</span> <span class="s1">&#39;Rouge&#39;</span><span class="p">,</span> <span class="s1">&#39;Blanc&#39;</span><span class="p">,</span> <span class="s1">&#39;Noir&#39;</span><span class="p">,</span> <span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;poire&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;non&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">]</span> <span class="c1"># Idem, mais on renvoie une nouvelle liste (on ne modifie pas t) !</span>
+<span class="p">[</span><span class="s1">&#39;Bleu&#39;</span><span class="p">,</span> <span class="s1">&#39;Vert&#39;</span><span class="p">,</span> <span class="s1">&#39;Rouge&#39;</span><span class="p">,</span> <span class="s1">&#39;Blanc&#39;</span><span class="p">,</span> <span class="s1">&#39;Noir&#39;</span><span class="p">,</span> <span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;poire&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">]</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;non&#39;</span><span class="p">)</span> <span class="c1"># renvoie le nombre d&#39;occurences de l&#39;élément donné</span>
+<span class="mi">1</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># tri la liste de nombres</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1"># tri, mais ne mofidie pas t</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">liste</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># pour vérifier si une liste est vide</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Votre liste est vide !&quot;</span><span class="p">)</span>
+<span class="n">Votre</span> <span class="n">liste</span> <span class="n">est</span> <span class="n">vide</span> <span class="err">!</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">liste</span><span class="p">:</span> <span class="c1"># pour vérifier si une liste est vide</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Votre liste est vide !&quot;</span><span class="p">)</span>
+<span class="n">Votre</span> <span class="n">liste</span> <span class="n">est</span> <span class="n">vide</span> <span class="err">!</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

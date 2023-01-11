@@ -1,0 +1,1204 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../2%20%E2%80%93%20Types%20construits/Tableau/3avancee/">
+      
+      
+        <link rel="next" href="../2operations/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+    
+    
+      
+        <title>Tables de données - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6b71719e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tables-de-donnees" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tables de données
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          1 – Types de base
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="1 – Types de base" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1 – Types de base
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/1entier/" class="md-nav__link">
+        Représentation des entiers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/2relatif/" class="md-nav__link">
+        Représentation des entiers relatifs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/3flottant/" class="md-nav__link">
+        Représentation approximative des nombres réels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/5bool/" class="md-nav__link">
+        Les valeurs booléennes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/6char/" class="md-nav__link">
+        Représentation des caractères
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/7recap/" class="md-nav__link">
+        Récapitulatif
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          2 – Types construits
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2 – Types construits" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2 – Types construits
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/4tupledict/" class="md-nav__link">
+        Tuples et Dictionnaires
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" tabindex="0" aria-expanded="false">
+          Tableau
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tableau" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tableau
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/1tableau/" class="md-nav__link">
+        Introduction aux tableaux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/2matrice/" class="md-nav__link">
+        Tableaux à plusieurs dimensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/3avancee/" class="md-nav__link">
+        Compléments sur les listes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="true">
+          3 – Traitement de données en table
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="3 – Traitement de données en table" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          3 – Traitement de données en table
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tables de données
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tables de données
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-et-vocabulaire" class="md-nav__link">
+    Introduction et vocabulaire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representation-dune-table-en-python" class="md-nav__link">
+    Représentation d'une table en Python
+  </a>
+  
+    <nav class="md-nav" aria-label="Représentation d'une table en Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#representation-dun-enregistrement" class="md-nav__link">
+    Représentation d'un enregistrement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representation-dune-table" class="md-nav__link">
+    Représentation d'une table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichiers-csv" class="md-nav__link">
+    Fichiers CSV
+  </a>
+  
+    <nav class="md-nav" aria-label="Fichiers CSV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#charger-un-fichier-csv-avec-python" class="md-nav__link">
+    Charger un fichier CSV avec Python
+  </a>
+  
+    <nav class="md-nav" aria-label="Charger un fichier CSV avec Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-scratch" class="md-nav__link">
+    From scratch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grace-a-la-bibliotheque-csv" class="md-nav__link">
+    Grâce à la bibliothèque csv
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2operations/" class="md-nav__link">
+        Opérations sur les tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3fusion/" class="md-nav__link">
+        Fusion de tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4tp/" class="md-nav__link">
+        TP Pokédex
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          6 – Programmation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="6 – Programmation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          6 – Programmation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/1intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/2variables/" class="md-nav__link">
+        Les variables et les types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/3if/" class="md-nav__link">
+        L'instruction conditionnelle if
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/4while/" class="md-nav__link">
+        La boucle while
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/5for/" class="md-nav__link">
+        La boucle for
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/6fonctions/" class="md-nav__link">
+        Les fonctions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-et-vocabulaire" class="md-nav__link">
+    Introduction et vocabulaire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representation-dune-table-en-python" class="md-nav__link">
+    Représentation d'une table en Python
+  </a>
+  
+    <nav class="md-nav" aria-label="Représentation d'une table en Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#representation-dun-enregistrement" class="md-nav__link">
+    Représentation d'un enregistrement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representation-dune-table" class="md-nav__link">
+    Représentation d'une table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichiers-csv" class="md-nav__link">
+    Fichiers CSV
+  </a>
+  
+    <nav class="md-nav" aria-label="Fichiers CSV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#charger-un-fichier-csv-avec-python" class="md-nav__link">
+    Charger un fichier CSV avec Python
+  </a>
+  
+    <nav class="md-nav" aria-label="Charger un fichier CSV avec Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-scratch" class="md-nav__link">
+    From scratch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grace-a-la-bibliotheque-csv" class="md-nav__link">
+    Grâce à la bibliothèque csv
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tables-de-donnees">Tables de données</h1>
+<h2 id="introduction-et-vocabulaire">Introduction et vocabulaire</h2>
+<p>La façon la plus naturelle et simple de structurer des données est de les organiser sous la forme d'une <strong>table</strong> : bulletins scolaires, extrait de compte bancaire, statistiques sportives etc. Un exemple de table :</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th>Prénom</th>
+<th>Poste</th>
+<th>Taille</th>
+<th>Poids</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mbappé</td>
+<td>Kylian</td>
+<td>Attaquant</td>
+<td>179</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Griezmann</td>
+<td>Antoine</td>
+<td>Attaquant</td>
+<td>173</td>
+<td>73</td>
+</tr>
+<tr>
+<td>Giroud</td>
+<td>Oliver</td>
+<td>Attaquant</td>
+<td>192</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Lloris</td>
+<td>Hugo</td>
+<td>Gardien de but</td>
+<td>188</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Tchouaméni</td>
+<td>Aurélien</td>
+<td>Milieu de terrain</td>
+<td>185</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Koundé</td>
+<td>Jules</td>
+<td>Défenseur</td>
+<td>178</td>
+<td>70</td>
+</tr>
+</tbody>
+</table>
+<p>Le vocabulaire est le suivant :</p>
+<ul>
+<li>
+<p>Une <strong>table</strong> est un ensemble d'<strong>enregistrements</strong>.</p>
+</li>
+<li>
+<p>Un enregistrement contient les <strong>valeurs</strong> correspondants aux <strong>champs</strong> (ou <strong>attributs</strong>, ou encore <strong>descripteurs</strong>) de la table.</p>
+</li>
+</ul>
+<p>Par exemple, dans la table précédente :</p>
+<ul>
+<li>
+<p><code>Nom</code>, <code>Prénom</code>, <code>Poste</code>, <code>Taille</code>, <code>Poids</code> sont des champs (comme Didier). On peut noter que chaque champ est défini par un <strong>type</strong> (entier, flottant, chaîne de caractères etc.). </p>
+</li>
+<li>
+<p>Chaque ligne est un enregistrement. Il y a 6 enregistrements dans cet table.</p>
+</li>
+<li>
+<p><code>Mbappé</code> est une valeur du champ <code>Nom</code> pour le premier enregistrement.</p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">En statistique mathématique</p>
+<p>Il est aussi très courant de manipuler des tables en statistique mathématique. On alors parle de variables/caractères pour les champs, et d'individus/mesures pour les enregistrements. Beaucoup de termes différents pour parler de la même chose donc. Comme dirait Pierre Dac, <em>rien n'est plus semblable à l'identique que ce qui est pareil à la même chose</em>.</p>
+</div>
+<h2 id="representation-dune-table-en-python">Représentation d'une table en Python</h2>
+<h3 id="representation-dun-enregistrement">Représentation d'un enregistrement</h3>
+<p>Il existe deux manières communes de représenter un enregistrement. Puisqu'un tableau ne peux pas contenir des valeurs de différents types, un <strong>p-uplet</strong> (ou tuple) semble être une bonne première approche :</p>
+<div class="highlight"><pre><span></span><code><span class="n">enregistrement</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Mbappé&#39;</span><span class="p">,</span> <span class="s1">&#39;Kylian&#39;</span><span class="p">,</span> <span class="s1">&#39;Attaquant&#39;</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">78</span><span class="p">)</span>
+</code></pre></div>
+<p>Hélas, pour accéder aux valeurs de cet enregistrement, il est nécessaire d'utiliser des indices :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">enregistrement</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="mi">179</span>
+</code></pre></div>
+<p>On préférera alors utiliser un <strong>p-uplet nommé</strong> qui permet en quelque sorte de "nommer les indices" avec leur champ correspondant. Un p-uplet nommé se créer normalement en Python avec la classe <code>namedtuple</code>, mais pour des raisons pédagogiques on utilisera un simple <strong>dictionnaire</strong> qui fonctionne de la même manière :</p>
+<div class="highlight"><pre><span></span><code><span class="n">enregistrement</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;nom&#39;</span>    <span class="p">:</span> <span class="s1">&#39;Mbappé&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prénom&#39;</span> <span class="p">:</span> <span class="s1">&#39;Kylian&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;poste&#39;</span>  <span class="p">:</span> <span class="s1">&#39;Attaquant&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;taille&#39;</span> <span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
+    <span class="s1">&#39;poids&#39;</span>  <span class="p">:</span> <span class="mi">78</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Et donc si on veut accéder au champ <code>Taille</code> de la table :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">enregistrement1</span><span class="p">[</span><span class="s1">&#39;taille&#39;</span><span class="p">]</span>
+<span class="mi">179</span>
+</code></pre></div>
+<h3 id="representation-dune-table">Représentation d'une table</h3>
+<p>Une table est une collection d'enregistrements, donc on la représenter sous la forme d'une liste d'enregistrements, une <strong>liste de p-uplet nommé</strong> :</p>
+<div class="highlight"><pre><span></span><code><span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;nom&#39;</span> <span class="p">:</span> <span class="s1">&#39;Mbappé&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span> <span class="p">:</span> <span class="s1">&#39;Kylian&#39;</span><span class="p">,</span> <span class="s1">&#39;poste&#39;</span> <span class="p">:</span> <span class="s1">&#39;Attaquant&#39;</span><span class="p">,</span> <span class="s1">&#39;taille&#39;</span> <span class="p">:</span> <span class="mi">179</span><span class="p">,</span> <span class="s1">&#39;poids&#39;</span> <span class="p">:</span> <span class="mi">78</span> <span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;nom&#39;</span> <span class="p">:</span> <span class="s1">&#39;Griezmann&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span> <span class="p">:</span> <span class="s1">&#39;Antoine&#39;</span><span class="p">,</span> <span class="s1">&#39;poste&#39;</span> <span class="p">:</span> <span class="s1">&#39;Attaquant&#39;</span><span class="p">,</span> <span class="s1">&#39;taille&#39;</span> <span class="p">:</span> <span class="mi">173</span><span class="p">,</span> <span class="s1">&#39;poids&#39;</span> <span class="p">:</span> <span class="mi">73</span> <span class="p">},</span>
+    <span class="c1"># etc.</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2 id="fichiers-csv">Fichiers CSV</h2>
+<!-- ### Fichier texte tabulé
+
+Comment enregistrer une table dans un fichier ? Il existe deux manières courantes. La première est de séparer les enregistrements par des **sauts à la ligne** et les valeurs par des **tabulations** dans un bête fichier texte :
+
+<div class="highlight"><pre><span></span><code>&quot;Mbappé&quot;    &quot;Kylian&quot;    &quot;Attaquant&quot; 179 78
+&quot;Griezmann&quot; &quot;Antoine&quot;   &quot;Attaquant&quot; 173 73
+&quot;Giroud&quot;    &quot;Oliver&quot;    &quot;Attaquant&quot; 192 92
+</code></pre></div>
+
+On ajoute des guillemets autour des valeurs de type chaîne de caractères, car certaines d'entre elles pourraient contenir des sauts à la ligne (`\n`) ou des tabulation (`\ t`) qu'on ne voudrait pas confondre avec ceux structurant le fichier.
+
+### Fichier CSV -->
+
+<p>Les tables sont fréquemment enregistrées dans des fichiers au format <code>.csv</code> (<em>comma separated values</em>). C'est un simple fichier texte où :</p>
+<ul>
+<li>
+<p>La première ligne définit les champs.</p>
+</li>
+<li>
+<p>Chaque ligne correspond à un enregistrement.</p>
+</li>
+<li>
+<p>Les champs et les valeurs sont séparés par un <em>délimiteur</em>, généralement par une <strong>virgule</strong>.</p>
+</li>
+<li>
+<p>Les guillemets <code>"</code> peuvent être utilisés pour délimiter le contenu d'une châine de caractères.</p>
+</li>
+</ul>
+<p>Par exemple, le début de la table précédente s'écrirait comme :</p>
+<div class="highlight"><pre><span></span><code>Nom,Prénom,Poste,Taille,Poids
+Mbappé,Kylian,Attaquant,179,78
+Griezmann,Antoine,Attaquant,173,73
+Giroud,Oliver,Attaquant,192,92
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Un autre exemple de délimiteur</p>
+<ul>
+<li>
+<p>Télécharger  <a href="../pokedex.csv">ce fichier .csv</a> et l'ouvrir avec LibreOffice Calc. Observer l'importance de préciser les délimiteurs.</p>
+</li>
+<li>
+<p>L'ouvrir ensuite avec un éditeur de texte (notepad++) pour observer sa construction.</p>
+</li>
+</ul>
+</div>
+<h3 id="charger-un-fichier-csv-avec-python">Charger un fichier CSV avec Python</h3>
+<h4 id="from-scratch">From scratch</h4>
+<p>Ouvrir un fichier en Python se fait grâce à la fonction <code class="highlight"><span class="nb">open</span></code>. La méthode <code class="highlight"><span class="o">.</span><span class="n">readlines</span></code> permet ensuite de récupérer l'ensemble des lignes dans une liste.</p>
+<p><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pokedex.csv&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lignes</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lignes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">&#39;No;Nom;Type;PV;Attaque;Défense;Vitesse;ASpé;DSpé;Talent;Nom US;code&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lignes</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="s1">&#39;6;Dracaufeu;feu,vol;78;84;78;100;109;85;Brasier,Force Soleil;Charizard;63266</span><span class="se">\n</span><span class="s1">&#39;</span>
+</code></pre></div>
+Il va falloir un peu travailler ces chaînes de caractères pour parvenir à des tuples/tuples nommés. La méthode <code>.split</code> appliquée à une chaîne de caractère permet de la 
+scinder suivant un délimiteur donné en paramètre.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;oui bonjour ça va&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;bonjour&#39;</span><span class="p">,</span> <span class="s1">&#39;ça&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">chaine</span> <span class="o">=</span> <span class="s2">&quot;Un peu, trop, de virgules, non?&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">chaine</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;Un peu&#39;</span><span class="p">,</span> <span class="s1">&#39; trop&#39;</span><span class="p">,</span> <span class="s1">&#39; de virgules&#39;</span><span class="p">,</span> <span class="s1">&#39; non?&#39;</span><span class="p">]</span>
+</code></pre></div>
+<p>La méthode <code>.strip</code> appliquée à une chaîne de caractère en renvoie une nouvelle sans les espaces, les tabulations et les retours à la ligne aux extremités.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">chaine</span> <span class="o">=</span> <span class="s2">&quot;    oui   bonjour    </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">chaine</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="s1">&#39;oui   bonjour&#39;</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Récupérer les champs</p>
+<ul>
+<li>
+<p>Dans un nouveau script Python, copier le code suivant :
+<div class="highlight"><pre><span></span><code><span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pokedex.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="c1"># &#39;r&#39; pour lecture seule</span>
+<span class="n">lignes</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">lignes</span> <span class="o">=</span> <span class="c1"># à compléter</span>
+<span class="n">champs</span> <span class="o">=</span> <span class="c1"># à compléter</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Ecrire le code pour supprimer le retour à la ligne <code>\n</code> à la fin de chaque ligne de la liste <code>lignes</code>. On générera une liste en compréhension.</p>
+</li>
+<li>
+<p>Ecrire la code pour récupérer les champs (les clés de notre futur dictionnaire) sous la forme d'une liste de chaînes de caractères.  </p>
+</li>
+</ul>
+</div>
+<p>Transformer un enregistrement en un p-uplet est plus subtil car il nécessaire de convertir certaines valeurs.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lignes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="s1">&#39;1;Bulbizarre;plante,poison;45;49;49;45;65;65;Engrais,Chlorophylle;Bulbasaur;77140&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lignes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulbizarre&#39;</span><span class="p">,</span> <span class="s1">&#39;plante,poison&#39;</span><span class="p">,</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;49&#39;</span><span class="p">,</span> <span class="s1">&#39;49&#39;</span><span class="p">,</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;Engrais,Chlorophylle&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulbasaur&#39;</span><span class="p">,</span> <span class="s1">&#39;77140&#39;</span><span class="p">]</span>
+</code></pre></div>
+<p>On peut manuellement convertir certaines valeurs dans son bon type :</p>
+<div class="highlight"><pre><span></span><code><span class="n">vals</span> <span class="o">=</span> <span class="n">lignes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">enregistrement</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vals</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">6</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">7</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">8</span><span class="p">]),</span> <span class="n">vals</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">vals</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">11</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">)</span>
+</code></pre></div>
+<p>Le code affiche :</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Bulbizarre&#39;</span><span class="p">,</span> <span class="s1">&#39;plante,poison&#39;</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="s1">&#39;Engrais,Chlorophylle&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulbasaur&#39;</span><span class="p">,</span> <span class="mi">77140</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Récupérer les enregistrements</p>
+<ul>
+<li>
+<p>Adapter ce code pour transformer tous les enregistrements de table en p-uplet.</p>
+</li>
+<li>
+<p>Finalement, à partir des champs et des enregistrements, construire la liste des dictionnaires représentant la table.</p>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Une conversion un peu plus propre</p>
+<p>Il peut être assez déconcertant de manipuler des fonctions comme des valeurs :</p>
+<div class="highlight"><pre><span></span><code><span class="n">valeurs</span> <span class="o">=</span> <span class="n">lignes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+<span class="n">enregistrement</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">types</span><span class="p">,</span> <span class="n">valeurs</span><span class="p">)]</span>
+</code></pre></div>
+<p>Pour rappel, la fonction <code class="highlight"><span class="nb">zip</span></code> permet d'itérer sur deux itérables en même temps.</p>
+</div>
+<p>Evidemment ce code ne fonctionnera que pour le fichier csv fourni. Pour plus de généricité, une piste serait de détecter automatiquement le type des valeurs.</p>
+<h4 id="grace-a-la-bibliotheque-csv">Grâce à la bibliothèque <code>csv</code></h4>
+<p>La bibliothèque <code>csv</code> permet de lire et d'écrire des fichiers csv rapidement. Par exemple, la fonction <code>DictReader</code> remplace tout notre code précédent :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pokedex.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="c1"># table est de type &#39;csv.DictReader&#39;, on la convertit ici en une liste de dictionnaires</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">fichier</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># fermeture du fichier</span>
+</code></pre></div>
+<p>Le code affiche :</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;Nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Bulbizarre&#39;</span><span class="p">,</span> <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;plante,poison&#39;</span><span class="p">,</span> <span class="s1">&#39;PV&#39;</span><span class="p">:</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;Attaque&#39;</span><span class="p">:</span> <span class="s1">&#39;49&#39;</span><span class="p">,</span> <span class="s1">&#39;Défense&#39;</span><span class="p">:</span> <span class="s1">&#39;49&#39;</span><span class="p">,</span> <span class="s1">&#39;Vitesse&#39;</span><span class="p">:</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;ASpé&#39;</span><span class="p">:</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;DSpé&#39;</span><span class="p">:</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;Talent&#39;</span><span class="p">:</span> <span class="s1">&#39;Engrais,Chlorophylle&#39;</span><span class="p">,</span> <span class="s1">&#39;Nom US&#39;</span><span class="p">:</span> <span class="s1">&#39;Bulbasaur&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;77140&#39;</span><span class="p">}</span>
+</code></pre></div>
+<p>La conversion des valeurs ne se fait hélas pas automatiquement. </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

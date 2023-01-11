@@ -66,13 +66,13 @@ Ces deux tables partagent le même champ "Nom", on peut donc les fusionner sur c
     ```python
     def fusion(table1: list, table2: list, champ: str) -> list:
         nouvelle_table = ...
-        for ligne1 in table1:
-            for ligne2 in table2:
+        for e1 in table1: # e pour enregistrement
+            for e2 in table2:
                 if ...:
-                    ligne = dict(ligne1)
-                    for cle in ...:
-                        ...
-                            ligne[cle] = ...
+                    e = dict(e1)
+                    for champ in ...:
+                        if ...:
+                            e[champ] = ...
                     nouvelle_table.append(...)
         return ...
     ```

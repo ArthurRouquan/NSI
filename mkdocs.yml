@@ -14,6 +14,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+  features:
+    - content.code.annotate
+
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -31,6 +34,13 @@ markdown_extensions:
       generic: true
   - md_in_html
   - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.critic
+
+extra_css:
+  - stylesheets/extra.css
 
 extra_javascript:
   - javascripts/mathjax.js

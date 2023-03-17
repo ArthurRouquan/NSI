@@ -1,6 +1,6 @@
 # TP Pokédex
 
-Dans tout ce TP, on manipulera la table contenue dans [ce fichier](../pokedex.csv). 
+Dans tout ce TP, on manipulera la table contenue dans [ce fichier](pokedex.csv). 
 
 1. Commencez par ouvrir le fichier avec l'éditeur de texte. Contrôlez le délimiteur utilisé.
 2. Importez les données dans une table.
@@ -12,7 +12,7 @@ Dans tout ce TP, on manipulera la table contenue dans [ce fichier](../pokedex.cs
 5. Combien de pokemons ont une `'Attaque'` supérieure ou égale à 50?
 6. À partir de la table initiale, créez une nouvelle table qui ne contient que les pokemons de type `'Plante'`.
 7. Créez une nouvelle table triée sur le champ `'PV'` par ordre décroissant.
-8. [Voici une table](../coordonnees_communes.csv){:target="_blank"} des coordonnées géographiques des communes françaises. Créez une nouvelle table en fusionnant les deux tables sur le champ `'code'`.
+8. [Voici une table](coordonnees_communes.csv){:target="_blank"} des coordonnées géographiques des communes françaises. Créez une nouvelle table en fusionnant les deux tables sur le champ `'code'`.
 9. Créez une carte avec folium pour localiser les pokémons !
 
 !!! info "Créer une carte avec le module `folium`"

@@ -20,6 +20,9 @@ theme:
   features:
     - content.code.copy
     - content.code.annotate
+  icon:
+    logo: fontawesome/solid/code
+  favicon: assets/laptop-code.svg
 
 
 markdown_extensions:

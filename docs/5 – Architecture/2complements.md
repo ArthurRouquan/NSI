@@ -92,8 +92,12 @@ La **loi de Moore** est une observation empirique formulée par Gordon Moore en 
     
 * En 2023, l'Intel Core i9-12900K cadencé à 5.2 GHz contient 3 milliards de transistors de 7 nm.
 
-![](images/moore-dark.png#only-dark)
-![](images/moore-light.png#only-light)
+<figure markdown>
+  ![](images/moore-dark.png#only-dark)
+  ![](images/moore-light.png#only-light)
+  <figcaption>Chaque point représente ici un processeur entre 2000 et 2023.</figcaption>
+</figure>
+
 
 Hélas, l'augmentation de la fréquence devenant techniquement de plus en plus difficile (problème de surchauffe) et la miniaturisation des transistors se heurtant à la physique quantique, une nouvelle idée permet de poursuivre la loi de Moore, celle d'ajouter plusieurs processeurs au sein d'une même machine.
 
@@ -103,8 +107,10 @@ Une **architecture monoprocesseur** est une architecture ne comprenant qu'un seu
 
 Les processeurs d'aujourd'hui ont plusieurs unités de traitement appelées **cœurs**, chacune avec ses propres registres, unité arithmétique et logique, unité de commande et une mémoire cache (L1). Bien que ces cœurs partagent aussi certaines mémoires caches (L2, L3), ils peuvent exécuter des instructions indépendamment les uns des autres, permettant de traiter plusieurs instructions simultanément. Un processeur multicœur est donc une forme d'architecture multiprocesseur qui utilise plusieurs unités de traitement sur une seule puce, tandis que les architectures multiprocesseur traditionnelles utilisent plusieurs processeurs physiques distincts.
 
-![](images/cpudie.jpg)
-
+<figure markdown>
+  ![](images/cpudie.jpg)
+  <figcaption>Zoom sur une puce d'un processeur.</figcaption>
+</figure>
 
 L'ajout de processeurs ou de cœurs ne garantit pas automatiquement de meilleures performances. Les programmes qui ne sont pas conçues pour ces architectures ne bénéficieront que peu, voire pas du tout, d'une augmentation du nombre de cœurs. En effet, les cœurs doivent partager l'accès à la mémoire vive et à la mémoire cache, ce qui peut entraîner des ralentissements. La programmation parallèle et la programmation concurrente sont deux approches de programmation qui permettent de tirer parti de toutes les ressources de calculs de telles architectures.
 

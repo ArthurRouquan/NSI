@@ -2,5 +2,16 @@
     "cSpell.words": [
         "fontawesome",
         "octicons"
-    ]
+    ],
+    "insert-unicode.favorites": {
+        "directories": {},
+        "items": [
+            [
+                171,
+                32,
+                32,
+                187
+            ]
+        ]
+    }
 }

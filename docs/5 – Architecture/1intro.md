@@ -33,14 +33,13 @@ La mémoire est un simple tableau découpé en octets dont les indices sont appe
 ![Schéma résumé](images/memory_dark.png#only-dark){ align=center}
 
 ??? note "La taille des adresses"
-    Une machine est dite 32 bits si une adresse s'écrit sur 32 bits. On peut donc adresser $2^{32}$ valeurs (octets). La taille maximale d'une telle mémoire est donc de $8 \cdot 2^{32}$ octets, soit 4 Gio.
+    Une machine est dite 32 bits si une adresse s'écrit sur 32 bits. On peut donc adresser $2^{32}$ valeurs (octets). La taille maximale d'une telle mémoire est donc de $2^{32}$ octets, soit $8 \cdot 2^{32}$ bits, soit 4 Gio.
 
     Aujourd'hui les machines sont généralement 64 bits. Quelle serait la taille maximale d'une telle mémoire ?
 
     Les adresses d'une GameBoy sont codées sur 16 bits. Quelle serait la taille maximale d'une telle mémoire ?
 
 Les données sont transférées entre la processeur et la mémoire via un **bus**.
-
 
 ## Le processeur :fontawesome-solid-microchip:
  

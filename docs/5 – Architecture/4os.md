@@ -1,4 +1,8 @@
-# Systèmes d'exploitation
+---
+icon: material/linux
+---
+
+# Les systèmes d'exploitation
 
 ## Définition :material-linux: :material-microsoft-windows: :material-apple: 
 

@@ -45,6 +45,8 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.critic
+  - pymdownx.keys
+
 
 extra_css:
   - stylesheets/extra.css

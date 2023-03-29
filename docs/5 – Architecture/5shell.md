@@ -255,7 +255,7 @@ Par exemple,
 chmod g+w bulletin.txt
 ```
 
-attribuera la permission de modifier le fichier au groupe aosscié au fichier `bulletin.txt`
+attribuera la permission de modifier le fichier au groupe associé au fichier `bulletin.txt`
 
 ??? question "Questions 7"
     Dans le document réponse, veuillez bien inscrire les différentes commandes que vous avez utilisées pour répondre aux questions.

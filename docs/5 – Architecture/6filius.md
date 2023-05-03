@@ -85,7 +85,7 @@ Elle envoie simplement un message à **tout le monde** sur le réseau local pour
 
     8. **Réception par Alice** : Alice reçoit le message de Charlie et note son adresse MAC dans sa table ARP.
 
-!!! info "En vidéo"
+??? info "En vidéo"
     N'hésitez pas à faire pause à chaque étape :
 
     <div class="video-wrap">

@@ -90,11 +90,11 @@ Elle envoie simplement un message à **tout le monde** sur le réseau local pour
 
     <div class="video-wrap">
     <div class="video-container">
-        <iframe src="https://peertube.lyceeconnecte.fr/videos/embed/d073c76d-b2ad-4bb9-8e74-90179cf14623"></iframe>
+        <iframe src="https://peertube.lyceeconnecte.fr/videos/embed/d073c76d-b2ad-4bb9-8e74-90179cf14623" frameborder="0" allowfullscreen="1"></iframe>
     </div>
     </div>
 
-
+<!-- <iframe title="Découverte du réseau local par une machine" width="560" height="315" src="https://peertube.lyceeconnecte.fr/videos/embed/d073c76d-b2ad-4bb9-8e74-90179cf14623" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe> -->
 
 ??? question "Questions 3"
 

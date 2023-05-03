@@ -88,7 +88,7 @@ Elle envoie simplement un message à **tout le monde** sur le réseau local pour
 ??? info "En vidéo"
     N'hésitez pas à faire pause à chaque étape :
 
-    ![type:video](./images/explication.mp4)
+    ![type:video](https://www.youtube.com/embed/E147PCsKwbs)
 
 ??? question "Questions 3"
 

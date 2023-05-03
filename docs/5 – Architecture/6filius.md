@@ -85,10 +85,16 @@ Elle envoie simplement un message à **tout le monde** sur le réseau local pour
 
     8. **Réception par Alice** : Alice reçoit le message de Charlie et note son adresse MAC dans sa table ARP.
 
-??? info "En vidéo"
+!!! info "En vidéo"
     N'hésitez pas à faire pause à chaque étape :
 
-    ![type:video](https://www.youtube.com/embed/E147PCsKwbs)
+    <div class="video-wrap">
+    <div class="video-container">
+        <iframe src="https://peertube.lyceeconnecte.fr/videos/embed/d073c76d-b2ad-4bb9-8e74-90179cf14623"></iframe>
+    </div>
+    </div>
+
+
 
 ??? question "Questions 3"
 

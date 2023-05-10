@@ -115,7 +115,10 @@ Elle envoie simplement un message à **tout le monde** sur le réseau local pour
     8. Que se passe-t-il si Alice envoie un ping à l'adresse IP `192.168.0.4` dans la simulation (remettre la vitesse de simulation à 100%) ? 
 
 
-## Sous-réseaux
+## :fontawesome-solid-network-wired: Sous-réseaux
+
+!!! success "Objectif"
+    L'objectif de cette partie est de comprendre comment la notion de **sous-réseaux** : la division d'un réseau en plusieurs sous-groupes.
 
 ### Une introduction
 
@@ -210,5 +213,113 @@ Comme vous pouvez le constater, les bits à `0` **masque** la partie inférieure
 
     </center>
 
-### Le routeur
+## :material-router: Le routeur
 
+!!! success "Objectif"
+    L'objectif de cette partie est de comprendre comment le **routeur** interconnecte deux sous-réseaux en routant les paquets.
+
+!!! idea "Fichier Filius"
+    Si vous n'avez pas sauvegardé votre réseau, [téléchargez ce fichier](images/start_routeur.fls).
+
+Comment faire pour que le sous-réseau « France » communique avec le sous-réseau « Ukraine » ? Comment interconnecter les deux sous-réseaux conçus précédemment ? Grâce à un équipement de la couche 3 (couche réseau), le **routeur**. Ce dispositif, parfois appelé **passerelle**, est équipé de deux cartes réseaux (chacune ayant une adresse physique MAC et une adresse logique IP) ou plus.
+
+<figure markdown>
+![](images/sousréseau_routeur.png){ width=600 }
+</figure>
+
+1. En mode conception :fontawesome-solid-hammer:, **ajouter un routeur** à deux interfaces et le relier aux deux switchs. Si vous ne l'avez pas déjà fait, supprimer le câble entre les deux switchs.
+
+    > Pourquoi deux interfaces ? Il faut bien une carte réseau par sous-réseau !
+
+2. **Configurer le routeur** :
+    * Son interface reliée au « SwitchFrance » doit appartenir au sous-réseau « France ». Donc on doit configurer son adresse IP sous la forme `192.168.0.XXX` (on conserve le masque par défaut `255.255.255.0`).
+    
+    > Généralement, on donne une adresse finissant par `254` (`255` étant réservé pour effectuer un ping l'intégralité d'un sous-réseau).
+  
+    * Faire de même pour la deuxième interface du routeur.
+
+    * Sélectionner « Routage automatique » dans l'onglet « Général ».
+
+    <figure markdown>
+    ![](images/routeursettings.png){ width=500 }
+    </figure>
+
+3. En mode simulation :fontawesome-solid-play: , tester un `ping` depuis la machine `192.168.0.1` (Alice) vers `192.168.1.1` (Anastasia). Que se passe-t-il ?
+
+
+    > La carte réseau d'Alice ne sait pas où envoyer les paquets car l'adresse IP d'Anastasia ne fait pas parti de son sous-réseau. Alice ne sait pas non plus qu'il existe un routeur (passerelle) dans son sous-réseau.
+
+4. En mode configuration :fontawesome-solid-hammer:, cliquer sur la machine d'Alice et lui **renseigner la passerelle** de son sous-réseau. Retenter le ping.
+   
+    > Le ping se termine en `timeout` ? Il ne faut pas oublier qu'un *ping* renvoie un écho *pong*... 
+
+5. Une fois qu'Alice et Anastasia peuvent communiquer, effectuer un `traceroute` pour afficher le nombre de sauts nécessaires.
+
+
+??? question "Questions 7"
+    Exécuter l'invite de commandes de Windows : ++win+r++ puis `cmd` puis ++enter++.
+
+    1. Grâce à la commande `ipconfig /all`, donner l'adresse IP et MAC de la carte réseau du PC.
+
+    2. Donner aussi l'adresse IP de la passerelle par défaut.
+
+    3. Afficher aussi la table ARP grâce à la commande `arp -a`. Quelle est l'adresse MAC de la passerelle ?
+
+    4. `traceroute` devient `tracert` sous Windows. L'adresse IP du serveur Web [www.lyceecivray.net](www.lyceecivray.net) est `188.130.25.202`. Combien faut-il de sauts pour y parvenir depuis votre poste ?
+
+
+## :material-web: Un serveur Web
+
+!!! success "Objectif"
+    Après avoir étudié les trois premières couches du modèle OSI (à savoir, la couche physique, la couche liaison de données et la couche réseau), nous allons maintenant nous concentrer sur la couche 4 (transport), où se trouve le protocole TCP, ainsi que sur les couches 5 et supérieures (application), où réside le protocole HTTP.
+
+!!! idea "Fichier Filius"
+    Si vous n'avez pas sauvegardé votre réseau, [téléchargez ce fichier](images/start_webserver.fls).
+
+> Si envoyer des pings sur le réseau est intéressant, envoyer de réelles données sur le réseau l'est encore plus !
+
+Maintenant que nous avons relié deux machines situées dans deux sous-réseaux différents, nous obtenons un modèle réduit d'Internet. On peut désormais simuler le service Web avec échange client/serveur.
+
+1. En mode configuration :fontawesome-solid-hammer:, connecter un ordinateur au « SwitchUkraine », il s'agira de notre serveur Web. Configurer correctement la machine :
+   
+    * Lui donner une adresse IP du sous-réseau (`192.168.1.10` par exemple).
+  
+    * Ne pas oublier de lui renseigner la passerelle.
+
+2. En mode simulation :fontawesome-solid-play:, installer un serveur Web sur cette nouvelle machine et le démarrer.
+    
+    > Par défaut, Filius génère une page HTML `index.html`. En installant un éditeur de texte, vous pouvez modifier cette page web.
+
+3. Installer un navigateur Web sur la machine d'Alice `192.168.0.1`. Dans la barre d'adresse, y inscrire l'adresse IP du serveur. Une page devrait s'afficher.
+
+    > Que s'est-il passé ? Le navigateur web d'Alice a généré une requête HTTP (de type `GET`) qu'elle envoie au serveur Web. Le serveur reçoit la requête et renvoie le fichier `index.html` au navigateur Web d'Alice qui l'affiche.
+
+4. Pour avoir le détail des échanges de données entre les deux machines, faites clique-droit sur la machine d'Alice `192.168.0.1` et « Afficher les échanges de données ».
+
+<figure markdown>
+![](images/httprequest.png){ width=500 }
+</figure>
+
+??? question "Questions 8"
+
+    Trouver la requête HTTP `GET` qu'Alice a envoyée au serveur. Dans le détail de cette requête, on peut identifier les quatre couches Réseau, Internet, Transport et Application qui constituent les différents en-têtes.
+
+    1. A quel dispositif correspond l'adresse IP de destination du paquet envoyée par Alice ? 
+
+    1. A quel dispositif correspond l'adresse MAC de destination de la trame envoyée par Alice ?
+
+    2. Que fait le routeur lorsqu'il reçoit la trame contenant la requête d'Alice au niveau des adresses MAC ?
+
+        > On remarque en bleu clair des échanges qui suivent tous les échanges HTTP (bleu foncé), en regardant de plus près on s'aperçoit qu'il s'agit d'un simple segment TCP avec le commentaire `ACK`. Il ne contient pas de données.
+
+    3. Juste après la requête GET d'Alice, quelle machine émet le segment `ACK` ? Qui la reçoit ? 
+
+    4. De même après la réponse du serveur contenant les données de la page `index.html`, quelle machine émet le segment `ACK` ? Qui la reçoit ? 
+
+    5.  D’après vos connaissances sur le protocole TCP, quel rôle peut bien jouer ce segment ?
+
+    6.  TCP a aussi le rôle d'initialiser et terminer la connexion entre Alice et le serveur Web. Repérer les trames TCP marquant le début et la fin de connexion. Compléter le diagramme suivant (sur Paint par exemple) :
+
+    <figure markdown>
+    ![](images/tcp.png){ width=500 }
+    </figure>

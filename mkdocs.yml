@@ -47,7 +47,6 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.keys
 
-
 extra_css:
   - stylesheets/extra.css
 

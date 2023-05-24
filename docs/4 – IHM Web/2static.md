@@ -109,7 +109,7 @@ Voici une page web complète et minimale :
 
 Soyons honnête, le site web crée précédemment est objectivement laid. Le langage CSS (*Cascading Style Sheets*, feuilles de style en cascade) permet de **mettre en forme**, styliser, une page web comme changer la fonte de caractères ou la couleur d'un titre, centrer une image, agencer différents éléments sous la forme d'une grille etc.
 
-On peut incorporer du CSS directement dans le fichier HTML en spécifiant l'attribut `style` :
+On peut par exemple incorporer du CSS directement dans le fichier HTML en spécifiant l'attribut `style` :
 
 ```html
 <h1 style="color: red;">Ma magnifique page web 🌈</h1>
@@ -118,26 +118,97 @@ On peut incorporer du CSS directement dans le fichier HTML en spécifiant l'attr
 </p>
 ```
 
-Toutefois, ceci est une **mauvaise pratique**, il est préférable de spécifier le style d'une page web dans un fichier CSS séparé du code HTML. Imaginez devoir spécifier le style de chaque élément de l'ensemble des pages web d'un site... et un jour devoir changer la couleur des titres 🙀
+Toutefois, ceci est une **mauvaise pratique**, il est préférable de spécifier le style d'une page web dans un fichier CSS séparé du code HTML. Ainsi plusieurs documents HTML peuvent partager le même style ! Toute modification ultérieure du style sera ainsi plus aisée.
 
-### Lié un style CSS à un code HTML
+### Appliquer un style CSS
+
+#### Un premier exemple
 
 Dans un fichier nommé `mon_style.css` :
 
 ```css title="mon_style.css"
-body
+body 
 {
-    font-family: sans-serif;
+    font-family: sans-serif; /* (1)! */
 }
 
-h1
+h1 /*(2)!*/
 {
     color: red;
 }
 ```
 
-Ce fichier CSS peut être ensuite spécifié dans le code HTML au sein de la balise `#!html <head>` :
+1. Change la police d'écriture de l'ensemble du document HTML `<body>`.
+
+2. Applique un style particulier à tous les éléments `<h1>`.
+
+
+Ce fichier CSS peut être ensuite appliqué au document HTML au sein de l'élément `#!html <head>` :
 
 ```html
-<link href="mon_style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="style.css"/>
 ```
+
+!!! question "Question"
+    Qu'ajouter au fichier CSS pour que tous les paragraphes soient bleus ?
+
+
+#### Anatomie d'une règle CSS
+
+![](rsc/img/css.png)
+
+#### Propriétés
+
+On peut modifier plusieurs propriétés d'un coup :
+
+```css
+p {
+    color: red;
+    width: 500px;
+    border: 1px solid black;
+}
+```
+
+Comment centrer une page ? Comment mettre la police en gras ? Comment changer la couleur d'un lien quand le curseur le survole ? Le Web et ChatGPT seront vos plus précieux alliés pour mettre en forme votre page. Et comme pour tous langages, il existe aussi de nombreux [cheatsheets](https://raw.githubusercontent.com/iLoveCodingOrg/css-cheatsheet/master/css-cheatsheet.gif) pour le CSS.
+
+#### Sélecteurs
+
+Il existe de nombreuses manières de sélectionner des éléments spécifiques de la page pour modifier leur apparence. Grâce à des attributs :  
+
+=== "Sélection par ID"
+    Un élément HTML peut se voir attribuer un **identifiant** (id) :
+
+    ```html title="HTML"
+    <p id="rage">JE SUIS TRÈS ÉNERVÉ</p>
+    ```
+
+    ```css title="CSS"
+    #rage {
+        font-size: 36px;
+        text-align: center;
+        color: red;
+    }
+    ```
+
+    Un identifiant doit être spécifique à un unique élément !
+
+=== "Sélection par Classe"
+    De manière plus générale, plusieurs éléments HTML peuvent se voir attribuer une classe : 
+
+    ```html title="HTML"
+    <p class="rome">Senatus populusque romanus</p>
+    ```
+
+    ```css title="CSS"
+    .rome {
+        font-family: 'Courier New';
+        font-weight: bold;
+        text-transform: uppercase;
+        border: 3px solid black;
+    }
+    ```
+
+    Cette méthode est très utilisée en combinaison avec les éléments HTML `#!html <div>` et `#!html <span>` qui agissent comme des conteneurs universels. 
+
+!!! question "Question"
+    Écrire un style CSS pour votre page web.

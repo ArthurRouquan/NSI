@@ -1,8 +1,6 @@
 # Accueil
 
-Cours, exercices et autres ressources pour mes élèves de 1ère en spécialité NSI au lycée André Theuriet à Civray.
-
-
+Cours, exercices et autres ressources pour mes élèves de 1ère en spécialité NSI au lycée Émile Combes à Pons.
 
 !!! quote "Edsger W. Dijkstra "
     Computer Science is no more about computers than astronomy is about telescopes.

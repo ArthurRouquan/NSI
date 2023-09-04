@@ -1,152 +1,159 @@
 # Représentation des entiers
 
-## Introduction
+## La notation positionnelle
 
-Un ordinateur ne manipule que des 0 et des 1. Que cela soit un nombre, du texte, une image, une vidéo etc. toutes ces données sont représentées par les systèmes informatiques comme des suites de 0 et de 1. 
+La **notation positionnelle** est un système d'écriture des nombres. Cette manière de représenter efficacement les nombres existe depuis le IIIe millénaire avant notre ère chez les babyloniens. Elle repose sur l'utilisation d'un nombre limité de symboles graphiques appelés **chiffres**. La **base** désigne le nombre de chiffres utilisés.
 
-## La base de la base
+??? example "La base décimale"
+    Par exemple, on écrit couramment les nombres en utilisant dix chiffres : 0, 1, 2, 3, 4, 5, 6, 7, 8, et 9. On utilise donc la base 10 aussi appelée base décimale.
 
-La sédentarisation fut un bouleversement profond de nos sociétés. Il fallait maintenant par exemple gérer des stocks et des flux de nourriture et répartir des superficies aux agriculteurs. D'où la nécessité de compter les grains, les hommes, les bêtes et la superficie des champs, c'est la naissance des nombres et des mathématiques.
 
-Qu'est-ce qu'un nombre finalement ? Si cette question pourrait nous emmener dans les tréfonds de la théorie des ensembles en mathématiques, il est plutôt usuel de définir un nombre comme **une valeur arithmétique représentant une certaine quantité**. Il ne faut pas confondre un nombre (sa véritable valeur) et sa représentation (comment on l'écrit symboliquement) ! 
+??? example "Un autre example de base"
+    La base 16 appelée base hexadécimale utilise seize chiffres : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E et F. Il est courant d'utiliser les lettres de l'alphabet latin comme symboles graphiques pour représenter les chiffres après 9. 
 
-![](./images/batons1.png)
 
-Une première représentation d'un nombre naturel serait d'aligner bêtement des traits. Hélas, cela devient vite fastidieux pour l'écriture de grands nombres. Deux idées : former des paquets et définir des symboles, les **chiffres**, pour compter les unités. Regroupons nos bâtons en paquet de 10 :
+??? note "« Les chiffres disent que... »"
+    Dans le langage courant, les termes *chiffres* et *nombres* sont utilisés de manière interchangeable. Or, un nombre est composé de chiffres ! A noter que « 2 » par exemple peut désigner soit le chiffre ou soit le nombre…
 
-![](./images/batons2.png)
 
-$$
-(25)_{10} = 2 \times 10 + 5
-$$
+Dans cette notation, un nombre est écrit comme une séquence ordonnée de chiffres. Chaque chiffre contribue à la valeur totale en fonction de sa **position**. Cette contribution est obtenue en multipliant le chiffre par la puissance appropriée de la base.
 
-<!-- 
-!!! note
-    La position de chaque chiffre dans l'écriture du nombre correspond à la puissance de 10 par laquelle on le multiplie. -->
+!!! example "Un exemple en base décimale"
+    Chacun des chiffres du nombre 256, écrit en base décimale, ont une contribution différente :
+    
+    $$
+    \begin{align}
+    \textcolor{#71d4e2}{256} &= 200 + 50 + 6 \\
+    &= 2 \times 100 + 5 \times 10 + 6 \times 1 \\
+    &= \textcolor{#71d4e2}{2} \times \textcolor{#ff6188}{10}^\textcolor{#A5D6A7}{2}  +  \textcolor{#71d4e2}{5}\times \textcolor{#ff6188}{10}^\textcolor{#A5D6A7}{1}  + \textcolor{#71d4e2}{6} \times \textcolor{#ff6188}{10}^\textcolor{#A5D6A7}{0} 
+    \end{align}
+    $$
 
-Puis le raisonnement se poursuit, si le nombre de paquets est trop grand, on regroupe les paquets par paquets de 10, ce sont les centaines. Et on poursuit ce raisonnement pour les millers, les dizaines de milliers etc.
+    Cette dernière ligne met en évidence la base utilisée. **Code couleur : <font color=#71d4e2>Chiffre</font>, <font color=#ff6188>Base</font>, <font color=#A5D6A7>Position</font>.**
 
-<!-- Ainsi, on représente aujourd'hui un nombre par une **suite** de symboles, les **chiffres**.  -->
+!!! example "Un exemple en base octal"
+    La base 8, appelée base octale, comporte seulement 8 chiffres : 0, 1, 2, 3, 4, 5, 6 et 7. Si l'on écrit le nombre $(256)_8$ dans cette base (indiquée en indice), alors par définition :
+    
+    $$
+    (\textcolor{#71d4e2}{256})_\textcolor{#ff6188}{8} = \textcolor{#71d4e2}{2} \times \textcolor{#ff6188}{8}^\textcolor{#A5D6A7}{2}  +  \textcolor{#71d4e2}{5}\times \textcolor{#ff6188}{8}^\textcolor{#A5D6A7}{1}  + \textcolor{#71d4e2}{6} \times \textcolor{#ff6188}{8}^\textcolor{#A5D6A7}{0}
+    $$
 
-Le nombre de chiffres utilisé définit la **base** utilisé, c'est aussi choisir la « taille » du paquet. La **base décimale**, la base 10, utilise 10 chiffres : 0, 1, 2, 3, ..., 9. Suivant la notation d'agrégation de ces symboles (la **numération positionnelle**), il s'en suit cette **décomposition** : 
+    Une fois le nombre décomposé, nous pouvons effectuer les calculs dans la base décimale usuelle :
 
-$$
-(275)_{10} = 2 \times 100 + 7 \times 10 + 5 \times 1
-$$
+    $$
+    \begin{align}
+    (256)_8 &= 2 \times 64 + 5 \times 8 + 6 \\
+    &= 128 + 40 + 6 \\
+    &= (174)_{10}
+    \end{align}
+    $$
+    
+    **C'est la méthode usuelle pour convertir un nombre écrit dans une base quelconque vers la base décimale usuelle.**
 
-On préfèra la notation avec des puissances de 10 (la base) :
+??? note "Une prononciation confuse"
+    $(256)_8$ ne se prononce pas « *deux cents cinquante-six* » mais plutôt « *deux cinq six* » puisqu'à l'oral le nombre est décomposé en base décimale (par exemple, « *cents* » fait référence à une puissance de la base décimale).
 
-$$
-(8275)_{10} = 8 \times 10^3 + 2 \times 10^2 + 7 \times 10^1 + 5 \times 10^0
-$$
-
-!!! note "À retenir" 
-    En base décimale, la position de chaque chiffre dans l'écriture du nombre correspond à la puissance de 10 par laquelle on le multiplie.
-
-Mais que se passerait-il s'il on avait un chiffre de moins ? La base 9 !
-
-$$
-(275)_{9} = 2 \times 9^2 + 7 \times 9^1 + 5 \times 9^0 = (230)_{10}
-$$
-
-Plus généralement, un nombre $N$ définit par la séquence de $n$ chiffres $(c_0, c_1, \ldots c_{n-1})$ (on peut définir une séquence infini en posant $c_i = 0$ pour $i \geq n$) dans sa base $B$ se décompose comme :
-$$
-N_B = c_0 \cdot B^0 + c_1 \cdot B^1 + \ldots + c_{n-1} \cdot B^{n-1}
-$$
-Ou dans sa formulation plus compact :
-$$
-N_B = \sum_{i = 0}^{n-1} c_i B^i
-$$
-Un nombre dans la base 2 (la plus petite des bases), la base **binaire**, n'utilise donc que 2 chiffres, 0 et 1, appelés **bit** (pour *binary digit* en anglais), ou booléen, ou encore chiffre binaire. C'est cette base que tout système informatique utilise.
-
-!!! note "À retenir" 
-    Pour passer d'un nombre d'une base quelconque vers la base décimale, on le décompose puis on fait le calcul normalement.
-
-!!! Example "Exercices"
+??? question "Exercice 1"
     Convertir ces nombres en base décimale :
 
-    * $(131)_6$
+    1. $(256)_7$
+    2. $(2222)_8$
+    3. $(2AB)_{16}$
+    4. $(100.12)_4$
+    5. $(30200)_\sqrt{2}$
 
-    * $(420)_5$
+## Compter dans une base différente
 
-    * $(1515)_8$
+Il est important de savoir énumérer les nombres dans une base différente. Si l'on a épuisé tous les chiffres disponibles, on augmente le chiffre du rang suivant :
 
-    * $(716)_4$
+|       Base 10 |           Base 2 |         Base 4 |       Base 16 |
+| ------------: | ---------------: | -------------: | ------------: |
+| $\texttt{ 0}$ |  $\texttt{   0}$ |   $\texttt{0}$ |  $\texttt{0}$ |
+| $\texttt{ 1}$ |  $\texttt{   1}$ |   $\texttt{1}$ |  $\texttt{1}$ |
+| $\texttt{ 2}$ |  $\texttt{  10}$ |   $\texttt{2}$ |  $\texttt{2}$ |
+| $\texttt{ 3}$ |  $\texttt{  11}$ |   $\texttt{3}$ |  $\texttt{3}$ |
+| $\texttt{ 4}$ |  $\texttt{ 100}$ |  $\texttt{10}$ |  $\texttt{4}$ |
+| $\texttt{ 5}$ |  $\texttt{ 101}$ |  $\texttt{11}$ |  $\texttt{5}$ |
+| $\texttt{ 6}$ |  $\texttt{ 110}$ |  $\texttt{12}$ |  $\texttt{6}$ |
+| $\texttt{ 7}$ |  $\texttt{ 111}$ |  $\texttt{13}$ |  $\texttt{7}$ |
+| $\texttt{ 8}$ |  $\texttt{1000}$ |  $\texttt{20}$ |  $\texttt{8}$ |
+| $\texttt{ 9}$ |  $\texttt{1001}$ |  $\texttt{21}$ |  $\texttt{9}$ |
+| $\texttt{10}$ |  $\texttt{1010}$ |  $\texttt{22}$ |  $\texttt{A}$ |
+| $\texttt{11}$ |  $\texttt{1011}$ |  $\texttt{23}$ |  $\texttt{B}$ |
+| $\texttt{12}$ |  $\texttt{1100}$ |  $\texttt{30}$ |  $\texttt{C}$ |
+| $\texttt{13}$ |  $\texttt{1101}$ |  $\texttt{31}$ |  $\texttt{D}$ |
+| $\texttt{14}$ |  $\texttt{1110}$ |  $\texttt{32}$ |  $\texttt{E}$ |
+| $\texttt{15}$ |  $\texttt{1111}$ |  $\texttt{33}$ |  $\texttt{F}$ |
+| $\texttt{16}$ | $\texttt{10000}$ | $\texttt{100}$ | $\texttt{10}$ |
+| $\texttt{17}$ | $\texttt{10001}$ | $\texttt{101}$ | $\texttt{11}$ |
 
-    * $(321)_4$
+Sur cette table, par exemple, on lit directement $(12)_{10} = (1100)_2 = (30)_4 = (C)_{16}$.
 
+??? question "Exercice 2"
+    1. Ajouter à cette table la base ternaire, la base 3.
+    2. Poursuivre l'énumération en base binaire (base 2) à partir de $(10001)_2$ jusqu'à $(11111)_2$.
 
-## La base binaire (base 2)
+??? question "Exercice 3"
+    1. Quelle est la plus petite des bases possibles ?
+    2. Dans quelle base avez-vous «18 » ans ?
+    3. Que vaut $\pi$ dans la base $\pi$ ?
+    4. Quelle est le plus grand nombre entre $(123456789)_{42}$ et $(123456789)_{27}$ ?
+    5. Nous avons vu que si la base utilisée est plus grande que dix alors il est courant d'utiliser les lettres de l'alphabet comme symboles graphiques pour représenter les chiffres après 9. Mais il existe une autre manière de représenter ces « grandes » bases. Laquelle ? Tic tac...
+    6. Lorsqu'on écrit $(256)_8$  — 256 en base octal — dans quelle base est écrit le nombre « $8$ » ? Mettre en évidence une incohérence dans ce système de notation.
+    7. Comment s'écrire huit en base octale ? Et seize en base hexadécimale ? Peut-on dire que toutes les bases sont la base « 10 » ?
 
-### Pourquoi la base binaire en informatique ?
+??? question "Exercice 4"
+    Finalement, pourquoi la notation positionnelle est plus intéressante que la numération égyptienne ou romaine ?
 
-Un système informatique utilise différents phénomènes physiques pour manipuler, transmettre ou mémoriser une information codée en base binaire suivant donc deux états :
+## La base binaire
 
-* Courant électrique : Tension nulle ou tension non nulle.
+!!! note "Une histoire de bits"
+    Un chiffre binaire (0 ou 1), en anglais *binary digit*, est appelé **bit**.
 
-* Aimantation : Aimantation dans un sens ou dans l'autre.
-
-* Lumière : Lumière ou pas de lumière.
-
-* etc.
-
-Cette simplicité a un grand avantage, sa fiabilité. En effet, il est plus facile de distiguer deux valeurs dans des signaux analogiques (une tension électrique par exemple) bruités. De plus, la sobriété de l'arithmétique en binaire (addition, soustraction etc.) permet l'élaboration de circuits électroniques moins complexes. 
-
-!!! info "Anecdote"
-    En 1958, Les soviétiques ont développé un ordinateur ternaire, le Setun, qui s'est avéré plus rapide, plus fiable, plus durable et moins gourmand en énergie. Hélas, ce projet de 7 ans fut considéré comme un caprice d'universitaires et delaissé au profit des systèmes binaires.
-
-### Compter en binaire
-
-| Base 10  | Base 2  | 
-| ---------------: |---------------:|
-| 0  | 0 |
-| 1  | 1 |  
-| 2  | 10  |  
-| 3  | 11 |  
-| 4  | 100 |  
-| 5  | 101 |  
-| 6  | 110 |  
-| 7  | 111 |  
-| 8  | 1000 |  
-| 9  | 1001 |  
-| 10  | 1010 |  
-| 11  | 1011 |  
-| 12  | 1100 |  
-
-* avec 1 bit on peut coder 2 valeurs (0 et 1)
-
-* avec 2 bits on peut coder 4 valeurs (00, 01, 10 et 11)
-
-* avec 3 bits on peut coder 8 valeurs (000, 001, 010, 011, 100, 101, 110, 111)
- 
-* avec $n$ bits on peut coder... $2^n$ valeurs (dont le nombre maximal serait $2^n - 1$)
-
-!!! question
-    Jusqu'à combien peut-on compter avec nos mains en base binaire ?
-
-!!! note "À retenir" 
-    Un regroupement de 8 bits est appelé un **octet** (ou _byte_ en anglais).
-
-### Conversion : Base binaire vers base décimale
-
-Normalement, vous savez déjà le faire !
+### Conversion base 2 :fontawesome-solid-arrow-right: base 10
 
 !!! example "Exemple" 
-    Convertissons $(10110011)_2$ (un octet) en base décimale. On décompose :
+    Convertissons $(10110011)_2$ en base décimale. On décompose :
 
     $$
     \begin{align*}
-    (10110011)_2 &= 1 \times 2^7 + 0 \times 2^6 + 1 \times 2^5 + 1 \times 2^4 + 0 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 \\
-    &= 2^7 + 2^5 + 2^4 + 2^1 + 2^0 \\
+    (\textcolor{#71d4e2}{10110011})_\textcolor{#ff6188}{2} &=
+    \textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{7} +
+    \textcolor{#71d4e2}{0} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{6} +
+    \textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{5} +
+    \textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{4} +
+    \textcolor{#71d4e2}{0} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{3} +
+    \textcolor{#71d4e2}{0} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{2} +
+    \textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{1} +
+    \textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{0} \\
+    &= \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{7} +
+       \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{5} +
+       \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{4} + 
+       \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{1} + 
+       \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{0} \\
     &= 128 + 32 + 16 + 2 + 1 \\
-    &= 179
+    &= (179)_{10}
     \end{align*}
     $$
 
-Finalement, il suffit de retenir sa table de puissance de 2... à savoir, 1, 2, 4, 8, 16, 32, 64, 128 etc. N'hésitez pas à installer le jeu 2048 sur votre téléphone !
+    Finalement, un nombre binaire se décompose comme **une somme de puissances de 2** ! Il est donc courant d'écrire directement la 2ème ou 3ème équation.
 
-!!! Example "Exercice"
-    Convertir du binaire vers le décimal.
+??? question "Exercice 5"
+    Compléter la table des puissances de 2 suivante : 
+
+    | Puissance | Valeur |
+    | :-------: | :----: |
+    |   $2^0$   |  $1$   |
+    |   $2^1$   |        |
+    |   $2^2$   |        |
+    |   $2^3$   |        |
+    |   $2^4$   |        |
+    |   $2^5$   |        |
+    |   $2^6$   |        |
+    |   $2^7$   |        |
+
+??? question "Exercice 6"
+    Convertir les nombres suivants en base décimale :
 
     * $(1010)_2$
 
@@ -156,43 +163,77 @@ Finalement, il suffit de retenir sa table de puissance de 2... à savoir, 1, 2, 
 
     * $(11111111)_2$
 
+### Conversion base 10 :fontawesome-solid-arrow-right: base 2
 
-### Conversion : Base décimale vers base binaire
-
-L'opération inverse est de trouver les chiffres qui vont bien dans la décomposition.
+Comment s'écrit $(181)_{10}$ en base binaire ? L'opération inverse est de trouver les bits qui vont bien dans la décomposition :
 
 $$
-(181)_{10} ~=~ \textcolor{#ff6188}{?} \cdot 2^0 ~+~
-\textcolor{#ff6188}{?} \cdot 2^1 ~+~
-\textcolor{#ff6188}{?} \cdot 2^2 ~+~
-\textcolor{#ff6188}{?} \cdot 2^3 ~+~ \cdots
+(181)_{10} ~=~ \textcolor{#71d4e2}{?} \cdot 2^0 ~+~
+\textcolor{#71d4e2}{?} \cdot 2^1 ~+~
+\textcolor{#71d4e2}{?} \cdot 2^2 ~+~
+\textcolor{#71d4e2}{?} \cdot 2^3 ~+~ \cdots
 $$
 
+Il existe deux méthodes itératives. Une méthode spécifique à la base binaire (la méthode des soustractions successives), et une dernière plus générale qui permet de convertir vers une base quelconque (la méthode des divisions successives).
 
-Là, c'est un peu plus complexe. Il existe deux manières itératives :
 
-* **l'algorithme de soustraction** : on soustrait du nombre la plus grande puissance de 2 possible, et on recommence... plutôt rapide à la main. 
+#### La méthode des soustractions successives
 
-!!! example "Exemple"
+Cette méthode repose sur la remarque suivante : s'il on arrive à exprimer un nombre sous la forme d'**une somme de puissance de 2** alors il est facile de l'écrire en base binaire. Par exemple :
+
+$$
+\begin{align*}
+(179)_{10} &= 128 + 32 + 16 + 2 + 1 \\
+           &= 2^7 + 2^5 + 2^4 + 2^1 + 2^0 \\
+           &= (10110011)_2
+\end{align*}
+$$
+
+!!! tip "Méthode des soustractions successives"
+    On soustrait du nombre la plus grande puissance de 2 possible, et on recommence jusqu'à obtenir 0 :
+    
     $$
     \begin{align*}
-    (181)_{10} &= 128 + 53 \\
-    &= 128 + 32 + 21 \\
-    &= 128 + 32 + 16 + 5 \\
-    &= 128 + 32 + 16 + 4 + 1 \\
+    &181 && \textcolor{#ff6188}{- 128} &&= 53 \\
+    &53  && \textcolor{#ff6188}{- 32 } &&= 21   \\
+    &21  && \textcolor{#ff6188}{- 16 } &&= 5    \\
+    &5   && \textcolor{#ff6188}{- 4  } &&= 1      \\
+    &1   && \textcolor{#ff6188}{- 1  } &&= 0      \\
+    \end{align*}
+    $$
+
+    Finalement :
+
+    $$\begin{align*}
+    (181)_{10} &= \textcolor{#ff6188}{128 + 32 + 16 + 4 + 1} \\
     &= 2^7 + 2^5 + 2^4 + 2^2 + 2^0 \\
     &= (10110101)_2
     \end{align*}
     $$
 
-* **l'algorithme de division** : on effectue les divisions successives du nombre par 2. L'écriture en binaire est donnée par les restes lus de bas en haut.
+    Cette méthode nécessite impérativement de connaître les puissances de 2. Avec un peu de pratique, il est possible de directement écrire la somme des puissances de 2.
 
-![](./images/divisions.png)
+??? question "Exercice 7"
+    Convertir les nombres en base décimal suivant en base binaire :
 
-!!! tip "Astuce"
-    Vous pouvez adapter ces méthodes si vous voulez convertir vers une base quelconque ! 
+    1. 17
+    2. 34
+    3. 68
+    4. 100
+    5. 200
 
-!!! note "C'est magique ?"
+    Que remarquez-vous dans l'écriture binaire quand on passe d'un nombre à son double ?
+
+#### La méthodes des divisions successives 
+
+!!! tip "Méthode des divisions successives"
+
+    On divise le nombre par la base souhaitée, et on recommence jusqu'à obtenir un quotient de 0. L'écriture du nombre dans la base souhaitée est alors donnée par **les restes lus de bas en haut**.
+
+    ![](./images/divisions.png){  width="300px", align=center }
+
+
+??? note "C'est magique ?"
     Pour se convaincre de la méthode, regardons ce que l'on fait mathématiquement sur un exemple. Convertissons 19 en binaire. Rappelons qu'une division revient à écrire :
     
     $$
@@ -232,60 +273,107 @@ Là, c'est un peu plus complexe. Il existe deux manières itératives :
 
 
 !!! note "Définition"
-    Le **bit de poids fort** (resp. de **poids faible**) est le bit ayant le plus grand (resp. petit) poids ou position, celui de gauche (resp.droite) dans la notation positionnelle habituelle.
+    Le **bit de poids fort** (respectivement de **poids faible**) est le bit ayant le plus grand (resp. petit) poids ou position, c'est-à-dire celui tout à gauche (resp. droite).
 
+??? question "Exercice 8"
+    Convertir les nombres décimaux suivant vers la base mentionnée grâce à l'algorithme des divisions successives. 
 
-!!! example "Exercice"
-    Convertir du décimal vers le binaire.
-
-    * 17
-
-    * 34
-
-    * 68
-
-    * 100
-
-    * 200
-
-    Que remarquez-vous dans l'écriture binaire quand on passe d'un nombre à son double ?
-
-!!! example "Exercice"
-    Convertir les écritures décimales vers la base mentionnée.
+    * 231 en base 2
 
     * 47 en base 5
 
     * 92 en base 4
 
-## La base hexadécimale (base 16)
+
+### Différence entre mot et nombre binaire
+
+!!! note "Définition"
+
+    * Un **mot binaire** est une séquence finie de bits. Par exemple, $\texttt{1001}$ est un mot binaire de 4 bits.
+
+    * Un **octet** (ou *byte* en anglais) est un **mot binaire** de 8 bits. Par exemple, $\texttt{10111010}$ est un octet.
+
+
+La signification d'un mot binaire en machine dépend entièrement de son **interprétation**. Interprété différemment, le mot binaire $\texttt{10110011}$ peut  signifier :
+
+* naturellement le nombre binaire $(10110011)_2 = 179$ 
+*  $-77$ suivant la représentation classique des nombres relatifs
+*  $44.75$ en supposant une virgule fixe de 2 bits
+*  le caractère « ³ » d'après la table ASCII étendue
+*  etc.
+
+
+### Importance de la base binaire dans l'informatique
+
+La base binaire est au cœur de toutes les machines, car toute donnée (nombre, texte, image, vidéo, son etc.) peut être arbitrairement représentée par une suite de 0 et de 1. Les machines se basent sur différents phénomènes physiques pour manipuler, transmettre ou mémoriser ces deux états possibles :
+
+* :fontawesome-solid-bolt: Courant électrique : Tension nulle ou tension positive.
+
+* :fontawesome-solid-magnet: Aimantation : Aimantation dans un sens ou dans l'autre.
+
+* :fontawesome-solid-lightbulb: Lumière : Lumière ou absence de lumière.
+
+* etc.
+
+La base binaire est utilisée pour trois grandes raisons :
+
+* **Résistance au bruit** : il est plus facile de distinguer deux valeurs dans un signal digital bruité.
+  
+* **Simplicité des opérations** : la simplicité des opérations arithmétiques (addition, soustraction etc.) et logiques en base binaire permet l'élaboration de circuits électroniques moins complexes. 
+
+* **Inertie technologique** : revenir en arrière aurait un coût immense.
+
+??? question "Exercice 9"
+    
+    1. Donner les bits transmis par le signal fortement bruité suivant. Le débit (*bitrate* en anglais) est d'un octet par seconde. Idéalement, 0V correspond à 0 et 5V à 1. 
+
+        ![Schéma résumé](./images/signal_bruité.png){ align=center }
+
+    2. Le code ASCII associe à chaque **mot binaire** d'un octet, un caractère spécifique (comme une lettre). En utilisant la [table de correspondance](https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange#Table_des_128_caract%C3%A8res_ASCII), donner le message transmis par ce signal.
+
+    3. En base binaire, que vaut $0 + 0$ ? $0 + 1$ ? $1 + 1$ ? $1 + 1 + 1$ ?
+
+    4. Calculer directement $(110110)_2 + (110100)_2$ en posant l'addition.
+
+    5. Dresser la table de multiplication de la base binaire.
+
+    6. Calculer directement $(110110)_2 \times (11)_2$ en posant la multiplication.
+   
+??? question "Exercice 10"
+    1. Combien de valeurs (mots binaires uniques) peut-on distinguer avec 1 bit ? 2 bits ? 3 bits ? 4 bits ? 5 bits ?
+    2. Plus généralement, combien de valeurs peut-on distinguer avec $n$ bits ?
+    3. Jusqu'à combien peut-on compter avec nos deux mains en base binaire ?
+    1. Combien de caractères uniques puis-je représenter en code ASCII ?
+    2. Quel est le plus grand entier positif que l'on puisse représenter sur un octet ? En utilisant une représentation naturelle des nombres entiers, c'est-à-dire que l'octet $\texttt{11111111}$ est égal au nombre $(11111111)_2$.
+
+### Relation avec la base hexadécimale (base 16)
 
 La base **hexadécimale** (hexa 6, déci 10) est la base utilisant 16 chiffres notés 0, 1, 2, ..., 9, A, B, C, D, E, F.
 
-Lire ou écrire en binaire devient vite fastidieux. C'est pourquoi la base hexadécimale est très utile en informatique puisque la conversion entre cette base et la base binaire se fait sans calcul (du fait que $16 = 2^4$). On regroupe les bits par groupes de 4 et le tour est joué !
+Lire ou écrire en binaire devient vite fastidieux. C'est pourquoi la base hexadécimale est très utile en informatique puisque **la conversion entre cette base et la base binaire se fait sans calcul** (du fait que $16 = 2^4$). On regroupe les bits par paquet de 4 et on effectue la correspondance grâce au tableau suivant :
 
-Soit on a l'habitude, soit on réecrit le tableau suivant :
+|       Base 10 |           Base 2 |       Base 16 |
+| ------------: | ---------------: | ------------: |
+| $\texttt{ 0}$ |  $\texttt{   0}$ |  $\texttt{0}$ |
+| $\texttt{ 1}$ |  $\texttt{   1}$ |  $\texttt{1}$ |
+| $\texttt{ 2}$ |  $\texttt{  10}$ |  $\texttt{2}$ |
+| $\texttt{ 3}$ |  $\texttt{  11}$ |  $\texttt{3}$ |
+| $\texttt{ 4}$ |  $\texttt{ 100}$ |  $\texttt{4}$ |
+| $\texttt{ 5}$ |  $\texttt{ 101}$ |  $\texttt{5}$ |
+| $\texttt{ 6}$ |  $\texttt{ 110}$ |  $\texttt{6}$ |
+| $\texttt{ 7}$ |  $\texttt{ 111}$ |  $\texttt{7}$ |
+| $\texttt{ 8}$ |  $\texttt{1000}$ |  $\texttt{8}$ |
+| $\texttt{ 9}$ |  $\texttt{1001}$ |  $\texttt{9}$ |
+| $\texttt{10}$ |  $\texttt{1010}$ |  $\texttt{A}$ |
+| $\texttt{11}$ |  $\texttt{1011}$ |  $\texttt{B}$ |
+| $\texttt{12}$ |  $\texttt{1100}$ |  $\texttt{C}$ |
+| $\texttt{13}$ |  $\texttt{1101}$ |  $\texttt{D}$ |
+| $\texttt{14}$ |  $\texttt{1110}$ |  $\texttt{E}$ |
+| $\texttt{15}$ |  $\texttt{1111}$ |  $\texttt{F}$ |
 
-| Base 10 | Base 16  | Base 2  | 
-| --:| ---------------: |---------------:|
-| 0  | 0  | 0 |
-| 1  | 1  | 1 |  
-| 2  | 2  | 10 |  
-| 3  | 3  | 11 |  
-| 4  | 4  | 100 |  
-| 5  | 5  | 101 |  
-| 6  | 6  | 110 |  
-| 7  | 7  | 111 |  
-| 8  | 8  | 1000 |  
-| 9  | 9  | 1001 |  
-| 10 | A  | 1010 |  
-| 11 | B  | 1011 |  
-| 12 | C  | 1100 |  
-| 13 | D  | 1101 |  
-| 14 | E  | 1110 |  
-| 15 | F  | 1111 | 
 
-!!! example "Exemple"
-    $(10110011)_2$ est composé de 2 groupes de 4 bits, $1011$ et $0011$, donc :
+!!! example "Exemple de conversion immédiate"
+    Le nombre $(10110011)_2$ est composé de 2 groupes de 4 bits, $1011$ et $0011$. On lit sur le tableau que $(1011)_2 = (B)_{16}$ et $(0011)_2 = (3)_{16}$ :
 
     $$
     (10110011)_2 = (B3)_{16}
@@ -293,11 +381,20 @@ Soit on a l'habitude, soit on réecrit le tableau suivant :
 
     Le raisonnement inverse est tout aussi immédiat.
 
-!!! example "Exercice"
-    * Convertir $(110111)_2$ en héxadécimal.
 
-    * Convertir $(CAFE)_{16}$ en binaire. 
+??? question "Exercice 11"
+    1. Convertir $(110111)_2$ en hexadécimal.
 
+    2. Convertir $(1011110100111)_2$ en hexadécimal.
+
+    3. Convertir $(CAFE)_{16}$ en binaire.
+
+    4. Convertir $(C1)_{16}$ en binaire.
+   
+    5. Combien de chiffres en base hexadécimal sont nécessaires pour écrire un octet ?
+
+
+## Quelques fonctions Python utiles
 
 !!! note "Notation"
     Dans la plupart des langages de programmation, on différencie :
@@ -308,13 +405,6 @@ Soit on a l'habitude, soit on réecrit le tableau suivant :
 
     * La base décimale par aucun préfixe particulier.
 
-!!! info "Représentation des couleurs"
-    Dans le codage RGB 8-bit, une couleur est répresentée par un triplet d'octets correspondant respectivement aux composantes rouges, vertes et bleues. Chacune de ces valeurs est donc un entier compris entre 0 et 255 (intensité nulle à maximale), c'est-à-dire entre 0 et FF en hexadécimal : on peut facilement les écrire avec seulement deux chiffres.
-
-    Ainsi la couleur rouge pure se note (255, 0, 0), ou simplement en héxadécimal (FF, 0, 0). Généralement, les composantes sont concaténée et précédée d'un #. Ce qui nous donne finalement #FF0000.
-
-
-## Quelques fonctions Python utiles
 
 La fonction `bin` (respectivement `hex`) renvoie la représentation binaire (resp. héxadécimale) d'un nombre donné sous forme d'une chaîne de caractère :
 
@@ -333,4 +423,3 @@ Réciproquement, on utilise la fonction `int` pour convertir un nombre écrit en
 >>> int('0b111100001111', 2)
 3855
 ```
-

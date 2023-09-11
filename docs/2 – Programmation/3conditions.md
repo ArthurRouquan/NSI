@@ -94,7 +94,7 @@ print("Merci au revoir !")
 
 ## La clause `#!py elif`
 
-En python, `#!py elif` (sinon si) est la contraction de `!py else` et `!py if`, il permet de **chaîner** facilement des conditions.
+En python, `#!py elif` (sinon si) est la contraction de `#!py else` et `#!py if`, il permet de **chaîner** facilement des conditions.
 
 ```py title="Exemple d'utilisation de la clause elif"
 âge = int(input("Votre âge ? "))

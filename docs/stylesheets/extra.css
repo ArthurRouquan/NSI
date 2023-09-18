@@ -3,6 +3,10 @@
     margin: 0 auto;
 }
 
+strong {
+    color: #386af1; /* Remplacez "purple" par la couleur de votre choix */
+}
+
 .wiggle:hover {
     animation: shake 0.5s;
     animation-iteration-count: infinite;

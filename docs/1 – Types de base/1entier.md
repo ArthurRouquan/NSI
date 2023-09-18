@@ -1,4 +1,4 @@
-# Représentation des entiers
+# Représentation des entiers positifs
 
 ## La notation positionnelle
 
@@ -230,7 +230,7 @@ $$
 
     On divise le nombre par la base souhaitée, et on recommence jusqu'à obtenir un quotient de 0. L'écriture du nombre dans la base souhaitée est alors donnée par **les restes lus de bas en haut**.
 
-    ![](./images/divisions.png){  width="300px", align=center }
+    ![type:video](./ressources/divisions.mp4){: style='width: 100%'}
 
 
 ??? note "C'est magique ?"
@@ -327,7 +327,7 @@ La base binaire est utilisée pour trois grandes raisons :
     
     1. Donner les bits transmis par le signal fortement bruité suivant. Le débit (*bitrate* en anglais) est d'un octet par seconde. Idéalement, 0V correspond à 0 et 5V à 1. 
 
-        ![Schéma résumé](./images/signal_bruité.png){ align=center }
+        ![Schéma résumé](./ressources/signal_bruité.png){ align=center }
 
     2. Le code ASCII associe à chaque **mot binaire** d'un octet, un caractère spécifique (comme une lettre). En utilisant la [table de correspondance](https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange#Table_des_128_caract%C3%A8res_ASCII), donner le message transmis par ce signal.
 
@@ -345,6 +345,7 @@ La base binaire est utilisée pour trois grandes raisons :
     3. Jusqu'à combien peut-on compter avec nos deux mains en base binaire ?
     1. Combien de caractères uniques puis-je représenter en code ASCII ?
     2. Quel est le plus grand entier positif que l'on puisse représenter sur un octet ? En utilisant une représentation naturelle des nombres entiers, c'est-à-dire que l'octet $\texttt{11111111}$ est égal au nombre $(11111111)_2$.
+    3. Plus généralement, si l'on a $n$ bits, quel est le plus grand entier positif que l'on puisse représenter ?
 
 ### Relation avec la base hexadécimale (base 16)
 

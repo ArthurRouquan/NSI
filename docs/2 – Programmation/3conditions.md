@@ -68,9 +68,9 @@ Les tables de vérité suivantes caractérisent entièrement ces opérateurs :
 
 ## La clause `#!py if`
 
-La clause `#!py if` (si) permet d’exécuter des instructions si une condition est respectée.
+La clause `#!py if` (si) permet d’exécuter des instructions si **une condition est respectée**.
 
-```py
+```py title="Syntaxe d'une structure conditionnelle"
 if condition:
     instruction1
     instruction2
@@ -81,7 +81,7 @@ Si `condition` s'évalue à `#!py True` (vrai), alors la suite d'instructions in
 
 ## La clause `#!py else`
 
-La clause `#!py else` (sinon) permet d’exécuter des instructions si une condition n'est pas respectée (toujours à la suite de `#!py if`).
+La clause `#!py else` (sinon) permet d’exécuter des instructions si **une condition n'est pas respectée** (toujours à la suite de `#!py if`).
 
 ```py title="Exemple d'utilisation de la clause else"
 âge = int(input("Votre âge ? "))
@@ -94,7 +94,7 @@ print("Merci au revoir !")
 
 ## La clause `#!py elif`
 
-En python, `#!py elif` (sinon si) est la contraction de `#!py else` et `#!py if`, il permet de **chaîner** facilement des conditions.
+En python, `#!py elif` (sinon si) est la contraction de `#!py else` et `#!py if`, cette clause permet de **chaîner** facilement des conditions.
 
 ```py title="Exemple d'utilisation de la clause elif"
 âge = int(input("Votre âge ? "))

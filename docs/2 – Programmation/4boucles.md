@@ -3,7 +3,7 @@
 Une boucle est une structure de contrôle de flot qui permet de répéter un bloc de code.
 
 !!! info "Lien Capytale"
-    [:fontawesome-solid-link: Notebook Capytale d7ca-1776728](https://capytale2.ac-paris.fr/web/c/d7ca-1776728) regroupant l'ensemble des exercices introductifs. La correction sera disponible plus tard.
+    [:fontawesome-solid-link: Notebook Capytale a784-1899101](https://capytale2.ac-paris.fr/web/c/a784-1899101) regroupant l'ensemble des exercices introductifs. La correction sera disponible plus tard.
 
 ## Boucle non-bornée `#!py while`
 
@@ -22,7 +22,7 @@ Tant que `condition` est évaluée à `True`, alors  le bloc indenté est exécu
 i = 1
 while i < 10:
     print('i a pour valeur', i)
-    i *= 2  # Syntaxe abrégée pour x = x * 2
+    i *= 2  # Syntaxe abrégée de i = i * 2
 print('Fin', i)  # i vaut 16 à la fin de la boucle !
 ```
 ``` title="Sortie"

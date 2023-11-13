@@ -1,4 +1,4 @@
-# TP - Les booléens
+# Les booléens
 
 ## Un peu d'histoire
 

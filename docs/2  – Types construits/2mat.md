@@ -280,7 +280,7 @@ Pour la suite, on suppose que la grille des cellules du Jeu de la Vie est **carr
             # code à compléter
 
             saisie = input('Continuer ? ')
-            if saisie = 'stop':
+            if saisie == 'stop':
                 continuer = False
     ```
 

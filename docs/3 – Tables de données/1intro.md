@@ -163,7 +163,7 @@ Ouvrir un fichier en Python se fait grâce à la fonction `#!python open`. Les m
 
 ```py
 >>> fichier = open('pokedex.csv', encoding='UTF-8')
->>> lignes = fichier.read().split()
+>>> lignes = fichier.read().split('\n')
 >>> lignes[0]
 'No;Nom;Type;PV;Attaque;Défense;Vitesse;ASpé;DSpé;Talent;Nom US;code'
 >>> lignes[6]
@@ -184,7 +184,7 @@ scinder suivant un délimiteur donné en paramètre.
     * Dans un nouveau script Python, copier le code suivant :
     ```py
     fichier = open('pokedex.csv', encoding='UTF-8')
-    lignes = fichier.read().split()
+    lignes = fichier.read().split('\n')
     attributs = # à compléter
     ```
 

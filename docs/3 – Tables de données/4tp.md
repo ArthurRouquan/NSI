@@ -1,5 +1,10 @@
 # TP Pokédex
 
+
+!!! info "Lien Capytale"
+    * Document Réponse : [:fontawesome-solid-link: Notebook Capytale 65d4-2018551](https://capytale2.ac-paris.fr/web/c/65d4-2018551)
+
+
 Dans tout ce TP, on manipulera la table contenue dans [ce fichier](pokedex.csv). 
 
 1. Commencez par ouvrir le fichier avec l'éditeur de texte. Contrôlez le délimiteur utilisé.

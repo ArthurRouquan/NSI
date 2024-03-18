@@ -1,7 +1,5 @@
 # Algorithmes de tri
 
-Oups.
-
 !!! info Quelques documents utiles
 
     * [Correction de l'activité sur le tri des canettes](ressources/debranche.pdf)

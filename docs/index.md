@@ -5,14 +5,20 @@ Cours, exercices et autres ressources pour mes élèves de 1ère en spécialité
 !!! quote "Edsger W. Dijkstra "
     Computer Science is no more about computers than astronomy is about telescopes. -->
 
-<img src="ressources/dich.png" style="width: 25%; border-radius: 10px; display: block; margin: 0 auto;">
+
+<img src="ressources/greedy.gif" style=" border-radius: 10px; display: block; margin: 0 auto;">
+
+
 
 !!! warning "Travaux en cours"
+    * Algorithmique :fontawesome-solid-play: Algorithmes gloutons :fontawesome-solid-play: TP Capytale Implémentation 
+
+<!-- !!! warning "Travaux en cours"
     Contrôle sur le modèle d'architecture de Von Neumann (relire le cours et les compléments) le lundi 25 Mars ! 
 
     * TP Shell (section Architecture)
     * TP Recherche Dichotomique (section Algorithmique)
-    * TP Complexité (section Algorithmique)
+    * TP Complexité (section Algorithmique) -->
 
 
 <!-- !!! warning "Travaux en cours"

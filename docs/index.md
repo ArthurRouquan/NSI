@@ -11,7 +11,8 @@ Cours, exercices et autres ressources pour mes élèves de 1ère en spécialité
 
 
 !!! warning "Travaux en cours"
-    * Algorithmique :fontawesome-solid-play: Algorithmes gloutons :fontawesome-solid-play: TP Capytale Implémentation 
+    * Algorithmique :fontawesome-solid-play: Algorithmes gloutons :fontawesome-solid-play: TP Capytale Implémentation
+    * Algorithmique :fontawesome-solid-play: L'algorithme KNN :fontawesome-solid-play: TP Capytale 
 
 <!-- !!! warning "Travaux en cours"
     Contrôle sur le modèle d'architecture de Von Neumann (relire le cours et les compléments) le lundi 25 Mars ! 

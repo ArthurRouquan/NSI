@@ -6,13 +6,17 @@ Cours, exercices et autres ressources pour mes élèves de 1ère en spécialité
     Computer Science is no more about computers than astronomy is about telescopes. -->
 
 
-<img src="ressources/greedy.gif" style=" border-radius: 10px; display: block; margin: 0 auto;">
+<!-- <img src="ressources/greedy.gif" style=" border-radius: 10px; display: block; margin: 0 auto;"> -->
 
+
+<video width="320" height="240" autoplay loop muted style="border-radius: 10px; display: block; margin: 0 auto;">
+  <source src="ressources/pons.webm">
+</video> 
 
 
 !!! warning "Travaux en cours"
-    * Algorithmique :fontawesome-solid-play: Algorithmes gloutons :fontawesome-solid-play: TP Capytale Implémentation
-    * Algorithmique :fontawesome-solid-play: L'algorithme KNN :fontawesome-solid-play: TP Capytale 
+    * Algorithmique :fontawesome-solid-play: L'algorithme KNN :fontawesome-solid-play: TP Capytale
+    * Architecture :fontawesome-solid-play: Architecture réseau 
 
 <!-- !!! warning "Travaux en cours"
     Contrôle sur le modèle d'architecture de Von Neumann (relire le cours et les compléments) le lundi 25 Mars ! 

@@ -1,0 +1,2223 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../2relatifs/">
+      
+      
+      <link rel="icon" href="../../assets/laptop-code.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>Représentation des entiers positifs - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#representation-des-entiers-positifs" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Représentation des entiers positifs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1 – Types de base
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1 – Types de base
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Représentation des entiers positifs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers positifs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-notation-positionnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      La notation positionnelle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compter-dans-une-base-differente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compter dans une base différente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-base-binaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      La base binaire
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La base binaire">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-base-2-base-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion base 2 base 10
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-base-10-base-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion base 10 base 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion base 10 base 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-methode-des-soustractions-successives" class="md-nav__link">
+    <span class="md-ellipsis">
+      La méthode des soustractions successives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-methodes-des-divisions-successives" class="md-nav__link">
+    <span class="md-ellipsis">
+      La méthodes des divisions successives
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difference-entre-mot-et-nombre-binaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      Différence entre mot et nombre binaire
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-de-la-base-binaire-dans-linformatique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance de la base binaire dans l'informatique
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relation-avec-la-base-hexadecimale-base-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relation avec la base hexadécimale (base 16)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quelques-fonctions-python-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quelques fonctions Python utiles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2relatifs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers relatifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3flottants/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation approximative des nombres réels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4char/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des caractères
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5bool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les booléens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2 – Types construits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2 – Types construits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/1tab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction aux tableaux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/2mat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tableaux à deux dimensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/3tupledict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tuples et Dictionnaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3 – Tables de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3 – Tables de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tables de données
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/2operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opérations sur les tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/3fusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fusion de tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/4tp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Pokédex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4 – IHM Web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4 – IHM Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactions entre l'Homme et la Machine sur le Web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/2static/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page statique : HTML &amp; CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/3js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page dynamique : JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5 – Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5 – Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le modèle d'architecture séquentielle (Von Neumann)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/2complements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/3sim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Simulation d'une machine &amp; Assembleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/4os/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.31 4.31 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Les systèmes d'exploitation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/5shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/6r%C3%A9seau/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture réseau
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6 – Programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6 – Programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/2variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types, valeurs et variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/3conditions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les conditions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/4boucles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les boucles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/5fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/6jeu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Des mini-jeux !
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    7 – Algorithmique
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7 – Algorithmique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/1tri/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithmes de tri
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/2dicho/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La recherche dichotomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/3complex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La complexité
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/4glouton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les algorithmes gloutons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/5knn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    L'algorithme KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-notation-positionnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      La notation positionnelle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compter-dans-une-base-differente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compter dans une base différente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-base-binaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      La base binaire
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La base binaire">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-base-2-base-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion base 2 base 10
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-base-10-base-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion base 10 base 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion base 10 base 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-methode-des-soustractions-successives" class="md-nav__link">
+    <span class="md-ellipsis">
+      La méthode des soustractions successives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-methodes-des-divisions-successives" class="md-nav__link">
+    <span class="md-ellipsis">
+      La méthodes des divisions successives
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difference-entre-mot-et-nombre-binaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      Différence entre mot et nombre binaire
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-de-la-base-binaire-dans-linformatique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance de la base binaire dans l'informatique
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relation-avec-la-base-hexadecimale-base-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relation avec la base hexadécimale (base 16)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quelques-fonctions-python-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quelques fonctions Python utiles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div><h1 id="representation-des-entiers-positifs">Représentation des entiers positifs</h1>
+<h2 id="la-notation-positionnelle">La notation positionnelle</h2>
+<p>La <strong>notation positionnelle</strong> est un système d'écriture des nombres. Cette manière de représenter efficacement les nombres existe depuis le IIIe millénaire avant notre ère chez les babyloniens. Elle repose sur l'utilisation d'un nombre limité de symboles graphiques appelés <strong>chiffres</strong>. La <strong>base</strong> désigne le nombre de chiffres utilisés.</p>
+<details class="example">
+<summary>La base décimale</summary>
+<p>Par exemple, on écrit couramment les nombres en utilisant dix chiffres : 0, 1, 2, 3, 4, 5, 6, 7, 8, et 9. On utilise donc la base 10 aussi appelée base décimale.</p>
+</details>
+<details class="example">
+<summary>Un autre example de base</summary>
+<p>La base 16 appelée base hexadécimale utilise seize chiffres : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E et F. Il est courant d'utiliser les lettres de l'alphabet latin comme symboles graphiques pour représenter les chiffres après 9. </p>
+</details>
+<details class="note">
+<summary>« Les chiffres disent que... »</summary>
+<p>Dans le langage courant, les termes <em>chiffres</em> et <em>nombres</em> sont utilisés de manière interchangeable. Or, un nombre est composé de chiffres ! A noter que « 2 » par exemple peut désigner soit le chiffre ou soit le nombre…</p>
+</details>
+<p>Dans cette notation, un nombre est écrit comme une séquence ordonnée de chiffres. Chaque chiffre contribue à la valeur totale en fonction de sa <strong>position</strong>. Cette contribution est obtenue en multipliant le chiffre par la puissance appropriée de la base.</p>
+<div class="admonition example">
+<p class="admonition-title">Un exemple en base décimale</p>
+<p>Chacun des chiffres du nombre 256, écrit en base décimale, ont une contribution différente :</p>
+<div class="arithmatex">\[
+\begin{align}
+\textcolor{#71d4e2}{256} &amp;= 200 + 50 + 6 \\
+&amp;= 2 \times 100 + 5 \times 10 + 6 \times 1 \\
+&amp;= \textcolor{#71d4e2}{2} \times \textcolor{#ff6188}{10}^\textcolor{#A5D6A7}{2}  +  \textcolor{#71d4e2}{5}\times \textcolor{#ff6188}{10}^\textcolor{#A5D6A7}{1}  + \textcolor{#71d4e2}{6} \times \textcolor{#ff6188}{10}^\textcolor{#A5D6A7}{0} 
+\end{align}
+\]</div>
+<p>Cette dernière ligne met en évidence la base utilisée. <strong>Code couleur : <font color="#71d4e2">Chiffre</font>, <font color="#ff6188">Base</font>, <font color="#A5D6A7">Position</font>.</strong></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Un exemple en base octal</p>
+<p>La base 8, appelée base octale, comporte seulement 8 chiffres : 0, 1, 2, 3, 4, 5, 6 et 7. Si l'on écrit le nombre <span class="arithmatex">\((256)_8\)</span> dans cette base (indiquée en indice), alors par définition :</p>
+<div class="arithmatex">\[
+(\textcolor{#71d4e2}{256})_\textcolor{#ff6188}{8} = \textcolor{#71d4e2}{2} \times \textcolor{#ff6188}{8}^\textcolor{#A5D6A7}{2}  +  \textcolor{#71d4e2}{5}\times \textcolor{#ff6188}{8}^\textcolor{#A5D6A7}{1}  + \textcolor{#71d4e2}{6} \times \textcolor{#ff6188}{8}^\textcolor{#A5D6A7}{0}
+\]</div>
+<p>Une fois le nombre décomposé, nous pouvons effectuer les calculs dans la base décimale usuelle :</p>
+<div class="arithmatex">\[
+\begin{align}
+(256)_8 &amp;= 2 \times 64 + 5 \times 8 + 6 \\
+&amp;= 128 + 40 + 6 \\
+&amp;= (174)_{10}
+\end{align}
+\]</div>
+<p><strong>C'est la méthode usuelle pour convertir un nombre écrit dans une base quelconque vers la base décimale usuelle.</strong></p>
+</div>
+<details class="note">
+<summary>Une prononciation confuse</summary>
+<p><span class="arithmatex">\((256)_8\)</span> ne se prononce pas « <em>deux cents cinquante-six</em> » mais plutôt « <em>deux cinq six</em> » puisqu'à l'oral le nombre est décomposé en base décimale (par exemple, « <em>cents</em> » fait référence à une puissance de la base décimale).</p>
+</details>
+<details class="question">
+<summary>Exercice 1</summary>
+<p>Convertir ces nombres en base décimale :</p>
+<ol>
+<li><span class="arithmatex">\((256)_7\)</span></li>
+<li><span class="arithmatex">\((2222)_8\)</span></li>
+<li><span class="arithmatex">\((2AB)_{16}\)</span></li>
+<li><span class="arithmatex">\((100.12)_4\)</span></li>
+<li><span class="arithmatex">\((30200)_\sqrt{2}\)</span></li>
+</ol>
+</details>
+<h2 id="compter-dans-une-base-differente">Compter dans une base différente</h2>
+<p>Il est important de savoir énumérer les nombres dans une base différente. Si l'on a épuisé tous les chiffres disponibles, on augmente le chiffre du rang suivant :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Base 10</th>
+<th style="text-align: right;">Base 2</th>
+<th style="text-align: right;">Base 4</th>
+<th style="text-align: right;">Base 16</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 0}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{   0}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{0}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{0}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 1}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{   1}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 2}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{  10}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{2}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{2}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 3}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{  11}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{3}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{3}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 4}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 100}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{10}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{4}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 5}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 101}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{11}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{5}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 6}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 110}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{12}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{6}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 7}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 111}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{13}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{7}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 8}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1000}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{20}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{8}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 9}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1001}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{21}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{9}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{10}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1010}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{22}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{A}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{11}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1011}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{23}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{B}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{12}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1100}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{30}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{C}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{13}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1101}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{31}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{D}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{14}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1110}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{32}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{E}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{15}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1111}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{33}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{F}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{16}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{10000}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{100}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{10}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{17}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{10001}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{101}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{11}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Sur cette table, par exemple, on lit directement <span class="arithmatex">\((12)_{10} = (1100)_2 = (30)_4 = (C)_{16}\)</span>.</p>
+<details class="question">
+<summary>Exercice 2</summary>
+<ol>
+<li>Ajouter à cette table la base ternaire, la base 3.</li>
+<li>Poursuivre l'énumération en base binaire (base 2) à partir de <span class="arithmatex">\((10001)_2\)</span> jusqu'à <span class="arithmatex">\((11111)_2\)</span>.</li>
+</ol>
+</details>
+<details class="question">
+<summary>Exercice 3</summary>
+<ol>
+<li>Quelle est la plus petite des bases possibles ?</li>
+<li>Dans quelle base avez-vous «18 » ans ?</li>
+<li>Que vaut <span class="arithmatex">\(\pi\)</span> dans la base <span class="arithmatex">\(\pi\)</span> ?</li>
+<li>Quelle est le plus grand nombre entre <span class="arithmatex">\((123456789)_{42}\)</span> et <span class="arithmatex">\((123456789)_{27}\)</span> ?</li>
+<li>Nous avons vu que si la base utilisée est plus grande que dix alors il est courant d'utiliser les lettres de l'alphabet comme symboles graphiques pour représenter les chiffres après 9. Mais il existe une autre manière de représenter ces « grandes » bases. Laquelle ? Tic tac...</li>
+<li>Lorsqu'on écrit <span class="arithmatex">\((256)_8\)</span>  — 256 en base octal — dans quelle base est écrit le nombre « <span class="arithmatex">\(8\)</span> » ? Mettre en évidence une incohérence dans ce système de notation.</li>
+<li>Comment s'écrire huit en base octale ? Et seize en base hexadécimale ? Peut-on dire que toutes les bases sont la base « 10 » ?</li>
+</ol>
+</details>
+<details class="question">
+<summary>Exercice 4</summary>
+<p>Finalement, pourquoi la notation positionnelle est plus intéressante que la numération égyptienne ou romaine ?</p>
+</details>
+<h2 id="la-base-binaire">La base binaire</h2>
+<div class="admonition note">
+<p class="admonition-title">Une histoire de bits</p>
+<p>Un chiffre binaire (0 ou 1), en anglais <em>binary digit</em>, est appelé <strong>bit</strong>.</p>
+</div>
+<h3 id="conversion-base-2-base-10">Conversion base 2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></span> base 10</h3>
+<div class="admonition example">
+<p class="admonition-title">Exemple</p>
+<p>Convertissons <span class="arithmatex">\((10110011)_2\)</span> en base décimale. On décompose :</p>
+<div class="arithmatex">\[
+\begin{align*}
+(\textcolor{#71d4e2}{10110011})_\textcolor{#ff6188}{2} &amp;=
+\textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{7} +
+\textcolor{#71d4e2}{0} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{6} +
+\textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{5} +
+\textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{4} +
+\textcolor{#71d4e2}{0} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{3} +
+\textcolor{#71d4e2}{0} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{2} +
+\textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{1} +
+\textcolor{#71d4e2}{1} \times \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{0} \\
+&amp;= \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{7} +
+   \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{5} +
+   \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{4} + 
+   \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{1} + 
+   \textcolor{#ff6188}{2}^\textcolor{#A5D6A7}{0} \\
+&amp;= 128 + 32 + 16 + 2 + 1 \\
+&amp;= (179)_{10}
+\end{align*}
+\]</div>
+<p>Finalement, un nombre binaire se décompose comme <strong>une somme de puissances de 2</strong> ! Il est donc courant d'écrire directement la 2ème ou 3ème équation.</p>
+</div>
+<details class="question">
+<summary>Exercice 5</summary>
+<p>Compléter la table des puissances de 2 suivante : </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Puissance</th>
+<th style="text-align: center;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^1\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^2\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^3\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^4\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^5\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^6\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2^7\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="question">
+<summary>Exercice 6</summary>
+<p>Convertir les nombres suivants en base décimale :</p>
+<ul>
+<li>
+<p><span class="arithmatex">\((1010)_2\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\((101110)_2\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\((10001101)_2\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\((11111111)_2\)</span></p>
+</li>
+</ul>
+</details>
+<h3 id="conversion-base-10-base-2">Conversion base 10 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></span> base 2</h3>
+<p>Comment s'écrit <span class="arithmatex">\((181)_{10}\)</span> en base binaire ? L'opération inverse est de trouver les bits qui vont bien dans la décomposition :</p>
+<div class="arithmatex">\[
+(181)_{10} ~=~ \textcolor{#71d4e2}{?} \cdot 2^0 ~+~
+\textcolor{#71d4e2}{?} \cdot 2^1 ~+~
+\textcolor{#71d4e2}{?} \cdot 2^2 ~+~
+\textcolor{#71d4e2}{?} \cdot 2^3 ~+~ \cdots
+\]</div>
+<p>Il existe deux méthodes itératives. Une méthode spécifique à la base binaire (la méthode des soustractions successives), et une dernière plus générale qui permet de convertir vers une base quelconque (la méthode des divisions successives).</p>
+<h4 id="la-methode-des-soustractions-successives">La méthode des soustractions successives</h4>
+<p>Cette méthode repose sur la remarque suivante : s'il on arrive à exprimer un nombre sous la forme d'<strong>une somme de puissance de 2</strong> alors il est facile de l'écrire en base binaire. Par exemple :</p>
+<div class="arithmatex">\[
+\begin{align*}
+(179)_{10} &amp;= 128 + 32 + 16 + 2 + 1 \\
+           &amp;= 2^7 + 2^5 + 2^4 + 2^1 + 2^0 \\
+           &amp;= (10110011)_2
+\end{align*}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Méthode des soustractions successives</p>
+<p>On soustrait du nombre la plus grande puissance de 2 possible, et on recommence jusqu'à obtenir 0 :</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;181 &amp;&amp; \textcolor{#ff6188}{- 128} &amp;&amp;= 53 \\
+&amp;53  &amp;&amp; \textcolor{#ff6188}{- 32 } &amp;&amp;= 21   \\
+&amp;21  &amp;&amp; \textcolor{#ff6188}{- 16 } &amp;&amp;= 5    \\
+&amp;5   &amp;&amp; \textcolor{#ff6188}{- 4  } &amp;&amp;= 1      \\
+&amp;1   &amp;&amp; \textcolor{#ff6188}{- 1  } &amp;&amp;= 0      \\
+\end{align*}
+\]</div>
+<p>Finalement :</p>
+<div class="arithmatex">\[\begin{align*}
+(181)_{10} &amp;= \textcolor{#ff6188}{128 + 32 + 16 + 4 + 1} \\
+&amp;= 2^7 + 2^5 + 2^4 + 2^2 + 2^0 \\
+&amp;= (10110101)_2
+\end{align*}
+\]</div>
+<p>Cette méthode nécessite impérativement de connaître les puissances de 2. Avec un peu de pratique, il est possible de directement écrire la somme des puissances de 2.</p>
+</div>
+<details class="question">
+<summary>Exercice 7</summary>
+<p>Convertir les nombres en base décimal suivant en base binaire :</p>
+<ol>
+<li>17</li>
+<li>34</li>
+<li>68</li>
+<li>100</li>
+<li>200</li>
+</ol>
+<p>Que remarquez-vous dans l'écriture binaire quand on passe d'un nombre à son double ?</p>
+</details>
+<h4 id="la-methodes-des-divisions-successives">La méthodes des divisions successives</h4>
+<div class="admonition tip">
+<p class="admonition-title">Méthode des divisions successives</p>
+<p>On divise le nombre par la base souhaitée, et on recommence jusqu'à obtenir un quotient de 0. L'écriture du nombre dans la base souhaitée est alors donnée par <strong>les restes lus de bas en haut</strong>.</p>
+<p><div class="video-container"><iframe src="../ressources/divisions.mp4" style="width: 100%" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+</div>
+<details class="note">
+<summary>C'est magique ?</summary>
+<p>Pour se convaincre de la méthode, regardons ce que l'on fait mathématiquement sur un exemple. Convertissons 19 en binaire. Rappelons qu'une division revient à écrire :</p>
+<div class="arithmatex">\[
+\text{dividende} = \text{quotient} \times \textcolor{#71d4e2}{\text{diviseur}} + \textcolor{#ff6188}{\text{reste}}
+\]</div>
+<p>Ainsi :</p>
+<div class="arithmatex">\[
+19 = 9 \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{1}
+\]</div>
+<p>On poursuit l'algorithme :</p>
+<div class="arithmatex">\[
+\begin{align*}
+19 &amp;= (4 \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{1}) \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{1} \\
+&amp;= ((2 \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{0}) \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{1}) \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{1} \\
+&amp;= (((\textcolor{#ff6188}{1} \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{0}) \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{0}) \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{1}) \cdot \textcolor{#71d4e2}{2} + \textcolor{#ff6188}{1}
+\end{align*}
+\]</div>
+<p>Ensuite, on distribue les 2 pour faire apparaître nos puissances :</p>
+<div class="arithmatex">\[
+\begin{align*}
+19 &amp;= \textcolor{#ff6188}{1} \cdot \textcolor{#71d4e2}{2^4} + 
+\textcolor{#ff6188}{0} \cdot \textcolor{#71d4e2}{2^3} +
+\textcolor{#ff6188}{0} \cdot \textcolor{#71d4e2}{2^2} +
+\textcolor{#ff6188}{1} \cdot \textcolor{#71d4e2}{2} +
+\textcolor{#ff6188}{1} \\
+&amp;= (\textcolor{#ff6188}{10011})_2
+\end{align*}
+\]</div>
+<p>Ici, on voit bien que le premier reste correspond bien au premier bit (celui tout à droite, qu'on appelle le <strong>bit de poids faible</strong>).</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Définition</p>
+<p>Le <strong>bit de poids fort</strong> (respectivement de <strong>poids faible</strong>) est le bit ayant le plus grand (resp. petit) poids ou position, c'est-à-dire celui tout à gauche (resp. droite).</p>
+</div>
+<details class="question">
+<summary>Exercice 8</summary>
+<p>Convertir les nombres décimaux suivant vers la base mentionnée grâce à l'algorithme des divisions successives. </p>
+<ul>
+<li>
+<p>231 en base 2</p>
+</li>
+<li>
+<p>47 en base 5</p>
+</li>
+<li>
+<p>92 en base 4</p>
+</li>
+</ul>
+</details>
+<h3 id="difference-entre-mot-et-nombre-binaire">Différence entre mot et nombre binaire</h3>
+<div class="admonition note">
+<p class="admonition-title">Définition</p>
+<ul>
+<li>
+<p>Un <strong>mot binaire</strong> est une séquence finie de bits. Par exemple, <span class="arithmatex">\(\texttt{1001}\)</span> est un mot binaire de 4 bits.</p>
+</li>
+<li>
+<p>Un <strong>octet</strong> (ou <em>byte</em> en anglais) est un <strong>mot binaire</strong> de 8 bits. Par exemple, <span class="arithmatex">\(\texttt{10111010}\)</span> est un octet.</p>
+</li>
+</ul>
+</div>
+<p>La signification d'un mot binaire en machine dépend entièrement de son <strong>interprétation</strong>. Interprété différemment, le mot binaire <span class="arithmatex">\(\texttt{10110011}\)</span> peut  signifier :</p>
+<ul>
+<li>naturellement le nombre binaire <span class="arithmatex">\((10110011)_2 = 179\)</span> </li>
+<li><span class="arithmatex">\(-77\)</span> suivant la représentation classique des nombres relatifs</li>
+<li><span class="arithmatex">\(44.75\)</span> en supposant une virgule fixe de 2 bits</li>
+<li>le caractère « ³ » d'après la table ASCII étendue</li>
+<li>etc.</li>
+</ul>
+<h3 id="importance-de-la-base-binaire-dans-linformatique">Importance de la base binaire dans l'informatique</h3>
+<p>La base binaire est au cœur de toutes les machines, car toute donnée (nombre, texte, image, vidéo, son etc.) peut être arbitrairement représentée par une suite de 0 et de 1. Les machines se basent sur différents phénomènes physiques pour manipuler, transmettre ou mémoriser ces deux états possibles :</p>
+<ul>
+<li>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288h111.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5l76.9-179.5z"></path></svg></span> Courant électrique : Tension nulle ou tension positive.</p>
+</li>
+<li>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M0 160v96c0 123.7 100.3 224 224 224s224-100.3 224-224v-96H320v96c0 53-43 96-96 96s-96-43-96-96v-96H0zm0-32h128V64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64v64zm320 0h128V64c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v64z"></path></svg></span> Aimantation : Aimantation dans un sens ou dans l'autre.</p>
+</li>
+<li>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2 5.2-7.1 10.4-14.2 15.4-21.4 19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3 5 7.2 10.2 14.3 15.4 21.4 19.8 27.1 39.7 54.4 49.2 86.2h160zm-80 128c44.2 0 80-35.8 80-80v-16H112v16c0 44.2 35.8 80 80 80zm-80-336c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112 8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"></path></svg></span> Lumière : Lumière ou absence de lumière.</p>
+</li>
+<li>
+<p>etc.</p>
+</li>
+</ul>
+<p>La base binaire est utilisée pour trois grandes raisons :</p>
+<ul>
+<li>
+<p><strong>Résistance au bruit</strong> : il est plus facile de distinguer deux valeurs dans un signal digital bruité.</p>
+</li>
+<li>
+<p><strong>Simplicité des opérations</strong> : la simplicité des opérations arithmétiques (addition, soustraction etc.) et logiques en base binaire permet l'élaboration de circuits électroniques moins complexes. </p>
+</li>
+<li>
+<p><strong>Inertie technologique</strong> : revenir en arrière aurait un coût immense.</p>
+</li>
+</ul>
+<details class="question">
+<summary>Exercice 9</summary>
+<ol>
+<li>
+<p>Donner les bits transmis par le signal fortement bruité suivant. Le débit (<em>bitrate</em> en anglais) est d'un octet par seconde. Idéalement, 0V correspond à 0 et 5V à 1. </p>
+<p><img align="center" alt="Schéma résumé" src="../ressources/signal_bruit%C3%A9.png"></p>
+</li>
+<li>
+<p>Le code ASCII associe à chaque <strong>mot binaire</strong> d'un octet, un caractère spécifique (comme une lettre). En utilisant la <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange#Table_des_128_caract%C3%A8res_ASCII">table de correspondance</a>, donner le message transmis par ce signal.</p>
+</li>
+<li>
+<p>En base binaire, que vaut <span class="arithmatex">\(0 + 0\)</span> ? <span class="arithmatex">\(0 + 1\)</span> ? <span class="arithmatex">\(1 + 1\)</span> ? <span class="arithmatex">\(1 + 1 + 1\)</span> ?</p>
+</li>
+<li>
+<p>Calculer directement <span class="arithmatex">\((110110)_2 + (110100)_2\)</span> en posant l'addition.</p>
+</li>
+<li>
+<p>Dresser la table de multiplication de la base binaire.</p>
+</li>
+<li>
+<p>Calculer directement <span class="arithmatex">\((110110)_2 \times (11)_2\)</span> en posant la multiplication.</p>
+</li>
+</ol>
+</details>
+<details class="question">
+<summary>Exercice 10</summary>
+<ol>
+<li>Combien de valeurs (mots binaires uniques) peut-on distinguer avec 1 bit ? 2 bits ? 3 bits ? 4 bits ? 5 bits ?</li>
+<li>Plus généralement, combien de valeurs peut-on distinguer avec <span class="arithmatex">\(n\)</span> bits ?</li>
+<li>Jusqu'à combien peut-on compter avec nos deux mains en base binaire ?</li>
+<li>Combien de caractères uniques puis-je représenter en code ASCII ?</li>
+<li>Quel est le plus grand entier positif que l'on puisse représenter sur un octet ? En utilisant une représentation naturelle des nombres entiers, c'est-à-dire que l'octet <span class="arithmatex">\(\texttt{11111111}\)</span> est égal au nombre <span class="arithmatex">\((11111111)_2\)</span>.</li>
+<li>Plus généralement, si l'on a <span class="arithmatex">\(n\)</span> bits, quel est le plus grand entier positif que l'on puisse représenter ?</li>
+</ol>
+</details>
+<h3 id="relation-avec-la-base-hexadecimale-base-16">Relation avec la base hexadécimale (base 16)</h3>
+<p>La base <strong>hexadécimale</strong> (hexa 6, déci 10) est la base utilisant 16 chiffres notés 0, 1, 2, ..., 9, A, B, C, D, E, F.</p>
+<p>Lire ou écrire en binaire devient vite fastidieux. C'est pourquoi la base hexadécimale est très utile en informatique puisque <strong>la conversion entre cette base et la base binaire se fait sans calcul</strong> (du fait que <span class="arithmatex">\(16 = 2^4\)</span>). On regroupe les bits par paquet de 4 et on effectue la correspondance grâce au tableau suivant :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Base 10</th>
+<th style="text-align: right;">Base 2</th>
+<th style="text-align: right;">Base 16</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 0}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{   0}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{0}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 1}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{   1}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 2}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{  10}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{2}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 3}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{  11}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{3}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 4}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 100}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{4}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 5}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 101}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{5}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 6}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 110}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{6}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 7}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 111}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{7}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 8}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1000}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{8}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{ 9}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1001}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{9}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{10}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1010}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{A}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{11}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1011}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{B}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{12}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1100}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{C}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{13}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1101}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{D}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{14}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1110}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{E}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{15}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{1111}\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(\texttt{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Exemple de conversion immédiate</p>
+<p>Le nombre <span class="arithmatex">\((10110011)_2\)</span> est composé de 2 groupes de 4 bits, <span class="arithmatex">\(1011\)</span> et <span class="arithmatex">\(0011\)</span>. On lit sur le tableau que <span class="arithmatex">\((1011)_2 = (B)_{16}\)</span> et <span class="arithmatex">\((0011)_2 = (3)_{16}\)</span> :</p>
+<div class="arithmatex">\[
+(10110011)_2 = (B3)_{16}
+\]</div>
+<p>Le raisonnement inverse est tout aussi immédiat.</p>
+</div>
+<details class="question">
+<summary>Exercice 11</summary>
+<ol>
+<li>
+<p>Convertir <span class="arithmatex">\((110111)_2\)</span> en hexadécimal.</p>
+</li>
+<li>
+<p>Convertir <span class="arithmatex">\((1011110100111)_2\)</span> en hexadécimal.</p>
+</li>
+<li>
+<p>Convertir <span class="arithmatex">\((CAFE)_{16}\)</span> en binaire.</p>
+</li>
+<li>
+<p>Convertir <span class="arithmatex">\((C1)_{16}\)</span> en binaire.</p>
+</li>
+<li>
+<p>Combien de chiffres en base hexadécimal sont nécessaires pour écrire un octet ?</p>
+</li>
+</ol>
+</details>
+<h2 id="quelques-fonctions-python-utiles">Quelques fonctions Python utiles</h2>
+<div class="admonition note">
+<p class="admonition-title">Notation</p>
+<p>Dans la plupart des langages de programmation, on différencie :</p>
+<ul>
+<li>
+<p>La base binaire par le préfixe <code>0b</code> (e.g. <code>variable = 0b10110011</code>).</p>
+</li>
+<li>
+<p>La base hexadécimale par le préfixe <code>0x</code> (e.g. <code>variable = 0xD3</code>).</p>
+</li>
+<li>
+<p>La base décimale par aucun préfixe particulier.</p>
+</li>
+</ul>
+</div>
+<p>La fonction <code>bin</code> (respectivement <code>hex</code>) renvoie la représentation binaire (resp. héxadécimale) d'un nombre donné sous forme d'une chaîne de caractère :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="s1">'0b101010'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="s1">'0x2a'</span>
+</code></pre></div>
+<p>Réciproquement, on utilise la fonction <code>int</code> pour convertir un nombre écrit en base quelconque donnée (par défaut 10) dans une chaîne de caractère donnée :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s1">'0xCAFE'</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="mi">51966</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s1">'0b111100001111'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">3855</span>
+</code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

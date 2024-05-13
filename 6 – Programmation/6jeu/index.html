@@ -1,0 +1,1677 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../5fonctions/">
+      
+      
+        <link rel="next" href="../../7%20%E2%80%93%20Algorithmique/1tri/">
+      
+      
+      <link rel="icon" href="../../assets/laptop-code.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>Des mini-jeux ! - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#des-mini-jeux" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Des mini-jeux !
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1 – Types de base
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1 – Types de base
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/1entier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers positifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/2relatifs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers relatifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/3flottants/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation approximative des nombres réels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/4char/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des caractères
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/5bool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les booléens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2 – Types construits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2 – Types construits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/1tab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction aux tableaux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/2mat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tableaux à deux dimensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/3tupledict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tuples et Dictionnaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3 – Tables de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3 – Tables de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tables de données
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/2operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opérations sur les tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/3fusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fusion de tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/4tp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Pokédex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4 – IHM Web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4 – IHM Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactions entre l'Homme et la Machine sur le Web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/2static/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page statique : HTML &amp; CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/3js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page dynamique : JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5 – Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5 – Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le modèle d'architecture séquentielle (Von Neumann)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/2complements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/3sim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Simulation d'une machine &amp; Assembleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/4os/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.31 4.31 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Les systèmes d'exploitation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/5shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/6r%C3%A9seau/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture réseau
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6 – Programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6 – Programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types, valeurs et variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3conditions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les conditions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4boucles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les boucles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Des mini-jeux !
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Des mini-jeux !
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prérequis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-jeu-du-plus-ou-moins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le jeu du Plus ou Moins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le jeu du Plus ou Moins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Améliorations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-jeu-des-allumettes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le jeu des allumettes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le jeu des allumettes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Améliorations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    7 – Algorithmique
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7 – Algorithmique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/1tri/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithmes de tri
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/2dicho/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La recherche dichotomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/3complex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La complexité
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/4glouton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les algorithmes gloutons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/5knn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    L'algorithme KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prérequis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-jeu-du-plus-ou-moins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le jeu du Plus ou Moins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le jeu du Plus ou Moins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Améliorations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-jeu-des-allumettes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le jeu des allumettes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le jeu des allumettes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Améliorations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div><h1 id="des-mini-jeux">Des mini-jeux !</h1>
+<p>Deux mini-jeux à programmer sur Thonny, le jeu du Plus ou Moins et le jeu des allumettes ! Les deux mini-jeux seront à rendre. Sur 20 points :</p>
+<ul>
+<li>
+<p>5 points pour chaque code de base complété.</p>
+</li>
+<li>
+<p>Des points supplémentaires suivant les améliorations apportées. </p>
+</li>
+</ul>
+<h2 id="prerequis">Prérequis</h2>
+<details class="tip">
+<summary>Tirer un nombre aléatoire</summary>
+<p>En programmation, une <strong>bibliothèque</strong> est une collection de fonctions prêtes à l'emploi. Par exemple, la bibliothèque nommée <code>random</code> (<em>aléatoire</em> en anglais) regroupe des fonctions pour générer des nombres pseudo-aléatoires. En l’occurrence, la fonction <code>randint</code> (<em>random integer</em>, <em>entier aléatoire</em>) de cette bibliothèque permet de tirer aléatoirement un entier entre deux bornes : </p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>  <span class="c1"># on importe la bibliothèque random pour utiliser ses fonctions</span>
+
+<span class="n">valeur</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># la variable reçoit un nombre aléatoire entre 1 et 6 (inclus)</span>
+</code></pre></div>
+<p>Pour éviter d'écrire le nom de la bibliothèque à chaque appel, on peut importer spécifiquement <code>randint</code> de cette manière :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>  <span class="c1"># depuis random importer randint</span>
+
+<span class="n">valeur</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div>
+<p>Ou importer toutes les fonctions de la bibliothèque :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># l'étoile veut dire « tout »</span>
+
+<span class="n">valeur</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div>
+<p>Il est généralement recommandé d'utiliser <code class="highlight"><span class="kn">import</span> <span class="nn">nom_de_la_bibliothèque</span></code> afin d'éviter d'éventuels conflits. En effet, il peut arriver que deux bibliothèques aient des fonctions portant le même nom, ce qui pourrait causer des problèmes.</p>
+</details>
+<h2 id="le-jeu-du-plus-ou-moins">Le jeu du Plus ou Moins</h2>
+<h3 id="description">Description</h3>
+<ol>
+<li>Le programme détermine un nombre mystère aléatoire entre 1 et 100.</li>
+<li>Le joueur doit deviner ce nombre en proposant des valeurs.</li>
+<li>Après chaque proposition, le programme indique si la valeur donnée par le joueur est plus petite ou plus grande que le nombre à deviner.</li>
+</ol>
+<div class="highlight"><span class="filename">Exemple de jeu</span><pre><span></span><code>Bienvenue au jeu du Plus ou Moins !
+Le nombre mystère entre 1 et 100 a été tiré !
+
+Devine le nombre ? 30
+C'est plus !
+
+Devine le nombre ? 70
+C'est moins !
+
+Devine le nombre ? 42
+Félicitations ! Tu as deviné le nombre 42 !
+</code></pre></div>
+<div class="highlight"><span class="filename">Code à compléter</span><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"Bienvenue au jeu du Plus ou Moins !"</span><span class="p">)</span>
+
+<span class="n">nombre_mystère</span> <span class="o">=</span> <span class="o">...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Le nombre mystère entre 1 et 100 a été tiré !"</span><span class="p">)</span>
+
+<span class="n">continuer</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">while</span> <span class="n">continuer</span><span class="p">:</span>
+    <span class="n">proposition</span> <span class="o">=</span> <span class="o">...</span>
+
+    <span class="k">if</span> <span class="n">proposition</span> <span class="o">&lt;</span> <span class="o">...</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="o">...</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="n">continuer</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fin du jeu"</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="ameliorations">Améliorations</h3>
+<ul>
+<li>
+<p>Le joueur a un nombre limité d'essais pour deviner le nombre, par exemple 5. (1 point)</p>
+</li>
+<li>
+<p>Le programme propose une nouvelle partie au joueur (déplacer la boucle de jeu dans une fonction !). (1 point)</p>
+</li>
+<li>
+<p>Le programme affiche le nombre de coups du joueur. (1 point)</p>
+</li>
+<li>
+<p>Le programme conserve le meilleur score et le nom du joueur. (1 point)</p>
+</li>
+<li>
+<p>Le programme dispose de trois niveaux de difficulté : (1 point)</p>
+<ul>
+<li>
+<p>Facile : 5 coups pour déterminer un nombre entre 1 et 100.</p>
+</li>
+<li>
+<p>Intermédiaire : 9 coups pour déterminer un nombre entre 1 et 1000.</p>
+</li>
+<li>
+<p>Difficile : 16 coups pour déterminer un nombre entre 1 et 10000.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="le-jeu-des-allumettes">Le jeu des allumettes</h2>
+<h3 id="description_1">Description</h3>
+<ol>
+<li>Le jeu commence avec un certain nombre d'allumettes, par exemple 21.</li>
+<li>Les joueurs humains jouent à tour de rôle.</li>
+<li>À chaque tour, un joueur peut prendre 1, 2 ou 3 allumettes.</li>
+<li>Le joueur qui prend la dernière allumette perd la partie.</li>
+</ol>
+<div class="highlight"><span class="filename">Exemple</span><pre><span></span><code>Tour du joueur 1
+Il reste 21 allumettes.
+Combien d'allumettes voulez-vous retirer (1 à 3) ? 3
+
+Tour du joueur 2
+Il reste 18 allumettes.
+Combien d'allumettes voulez-vous retirer (1 à 3) ? 4
+Choix invalide. Veuillez choisir 1 à 3 allumettes.
+Combien d'allumettes voulez-vous retirer (1 à 3) ? 2
+
+Tour du joueur 1
+Il reste 16 allumettes.
+Combien d'allumettes voulez-vous retirer (1 à 3) ?
+</code></pre></div>
+<div class="highlight"><span class="filename">Code à compléter</span><pre><span></span><code><span class="k">def</span> <span class="nf">demander_allumettes</span><span class="p">(</span><span class="n">allumettes_restantes</span><span class="p">,</span> <span class="n">joueur</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">""" Demande à l'utilisateur un nombre d'allumettes à retirer,</span>
+<span class="sd">    jusqu'à que ce que ce nombre soit valide. """</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">choix</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Combien d'allumettes voulez-vous prendre (1 à 3) ? "</span><span class="p">))</span>
+        <span class="k">if</span> <span class="o">...</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Choix invalide. Veuillez choisir 1 à 3 allumettes."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="o">...</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Choix invalide. Il n'y a pas assez d'allumettes à retirer."</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">...</span>
+
+
+<span class="k">def</span> <span class="nf">jeu_allumettes</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">""" Joue au jeu des allumettes. """</span>
+    <span class="n">allumettes_restantes</span> <span class="o">=</span> <span class="mi">21</span>
+    <span class="n">joueur</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># boucle de jeu</span>
+    <span class="k">while</span> <span class="o">...</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+        <span class="n">choix</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">allumettes_restantes</span> <span class="o">=</span> <span class="o">...</span>
+
+        <span class="c1"># change le joueur courant</span>
+        <span class="k">if</span> <span class="o">...</span><span class="p">:</span>
+            <span class="n">joueur</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">joueur</span> <span class="o">=</span> <span class="o">...</span>
+
+    <span class="c1"># fin du jeu, un des joueurs à gagner</span>
+    <span class="o">...</span>
+
+
+<span class="n">jeu_allumettes</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="ameliorations_1">Améliorations</h3>
+<ul>
+<li>Afficher les allumettes restantes de manière plus élégante : (1 point)
+    <div class="highlight"><pre><span></span><code>Il reste 16 allumettes :
+    ┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃
+</code></pre></div></li>
+<li>Le programme dispose d'un mode « Combat contre l'ordinateur » : l'ordinateur est bête et retire un nombre aléatoire d'allumettes. (2 points)</li>
+<li>Améliorer cette intelligence artificielle pour que l'ordinateur donne le coup optimal si le nombre d'allumettes est inférieur ou égal à 4. (2 points)</li>
+</ul></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

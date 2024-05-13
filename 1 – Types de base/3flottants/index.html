@@ -1,0 +1,1974 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2relatifs/">
+      
+      
+        <link rel="next" href="../4char/">
+      
+      
+      <link rel="icon" href="../../assets/laptop-code.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>Représentation approximative des nombres réels - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#representation-approximative-des-nombres-reels" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Représentation approximative des nombres réels
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1 – Types de base
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1 – Types de base
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1entier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers positifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2relatifs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers relatifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Représentation approximative des nombres réels
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Représentation approximative des nombres réels
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ecriture-binaire-dun-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Écriture binaire d'un réel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Écriture binaire d'un réel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-2-base-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base 2 ▸ Base 10
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-10-base-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base 10 ▸ Base 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precautions-dusage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Précautions d'usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representation-en-machine-dun-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Représentation en machine d'un réel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Représentation en machine d'un réel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virgule-fixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virgule fixe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virgule-flottante-norme-ieee-754-hors-programme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virgule flottante : Norme IEEE 754 (Hors-Programme)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virgule flottante : Norme IEEE 754 (Hors-Programme)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-signe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le signe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lexposant" class="md-nav__link">
+    <span class="md-ellipsis">
+      L'exposant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-mantisse" class="md-nav__link">
+    <span class="md-ellipsis">
+      La mantisse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-particuliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cas particuliers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4char/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des caractères
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5bool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les booléens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2 – Types construits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2 – Types construits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/1tab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction aux tableaux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/2mat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tableaux à deux dimensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/3tupledict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tuples et Dictionnaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3 – Tables de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3 – Tables de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tables de données
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/2operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opérations sur les tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/3fusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fusion de tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/4tp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Pokédex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4 – IHM Web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4 – IHM Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactions entre l'Homme et la Machine sur le Web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/2static/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page statique : HTML &amp; CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/3js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page dynamique : JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5 – Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5 – Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le modèle d'architecture séquentielle (Von Neumann)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/2complements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/3sim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Simulation d'une machine &amp; Assembleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/4os/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.31 4.31 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Les systèmes d'exploitation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/5shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/6r%C3%A9seau/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture réseau
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6 – Programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6 – Programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/2variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types, valeurs et variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/3conditions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les conditions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/4boucles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les boucles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/5fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/6jeu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Des mini-jeux !
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    7 – Algorithmique
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7 – Algorithmique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/1tri/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithmes de tri
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/2dicho/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La recherche dichotomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/3complex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La complexité
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/4glouton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les algorithmes gloutons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20%E2%80%93%20Algorithmique/5knn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    L'algorithme KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ecriture-binaire-dun-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Écriture binaire d'un réel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Écriture binaire d'un réel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-2-base-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base 2 ▸ Base 10
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-10-base-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base 10 ▸ Base 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precautions-dusage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Précautions d'usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representation-en-machine-dun-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Représentation en machine d'un réel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Représentation en machine d'un réel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virgule-fixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virgule fixe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virgule-flottante-norme-ieee-754-hors-programme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virgule flottante : Norme IEEE 754 (Hors-Programme)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virgule flottante : Norme IEEE 754 (Hors-Programme)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-signe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le signe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lexposant" class="md-nav__link">
+    <span class="md-ellipsis">
+      L'exposant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-mantisse" class="md-nav__link">
+    <span class="md-ellipsis">
+      La mantisse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-particuliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cas particuliers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div><h1 id="representation-approximative-des-nombres-reels">Représentation approximative des nombres réels</h1>
+<p>Dans cette partie, nous allons comprendre l'origine de ce bug commun à quasiment tous les langages de programmation :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+<span class="kc">False</span>
+</code></pre></div>
+<p>Ce bug ne vient non pas du langage Python mais de la représentation en binaire des nombres réels. En python, un nombre flottant est du type <code class="highlight"><span class="nb">float</span></code>.</p>
+<h2 id="ecriture-binaire-dun-reel">Écriture binaire d'un réel</h2>
+<h3 id="base-2-base-10">Base 2 ▸ Base 10</h3>
+<p>La décomposition suivante est naturelle en base 10 :</p>
+<div class="arithmatex">\[
+\begin{align*}
+(314.15)_{10} &amp;= 300 + 10 + 4 + 0.1 + 0.5 \\
+&amp;= 3 \times 10^2 +
+1 \times 10^1 +
+4 \times 10^0 + 
+1 \times 10^{-1} +
+5 \times 10^{-2}
+\end{align*}
+\]</div>
+<p>Finalement, rien ne nous empêche d'utiliser les <strong>puissances négatives</strong> de la base ! Un autre exemple en base binaire :</p>
+<div class="arithmatex">\[
+\begin{align*}
+    (101.011)_2 &amp;= 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 + 0\times 2^{-1} + 1 \times 2^{-2} + 1 \times 2^{-3} \\
+    &amp;= 2^2 + 2^0 + 2^{-2} + 2^{-3} \\
+    &amp;= 4 + 1 + 0.25 + 0.125 \\
+    &amp;= 5.375
+\end{align*}
+\]</div>
+<details class="question">
+<summary>Exercices</summary>
+<ol>
+<li>Convertir <span class="arithmatex">\((1010.1011)_2\)</span> en base décimale.</li>
+<li>Est-il vrai que seuls les bits après la virgule contribuent à la partie décimale ?</li>
+<li>Que vaut <span class="arithmatex">\((0.11111111...)_2\)</span> ?</li>
+<li>Si l'écriture d'un nombre réel en base 2 est <strong>finie</strong>, peut-on en dire de même de son écriture en base 10 ? </li>
+</ol>
+</details>
+<details class="tip">
+<summary>Une méthode (parfois) plus rapide</summary>
+<p>Les puissances de 2 négatives sont difficiles à calculer. Il existe une méthode plus rapide en remarquant par exemple en base 10 que :</p>
+<div class="arithmatex">\[
+    1745.861 = \frac{1745861}{10^3}
+\]</div>
+<p>De la même manière, en base 2 :</p>
+<div class="arithmatex">\[
+    (101.011)_2 = \frac{(101011)_2}{2^3}
+\]</div>
+<p>Si on souhaite convertir <span class="arithmatex">\((101.011)_2\)</span> en base décimale. On peut alors calculer le nombre binaire sans la virgule puis le diviser par le bonne puissance de 2 :</p>
+<div class="arithmatex">\[
+    (101011)_2 =  1 + 2 + 8 + 32 = 43 \implies (101.011)_2 = \frac{43}{2^3} = 5.375
+\]</div>
+<p>Aucune puissance de 2 négative n'a été calculée !</p>
+</details>
+<h3 id="base-10-base-2">Base 10 ▸ Base 2</h3>
+<p>Prenons le nombre <span class="arithmatex">\(3.6875\)</span>, il se décompose en :</p>
+<ul>
+<li>une partie entière <span class="arithmatex">\(3\)</span></li>
+<li>une partie décimale <span class="arithmatex">\(0.6875\)</span></li>
+</ul>
+<details class="note">
+<summary>Faire comme avant ?</summary>
+<p>On peut tout à fait appliquer l'algorithme de soustraction étendu aux puissances de 2 négatives afin de déterminer ces bits après la virgule :
+$$
+3.6875 = 2 + 1 + 0.5 + 0.125 + 0.0625
+    = (11.1011)_2
+$$
+Cependant, les puissances négatives de 2 sont bien moins triviales.</p>
+</details>
+<p>On a vu précédemment que seuls les bits après la virgule contribue à la partie décimale. Ainsi, on sait déjà que la partie entière en base binaire s'écrira <span class="arithmatex">\(3 = (11)_2\)</span>. Prochaine étape, la partie décimale.</p>
+<p>L'algorithme des divisions par 2 successives devient l'<strong>algorithme des multiplications par 2 successives</strong>. On ne s’intéresse qu'à la partie décimale à chaque itération :</p>
+<div class="arithmatex">\[
+\begin{align*}
+0.6875 \times 2 &amp;= \textcolor{#ff6188}{1}.\textcolor{#71d4e2}{375} \\
+0.\textcolor{#71d4e2}{375}  \times 2 &amp;= \textcolor{#ff6188}{0}.\textcolor{#69ba76}{75} \\
+0.\textcolor{#69ba76}{75}   \times 2 &amp;= \textcolor{#ff6188}{1}.\textcolor{#ffd866}{5} \\
+0.\textcolor{#ffd866}{5}    \times 2 &amp;= \textcolor{#ff6188}{1}.0
+\end{align*}
+\]</div>
+<p>Ainsi, on a <span class="arithmatex">\(0.6875 = (0.\textcolor{#ff6188}{1011})_2\)</span> et donc avec la partie entière : <span class="arithmatex">\(3.6875 = (11.1011)_2\)</span>. Pouvez-vous expliquer pourquoi ça fonctionne ?</p>
+<details class="question">
+<summary>Exercices</summary>
+<ol>
+<li>
+<p>Donner l'écriture binaire de <span class="arithmatex">\(20.875\)</span>.</p>
+</li>
+<li>
+<p>Donner l'écriture binaire de <span class="arithmatex">\(0.1\)</span>.</p>
+</li>
+<li>
+<p>En déduire celle de <span class="arithmatex">\(0.2\)</span>.</p>
+</li>
+<li>
+<p>Expliquer alors le comportement étrange de ce code :
+    </p><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+<span class="kc">False</span>
+</code></pre></div>
+</li>
+</ol>
+</details>
+<details class="warning">
+<summary>Écritures binaires infinies</summary>
+<p>Un nombre réel ayant une écriture décimale <strong>finie</strong> peut avoir une écriture binaire <strong>infinie</strong> ! Or la mémoire d'un ordinateur est finie. Certains nombres ne peuvent donc pas être représentés correctement en machine, c'est une impossibilité théorique.</p>
+</details>
+<h2 id="precautions-dusage">Précautions d'usage</h2>
+<p>Puisqu'un nombre admettant une écriture binaire infinie ne peut pas être parfaitement représenté, le nombre manipulé sur la machine est donc une <strong>valeur approchée</strong>. Ainsi, il faut garder en tête que les calculs sont potentiellement faux, ou du moins <strong>imprécis</strong>, lorsque des flottants interviennent.</p>
+<details class="warning">
+<summary>On ne teste JAMAIS l'égalité entre deux flottants</summary>
+<p></p><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">-</span> <span class="mf">0.2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"a et b sont égaux"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"a et b sont différents"</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="n">et</span> <span class="n">b</span> <span class="n">sont</span> <span class="n">différents</span>
+<span class="o">&gt;&gt;&gt;</span> 
+</code></pre></div>
+Le calcul <code class="highlight"><span class="mf">0.3</span> <span class="o">-</span> <span class="mf">0.2</span></code> est imprécis et donnera une autre valeur approchée que <code class="highlight"><span class="mf">0.1</span></code>. L'opérateur d'égalité <code class="highlight"><span class="o">==</span></code> vérifie en fait une égalité <em>bit par bit</em>. On préfère alors tester si deux nombres sont suffisamment proches, c'est-à-dire s'il existe un faible écart entre-eux. On teste alors si la différence en valeur absolue est inférieure à une précision donnée (suffisamment petite) :
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">-</span> <span class="mf">0.2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"a et b sont égaux"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"a et b sont différents"</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="n">et</span> <span class="n">b</span> <span class="n">sont</span> <span class="n">égaux</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div>
+</details>
+<details class="warning">
+<summary>La cumulation d'imprécisions</summary>
+<p>Effectuer des calculs imprécis avec les flottants génèrent des <strong>imprécisions</strong> qui vont se <strong>cumuler</strong>.</p>
+<p>Lors de la guerre du Golfe, en 1991, les américains disposaient de systèmes d'antimissiles Patriot pour intercepter les missiles Scud irakiens. Les Patriot disposaient d'une horloge interne émettant un signal tous les <span class="arithmatex">\(0.1\)</span> secondes, dès leur mise sous tension. Une durée écoulée est donc : <span class="arithmatex">\(0.1 \times\)</span> le nombre de « tics ».</p>
+<p>Sur ces systèmes, les nombres sont codés en virgule fixe sur 24 bits : c'est tout simplement une troncature de l'écriture binaire.</p>
+<p>Or <span class="arithmatex">\(0.1 = 0.00011001100110011001100 ~|~ 1100 \ldots\)</span></p>
+<p>L'erreur commise est donc d'environ <span class="arithmatex">\(0.000000000000000000000001100 \approx 9.54 \cdot 10^{-8}\)</span>.</p>
+<p>Sur 100 heures de surveillance cela entraîne donc un décalage d'horloge interne de <span class="arithmatex">\(9.54 \cdot 10^{-8} \cdot 10 \cdot 100 \cdot 3600 = 0.34\)</span> seconde... ce qui correspond à une distance de plus de 500 mètres à la vitesse d'un missile Scud (1676 m/s).</p>
+<p>Ainsi un Patriot est passé à plus de 500 mètres d'un Scud le 25 février 1991 qui s'est abattu sur la caserne de Dhahran et a causé ainsi la mort de 28 personnes et 98 bléssés. Une fameuse frappe chirurgicale américaine.</p>
+</details>
+<h2 id="representation-en-machine-dun-reel">Représentation en machine d'un réel</h2>
+<h3 id="virgule-fixe">Virgule fixe</h3>
+<p>Sur certains systèmes informatiques, on utilise un codage à virgule fixe : on spécifie un nombre fixe de bits après la virgule. Par exemple, le mot binaire <span class="arithmatex">\(\texttt{10110001}\)</span> peut signifier <span class="arithmatex">\((10110.001)_2\)</span> si on le code avec 3 bits après la virgule.</p>
+<details class="question">
+<summary>Exercices</summary>
+<ol>
+<li>
+<p>Soit le mot binaire <span class="arithmatex">\(\texttt{10011111}\)</span>. Donner sa valeur en base décimale si on le code avec 4 bits après la virgule.</p>
+</li>
+<li>
+<p>De même pour 3 bits, 2 bits et 1 bit après sa virgule.</p>
+</li>
+<li>
+<p>Soit <span class="arithmatex">\(n\)</span> le nombre de bits après la virgule, quelle est la distance entre les valeurs représentées par deux mots binaires successifs ?</p>
+</li>
+<li>
+<p>Et les nombres réels négatifs dans ce codage ?</p>
+</li>
+</ol>
+</details>
+<h3 id="virgule-flottante-norme-ieee-754-hors-programme">Virgule flottante : Norme IEEE 754 (Hors-Programme)</h3>
+<p>On a vu que le code à virgule fixe a un inconvénient notable : l’erreur relative commise sur le codage des nombres peut devenir très grande lorsque les nombres sont petits. D'où la nécessité d'un codage plus flexible. Pour justement s'adapter à tous les ordres de grandeur de nombres, l'idée est de coder les nombres réels dans une écriture scientifique :</p>
+<div class="arithmatex">\[
+\pm \underbrace{1, \ldots}_{\text{mantisse } m} \times 2^e
+\]</div>
+<p>Nous avons trois informations à retenir :</p>
+<ul>
+<li>
+<p>Le <strong>signe</strong> <span class="arithmatex">\(\pm\)</span>.</p>
+</li>
+<li>
+<p>la <strong>mantisse</strong> <span class="arithmatex">\(m\)</span>, les chiffres significatifs.</p>
+</li>
+<li>
+<p>l'<strong>exposant</strong> <span class="arithmatex">\(e\)</span>. </p>
+</li>
+</ul>
+<p>Deux formats les plus courants, standardisés par l'organisation IEEE :</p>
+<ul>
+<li>
+<p>32 bits : 1 bit pour le signe, 8 bits pour pour l'exposant, 23 bits pour la mantisse. Aussi appelé <strong>simple précision</strong>.</p>
+</li>
+<li>
+<p>64 bits : 1 bit pour le signe, 11 bits pour l'exposant, 52 bits pour la mantisse. Aussi appelé <strong>double précision</strong>.</p>
+</li>
+</ul>
+<p>Les deux formats utilisent la même méthode pour stocker et représenter les nombres réels, on se place alors dans cas d'un flottant 32 bits sans perte de généralité.</p>
+<p><img alt="" src="../ressources/ieee.png"></p>
+<h4 id="le-signe">Le signe</h4>
+<p>Un bit 1 indique un nombre négatif et un bit 0 indique un nombre positif.</p>
+<h4 id="lexposant">L'exposant</h4>
+<p>L'exposant <span class="arithmatex">\(e\)</span> est un entier relatif entre <span class="arithmatex">\(-127\)</span> et <span class="arithmatex">\(128\)</span> codé sur un octet. Il est représenté par un entier positif <span class="arithmatex">\(E = e + 127\)</span> appelé l'<strong>exposant biaisé</strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Exposant <span class="arithmatex">\(e\)</span></th>
+<th style="text-align: center;">Exposant biaisé <span class="arithmatex">\(E\)</span></th>
+<th style="text-align: center;">Représentation binaire de <span class="arithmatex">\(E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">-10</td>
+<td style="text-align: center;">117</td>
+<td style="text-align: center;"><span class="arithmatex">\(\texttt{01110101}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">127</td>
+<td style="text-align: center;"><span class="arithmatex">\(\texttt{01111111}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">132</td>
+<td style="text-align: center;"><span class="arithmatex">\(\texttt{10000100}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">108</td>
+<td style="text-align: center;">235</td>
+<td style="text-align: center;"><span class="arithmatex">\(\texttt{11101011}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Ce décalage est donc une représentation des entiers relatifs sans utiliser de bit de signe.</p>
+<h4 id="la-mantisse">La mantisse</h4>
+<p>Avant toute chose, la mantisse doit être <strong>normalisée</strong>. C'est le même processus de normalisation qu'en base décimale. Par exemple, <span class="arithmatex">\(1234.567\)</span> est normalisé comme <span class="arithmatex">\(1.234567 \cdot 10^3\)</span> de telle manière qu'il n'y a plus qu'un seul chiffre devant la virgule.</p>
+<p>De la même manière, <span class="arithmatex">\((1101.101)_2\)</span> est normalisé comme <span class="arithmatex">\((1.0101101)_2 \cdot 2^3\)</span> en décalant la virgule 3 fois vers la gauche. Quelques exemples :</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Normalisé</th>
+<th>Exposant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(1101.101\)</span></td>
+<td><span class="arithmatex">\(1.101101\)</span></td>
+<td><span class="arithmatex">\(3\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0.00101\)</span></td>
+<td><span class="arithmatex">\(1.01\)</span></td>
+<td><span class="arithmatex">\(-3\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1.0001\)</span></td>
+<td><span class="arithmatex">\(1.0001\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(10000011.0\)</span></td>
+<td><span class="arithmatex">\(1.0000011\)</span></td>
+<td><span class="arithmatex">\(7\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Vous avez peut-être remarqué que dans une mantisse normalisée, le chiffre <span class="arithmatex">\(1\)</span> apparaît toujours à gauche de la virgule. En fait, le <span class="arithmatex">\(\texttt{1}\)</span> initial est omis du stockage réel de la mantisse car non-nécessaire.</p>
+<h4 id="conclusion">Conclusion</h4>
+<p>Combinons maintenant le signe, l'exposant et la mantisse normalisée pour représenter un nombre réel sur 32 bits. Par exemple, on souhaite coder <span class="arithmatex">\(-13.625\)</span> suivant la norme IEE 754 :</p>
+<div class="arithmatex">\[
+\begin{align*}
+-13.625 &amp;= (-1101.101)_{\small 2} \\ 
+        &amp;= (-1.101101)_{\small 2} \times 2^3 \\
+\end{align*}
+\rule{0pt}{4ex}
+\]</div>
+<ul>
+<li>Le nombre est négatif donc le bit de signe est à <span class="arithmatex">\(\texttt{1}\)</span></li>
+<li>L'exposant biaisé <span class="arithmatex">\(E = e + 127 = 3 + 127 = 130 = (10000010)_2\)</span> donc <span class="arithmatex">\(\texttt{10000010}\)</span></li>
+<li>La mantisse sera codée <span class="arithmatex">\(\texttt{10110100000000000000000}\)</span></li>
+</ul>
+<p>Somme toute, le nombre <span class="arithmatex">\(-13.625\)</span> suivant la norme IEE 754 est codé en machine comme :
+$$
+\texttt{11000001010110100000000000000000}
+$$</p>
+<h4 id="cas-particuliers">Cas particuliers</h4>
+<p>Il existe quelques valeurs spéciales dans ce codage IEEE 754 en simple précision. Suivant les valeurs de l’exposant biaisé <span class="arithmatex">\(E\)</span> (notez que le décalage vaut <span class="arithmatex">\(2^{b-1} - 1\)</span> où <span class="arithmatex">\(b\)</span>  est le nombre de bits utilisés pour coder l’exposant) et de la mantisse, le nombre final peut appartenir à l'une ou l'autre des catégories suivantes :</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Exposant biaisé <span class="arithmatex">\(E\)</span></th>
+<th>Mantisse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zéros</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td>Nombres dénormalisés</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\neq 0\)</span></td>
+</tr>
+<tr>
+<td>Nombres normalisés</td>
+<td><span class="arithmatex">\(1\)</span> à <span class="arithmatex">\(254\)</span></td>
+<td>Quelconque</td>
+</tr>
+<tr>
+<td>Infinis</td>
+<td><span class="arithmatex">\(255\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td>Nombres indéfinis (Not A Number, NaN)</td>
+<td><span class="arithmatex">\(255\)</span></td>
+<td><span class="arithmatex">\(\neq 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Un nombre dénormalisé s'écrit sous la forme <span class="arithmatex">\(\pm \cdot 0,m \cdot 2^{-126}\)</span>.</p>
+<h4 id="exercices">Exercices</h4>
+<div class="admonition question">
+<p class="admonition-title">Exercice 1</p>
+<p>Donner la représentation IEEE 754 du nombre <span class="arithmatex">\(3.6875\)</span> en simple précision.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Exercice 2</p>
+<p>Quel nombre s'écrit en virgule flottante simple précision : <code>11000101000000101100001101000000</code> ?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Exercice 3</p>
+<p>On imagine un codage en virgule flottante sur simplement 6 bits, avec 1 bit pour le signe, 3 bits pour l'exposant et 2 pour la mantisse. On a donc <span class="arithmatex">\(E = e + 3\)</span>.</p>
+<ol>
+<li>
+<p>Déterminer les nombres indéfinis.</p>
+</li>
+<li>
+<p>Déterminer l'écriture de  <span class="arithmatex">\(+\infty\)</span> et <span class="arithmatex">\(-\infty\)</span>.</p>
+</li>
+<li>
+<p>Placer sur une droite graduée les nombres normalisés positifs.</p>
+</li>
+<li>
+<p>Placer sur une autre droite graduée les nombres dénormalisés positifs.</p>
+</li>
+</ol>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
